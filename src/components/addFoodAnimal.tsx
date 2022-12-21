@@ -35,7 +35,6 @@ const AddFoodAnimal: React.FC = () => {
 
         <p>
           Choose one of the options :<br />
-          <br />
         </p>
         <h6>
           Select image Or Input Text

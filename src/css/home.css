@@ -390,6 +390,7 @@ html::-webkit-scrollbar-thumb {
 .titleHeater p {
     color: rgb(0, 0, 0);
     font-size: 17px;
+    font-weight: 600;
 }
 
 
