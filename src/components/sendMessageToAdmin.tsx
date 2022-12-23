@@ -7,7 +7,7 @@ import { Form, Modal, Button } from "react-bootstrap";
 
 
 //this compoment user send meesage to gmail Admin , if user need new info animal , use this compoment in home.js
-const SendMessage: React.FC = () => {
+const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail }) => {
 
 
   //value input to message
@@ -115,6 +115,10 @@ const SendMessage: React.FC = () => {
       <div className="ButtonInfo">
         <Button variant="success" onClick={onSubmit}>
           Send
+        </Button>
+
+        <Button variant="danger" onClick={() => closeModelEmail()}>
+          Close
         </Button>
       </div>
       
