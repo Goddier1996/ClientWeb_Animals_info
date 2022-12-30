@@ -11,7 +11,6 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
   let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
 
-
   return (
     <div>
 

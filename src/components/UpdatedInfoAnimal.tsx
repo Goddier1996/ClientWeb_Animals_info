@@ -1,7 +1,6 @@
-import React from "react";
+import React , { useState, useEffect } from "react";
 import "../css/home.css";
 import { API } from "../Server/API";
-import { useState, useEffect } from "react";
 import { Form, Modal } from "react-bootstrap";
 import UpdatedInfo from "../components/UpdatedAnimal";
 

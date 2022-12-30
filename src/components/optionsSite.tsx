@@ -1,20 +1,22 @@
-import React from "react";
-import { API } from "../Server/API";
+import React , { useState, useEffect } from "react";
 import "../css/home.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { useState, useEffect } from "react";
 import videoBg from "../images/animals-sound-kids-brave-2022-11-16-12-22-50_pFFaKSHG.mp4";
 
 //components
-import AnimalsModals from "../components/showAnimals";
 import AddAnimal from "../components/AddAnimal";
 import SendMessage from "../components/sendMessageToAdmin";
 import DeleteInfo from "../components/deleteAnimal";
 import ChooseUpdatedAnimal from "../components/UpdatedInfoAnimal";
+import { LoadUserAdmin } from "../Server/LoadDataApi";
+
+
 
 export const OptionsSite = () => {
+
+
   //input data admin login
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -51,25 +53,31 @@ export const OptionsSite = () => {
 
   const [user, SetUser] = useState({});
 
-  //load admin data from nodeJs database
-  const LoadUser = async () => {
-    let res = await fetch(API.USER.GET, { method: "GET" });
-    let data = await res.json();
 
-    SetUser(data);
+
+  //load admin data from database
+  const LoadUser = async () => {
+
+    SetUser(await LoadUserAdmin());
   };
+
+
 
   //connect admin check if input Good or same database
   const ConnectToAdmin = async () => {
+
     sessionStorage.setItem("Admin", JSON.stringify(user));
 
     let userData = JSON.parse(sessionStorage.getItem("Admin") as any);
 
     for (let i = 0; i < userData.length; i++) {
+
       if (userData[i].Login == login && userData[i].Password == password) {
         //show popup
         handleShowOptionsAdmin();
-      } else {
+      }
+
+      else {
         Swal.fire({
           position: "top",
           icon: "error",
@@ -80,8 +88,11 @@ export const OptionsSite = () => {
     }
   };
 
+
+
   //pop up when you click + say if you went connect to admin show popup
   const clickToButtonAddPopUp = async () => {
+
     Swal.fire({
       position: "top",
       confirmButtonColor: "grey",
@@ -96,15 +107,21 @@ export const OptionsSite = () => {
       html: '<p class="popUpTextP1">Add new Animal Info Can Only Admin<br/><h6 class="popUpTextP2">if you want new animal Info send Message to Admin.</h6></p>',
     }).then((result) => {
       if (result.isConfirmed) {
+
         handleShowConnectAdmin();
-      } else if (result.isDenied) {
+      }
+      else if (result.isDenied) {
+
         handleShowSendMessage();
       }
     });
   };
 
+
+
   // here admin chiose add new animal or delete , we send a number when onclick to button , and check with number what we need active
   const chioseForAdmin = async (chiose: number) => {
+
     if (chiose == 1) {
       handleShowAddNewAnimal();
     }
@@ -118,8 +135,11 @@ export const OptionsSite = () => {
     }
   };
 
+
+
   // show video info about Admin what he can to do in this website
   const AdminInfo = async () => {
+
     Swal.fire({
       html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline src=${videoBg}></video></div>`,
       confirmButtonText: "Wow",
@@ -128,26 +148,38 @@ export const OptionsSite = () => {
     });
   };
 
+
+
   // send this function to component sendMessageToAdmin to close model
   const hideModelSendMail = () => {
+
     setShowSendMessage(false);
   };
 
+
+
+  const logOutAdminData = () => {
+    
+    sessionStorage.clear();
+    handleCloseOptionsAdmin();
+  }
+
+
+  
   useEffect(() => {
     LoadUser();
   }, []);
 
+
+
   return (
     <>
-      {/* button add new info about animal */}
-      {/* <div className="wrap">
-        <Button onClick={clickToButtonAddPopUp} className="wrapAdd"></Button>
-      </div> */}
 
       <Button style={{margin:"3%"}} variant="primary" onClick={clickToButtonAddPopUp}>
         Option's Site
       </Button>
 
+      
       {/* pop up connect Admin */}
       <div>
         <Modal
@@ -211,6 +243,7 @@ export const OptionsSite = () => {
         </Modal>
       </div>
 
+      
       {/* pop up send message to admin,if you wants to new info animal , from sendMessage.js compoment */}
       <div>
         <Modal
@@ -227,17 +260,17 @@ export const OptionsSite = () => {
         </Modal>
       </div>
 
+      
       {/* pop up chiose what admin do to add new animal or delete info animal or Updated info Animal */}
       <div>
         <Modal
           show={showOptionsAdmin}
-          onHide={handleCloseOptionsAdmin}
           style={{ background: "rgba(0, 0, 0, 0.7)" }}
           aria-labelledby="contained-modal-title-vcenter"
         >
           <p
             className="closes"
-            onClick={handleCloseOptionsAdmin}
+            onClick={logOutAdminData}
             aria-label="Close"
           >
             &times;
@@ -286,6 +319,7 @@ export const OptionsSite = () => {
         </Modal>
       </div>
 
+      
       {/* pop up add new info animal from compoment addAnimal , from AddAnimal.js compoment */}
       <div>
         <Modal
@@ -309,6 +343,7 @@ export const OptionsSite = () => {
         </Modal>
       </div>
 
+      
       {/* pop up delete animal info , from deleteInfo.js compoment */}
       <div>
         <Modal
@@ -332,6 +367,7 @@ export const OptionsSite = () => {
         </Modal>
       </div>
 
+      
       {/* pop up Choose Animal updated info , from ChooseUpdatedAnimal.js compoment*/}
       <div>
         <Modal
@@ -354,8 +390,10 @@ export const OptionsSite = () => {
           </Modal.Body>
         </Modal>
       </div>
+
     </>
   );
 };
+
 
 export default OptionsSite;

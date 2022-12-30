@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React , { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import Home from "../pages/home";
 
@@ -12,7 +11,7 @@ const SearchAnimals: React.FC = () => {
   const [query, setQuery] = useState<string>("");
 
 
-// clear place input search
+ // clear place input search
   const clearSearch = () => {
     setQuery("");
   };

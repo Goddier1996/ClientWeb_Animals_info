@@ -1,7 +1,6 @@
-import React from "react";
+import React , { useState } from "react";
 import "../css/home.css";
 import Swal from "sweetalert2";
-import { useState } from "react";
 import { send } from "emailjs-com";
 import { Form, Modal, Button } from "react-bootstrap";
 
