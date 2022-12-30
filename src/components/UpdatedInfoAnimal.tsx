@@ -6,7 +6,7 @@ import UpdatedInfo from "../components/UpdatedAnimal";
 
 
 // here choose a animal.how we need updated , when we choose save a id in seesion storge and go to UpdatedInfo.js components
-function ChooseUpdatedAnimal() {
+const ChooseUpdatedAnimal: React.FC = () => {
 
 
   const [show, setShow] = useState(false);
