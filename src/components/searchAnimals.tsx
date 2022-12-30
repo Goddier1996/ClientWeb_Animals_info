@@ -11,6 +11,7 @@ const SearchAnimals: React.FC = () => {
   const [query, setQuery] = useState<string>("");
 
 
+  
  // clear place input search
   const clearSearch = () => {
     setQuery("");

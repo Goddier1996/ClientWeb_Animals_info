@@ -4,8 +4,8 @@ import { API } from "../Server/API";
 
 export async function addAnimal(user: any) {
 
-    try {
-      
+  try {
+    
     await fetch(API.NODE.ADD, {
       method: "POST",
       headers: {
@@ -13,7 +13,6 @@ export async function addAnimal(user: any) {
       },
       body: JSON.stringify(user),
     });
-        
   } catch (error) {
     console.log(error);
   }

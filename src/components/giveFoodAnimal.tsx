@@ -34,6 +34,7 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.reload();
+          sessionStorage.clear();
         }
       });
     }
@@ -49,6 +50,8 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       });
     }
     
+      
+      
     else if (animalData.eat != eat) {
       Swal.fire({
         position: "center",

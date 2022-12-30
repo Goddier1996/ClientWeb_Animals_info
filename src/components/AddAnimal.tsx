@@ -104,9 +104,7 @@ const AddAnimal: React.FC = () => {
       eatImage: eatImage,
     };
 
-    await addAnimal(user);
-
-    window.location.reload();
+    await addAnimal(user)
   };
 
 
