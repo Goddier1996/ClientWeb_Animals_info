@@ -30,8 +30,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-
-
 .swal2-container.swal2-backdrop-show,
 .swal2-container.swal2-noanimation {
     background: rgba(0, 0, 0, .9) !important;
@@ -44,6 +42,8 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-top: 6%;
+    margin-bottom: 50%;
 }
 
 
@@ -60,7 +60,7 @@ html::-webkit-scrollbar-thumb {
 .popUpHome img {
     object-fit: cover;
     border-radius: 40px;
-    width: 400px;
+    width: 350px;
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
 }
 
@@ -174,8 +174,6 @@ html::-webkit-scrollbar-thumb {
 
 
 /* for popup check input value when add */
-
-
 .popUpTextP1 {
     color: rgb(0, 0, 0);
     font-size: 19px;
@@ -193,8 +191,6 @@ html::-webkit-scrollbar-thumb {
 
 
 /* show all animals in a page this a card model */
-
-
 .cards-list {
     display: flex;
     justify-content: space-around;
@@ -345,6 +341,21 @@ html::-webkit-scrollbar-thumb {
     top: 8px;
     right: 16px;
     position: absolute;
+}
+
+.popUpGiveEat {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.popUpGiveEat img {
+    object-fit: cover;
+    border-radius: 40px;
+    width: 400px;
+    box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
 }
 
 .soFull {
@@ -541,6 +552,23 @@ html::-webkit-scrollbar-thumb {
 
 /* search style */
 
+.dontHaveThisValueInArray {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+
+.dontHaveThisValueInArray img {
+    height: 40%;
+}
+
+
 .modelSearch {
     display: flex;
     justify-content: center;
@@ -733,6 +761,14 @@ html::-webkit-scrollbar-thumb {
     }
 
     .search-box {
+        font-size: 13px;
+    }
+
+    .dontHaveThisValueInArray img {
+        height: 30%;
+    }
+
+    .dontHaveThisValueInArray p {
         font-size: 13px;
     }
 }

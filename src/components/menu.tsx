@@ -4,7 +4,6 @@ import { Button, Modal } from "react-bootstrap";
 import OptionsSite from "./optionsSite";
 
 
-//this in menu commpoment active in App.js for show
 const Menu: React.FC = () => {
 
 

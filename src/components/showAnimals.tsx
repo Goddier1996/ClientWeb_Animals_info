@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/home.css";
-import Swal from "sweetalert2";
 import { Form, Modal } from "react-bootstrap";
 
-//commpoment
 import AddFoodAnimal from "./addFoodAnimal";
 import InfoAnimal from "./showInfoAnimal";
 import { LoadAllCardsAnimals } from "../Server/LoadDataApi";
@@ -26,12 +24,24 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
   //save for show all models animals from nodejs json file
   const [notes, SetNotes] = useState([] as any[]);
+  const [checkIfHaveValueWhenSearch, SetCheckIfHaveValueWhenSearch] = useState([] as any[]);
+
+  const [loading, setLoading] = useState(false);
 
 
 
   //load all card animals from api
   const LoadAllNotes = async () => {
-    SetNotes(await LoadAllCardsAnimals());
+    try {
+      setLoading(true);
+
+      SetNotes(await LoadAllCardsAnimals());
+
+      setLoading(false); // Stop loading
+    } catch (error) {
+      setLoading(false); // Stop loading in case of error
+      console.error(error);
+    }
   };
 
 
@@ -81,72 +91,88 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
   // send this function to component showInfoAnimal to close model
   const hideModelInfoAnimal = () => {
-
     setShowShowInfoAnimal(false);
   };
 
 
 
-  // filter Search the animal from data base
-  const filteredData = notes.filter((item: any) => {
-    return item.title.toLowerCase().startsWith(query);
-  });
-
-
-
-  //active a LoadAllNotes
   useEffect(() => {
-    LoadAllNotes();
 
-    Swal.fire({
-      position: "center",
-      background: "none",
-      showConfirmButton: false,
-      timer: 2000,
-      html: '<div class="popUpHome"> <h1>Welcome To Safari</h1> <img src="https://i.pinimg.com/originals/ac/46/7c/ac467cbb2eb0fde593996c175cec0176.gif"> </div>',
-    });
+    LoadAllNotes();
   }, []);
 
 
 
+  useEffect(() => {
+
+    SetCheckIfHaveValueWhenSearch(
+      notes.filter((item: any) => {
+        return item.title.toLowerCase().startsWith(query);
+      })
+    );
+  });
+
+
+  
   return (
     <div>
+      {loading ? (
+        <div className="popUpHome">
+          <h1>Welcome To Safari</h1>
+          <img src="https://i.pinimg.com/originals/ac/46/7c/ac467cbb2eb0fde593996c175cec0176.gif" alt="popupWelcome" />
+        </div>
+      ) : (
+        <div className="cards-list">
+          {checkIfHaveValueWhenSearch.map((node) => (
+            <div key={node._id} className="cardx">
+              <div className="card_image">
+                <img
+                  src={node.image}
+                  alt="image animal"
+                  onClick={() =>
+                    clickToImageForInfo(
+                      node.infoAnimal,
+                      node.infoImage,
+                      node.title
+                    )
+                  }
+                />
+              </div>
 
-      <div className="cards-list">
-        {filteredData.map((node) => (
-          <div key={node._id} className="cardx">
-            <div className="card_image">
-              <img
-                src={node.image}
-                onClick={() =>
-                  clickToImageForInfo(
-                    node.infoAnimal,
-                    node.infoImage,
-                    node.title
-                  )
-                }
-              />
+              <div className="card_title title-white">
+                <h6> {node.title}</h6>
+                <p
+                  onClick={() =>
+                    start(
+                      node.sound,
+                      node.title,
+                      node.eat,
+                      node.notEatImage,
+                      node.eatImage
+                    )
+                  }
+                >
+                  <img src={require("../images/bowel1.png")} alt="give eat"></img>
+                </p>
+              </div>
             </div>
+          ))}
 
-            <div className="card_title title-white">
-              <h6> {node.title}</h6>
-              <p
-                onClick={() =>
-                  start(
-                    node.sound,
-                    node.title,
-                    node.eat,
-                    node.notEatImage,
-                    node.eatImage
-                  )
-                }
-              >
-                <img src={require("../images/bowel1.png")}></img>
+          {checkIfHaveValueWhenSearch.length === 0 ? (
+            <div className="dontHaveThisValueInArray">
+              <img src="https://media.tenor.com/IbZePZ2opZkAAAAi/rascal-nothing-to-see-here.gif"  alt="dont have this animal"/>
+              <br />
+              <p>ℹ️ Not found This Animal In Database , Try Again.</p>
+              <p>
+                * You Can Send Message to Admin If you thing need this info
+                about animal.
               </p>
             </div>
-          </div>
-        ))}
-      </div>
+          ) : (
+            ""
+          )}
+        </div>
+      )}
 
       
       {/* get a food animal */}
@@ -157,7 +183,11 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
           onHide={handleCloseGetFoodAnimal}
           style={{ background: "rgba(0, 0, 0, 0.8)" }}
         >
-          <p className="closes" onClick={handleCloseGetFoodAnimal} aria-label="Close">
+          <p
+            className="closes"
+            onClick={handleCloseGetFoodAnimal}
+            aria-label="Close"
+          >
             &times;
           </p>
 
@@ -187,10 +217,8 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
           </Modal.Body>
         </Modal>
       </div>
-
     </div>
   );
 };
-
 
 export default AnimalsModals;

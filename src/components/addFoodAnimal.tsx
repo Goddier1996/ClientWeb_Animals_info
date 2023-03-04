@@ -1,8 +1,6 @@
 import React , { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "../css/home.css";
-
-//components
 import ImageEat from "../components/FotoEat";
 import InputEat from "../components/giveFoodAnimal";
 
@@ -17,7 +15,6 @@ const AddFoodAnimal: React.FC = () => {
 
 
   // show popUp
-
   //chiose image eat
   const [showImageEat, setShowImageEat] = useState(false);
   const handleCloseImageEat = () => setShowImageEat(false);
@@ -44,7 +41,7 @@ const AddFoodAnimal: React.FC = () => {
       <div className="titleHeater">
         <h1>
           Hi I Am {animalData.name} , i am angry{" "}
-          <img src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg" />
+          <img src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg" alt="image animal" />
           Give me food.
         </h1>
 

@@ -140,7 +140,7 @@ const UpdatedInfo: React.FC = () => {
       <div className="titleHeater">
         <h1>
           Updated Info Animal {dataAnimal.title}{" "}
-          <img src={dataAnimal.image} style={{ height: "65px" }} />
+          <img src={dataAnimal.image} style={{ height: "65px" }} alt="Updated"/>
         </h1>
       </div>
 

@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import "../css/home.css";
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
@@ -6,8 +6,8 @@ import { Form, Modal, Button } from "react-bootstrap";
 
 
 //this compoment user send meesage to gmail Admin , if user need new info animal , use this compoment in home.js
-const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail }) => {
-
+const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail, }) => {
+  
 
   //value input to message
   const [toSend, setToSend] = useState({
@@ -15,6 +15,7 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail 
     message: "",
     reply_to: "",
   });
+
 
 
   const handleChange = (e: any) => {
@@ -41,10 +42,9 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail 
         text: "please input all value !",
       });
     }
-
     else {
       e.preventDefault();
-      
+
       send("service_yn0kl3e", "template_gqgk97g", toSend, "sLQgUkQWpIKuhuhfD")
         .then((response) => {
           Swal.fire({
@@ -53,6 +53,11 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail 
             icon: "success",
             title: "has been sent successfully",
             text: "Wait for the webmaster`s response",
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
           });
         })
 
@@ -60,18 +65,16 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail 
           console.log("FAILED...", err);
         });
     }
-
   };
 
 
 
   return (
     <div>
-
       <div className="titleHeater">
         <h1>
           Send Message To Admin{" "}
-          <img src="https://img.icons8.com/doodle/48/000000/gmail-new.png" />
+          <img src="https://img.icons8.com/doodle/48/000000/gmail-new.png" alt="send message to admin" />
         </h1>
       </div>
 
@@ -120,11 +123,8 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail 
           Close
         </Button>
       </div>
-      
     </div>
   );
 };
-
-
 
 export default SendMessage;

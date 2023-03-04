@@ -36,7 +36,7 @@ const FotoEat: React.FC = () => {
         position: "center",
         confirmButtonColor: "green",
         background: "none",
-        html: '<div class="popUpHome"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> </div>',
+        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> </div>',
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.reload();
@@ -46,7 +46,6 @@ const FotoEat: React.FC = () => {
     }
 
   };
-
 
 
 
@@ -87,6 +86,7 @@ const FotoEat: React.FC = () => {
       <div className="chioseImage">
         <img
           src={animalData.eatImage}
+          alt="photo eat"
           onClick={() => {
             GetEatToAnimal("Eat");
           }}
@@ -105,7 +105,6 @@ const FotoEat: React.FC = () => {
     </div>
   );
 };
-
 
 
 export default FotoEat;

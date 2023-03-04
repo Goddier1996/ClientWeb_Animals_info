@@ -55,6 +55,7 @@ const ChooseUpdatedAnimal: React.FC = () => {
           Choose Animal for Updated{" "}
           <img
             src="https://i.postimg.cc/85D0BbW2/Basic-Ui-544.jpg"
+            alt="Choose Animal for Updated"
             style={{ height: "40px" }}
           />
         </h1>
@@ -65,7 +66,7 @@ const ChooseUpdatedAnimal: React.FC = () => {
           {notes.map((node) => (
             <div key={node._id} className="cardDeleteOrUpdated">
               <div className="card_image">
-                <img src={node.image} onClick={() => AnimalChoose(node._id)} />
+                <img src={node.image} alt="card animal" onClick={() => AnimalChoose(node._id)} />
               </div>
             </div>
           ))}

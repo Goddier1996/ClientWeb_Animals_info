@@ -11,11 +11,12 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
   let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
 
-  const hideModel = async () => {
+  const hideModel =  () => {
 
-    await hideModelInfo();
-    sessionStorage.clear();
+     hideModelInfo();
+     sessionStorage.clear();
   }
+
 
 
   return (
@@ -29,7 +30,7 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
         <br />
 
         <div className="infoImage">
-          <img src={animalData.image}></img>
+          <img src={animalData.image} alt="info animal"/>
         </div>
 
         <br />
@@ -48,7 +49,6 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
     </div>
   );
 };
-
 
 
 export default InfoAnimal;

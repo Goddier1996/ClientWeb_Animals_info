@@ -4,8 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
 import videoBg from "../images/animals-sound-kids-brave-2022-11-16-12-22-50_pFFaKSHG.mp4";
-
-//components
 import AddAnimal from "../components/AddAnimal";
 import SendMessage from "../components/sendMessageToAdmin";
 import DeleteInfo from "../components/deleteAnimal";

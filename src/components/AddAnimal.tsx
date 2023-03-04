@@ -118,6 +118,7 @@ const AddAnimal: React.FC = () => {
           Add a new Animal{" "}
           <img
             src="https://i.postimg.cc/85D0BbW2/Basic-Ui-544.jpg"
+            alt="new animal"
             style={{ height: "40px" }}
           />
         </h1>
@@ -206,7 +207,6 @@ const AddAnimal: React.FC = () => {
     </div>
   );
 };
-
 
 
 export default AddAnimal;

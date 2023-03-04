@@ -11,7 +11,6 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
   //take data from seeison storage this animal,we add sessioson storage in showAnimals.js start fucn
   let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
-  //input eat value
   const [eat, setEat] = useState<string>("");
 
 
@@ -30,7 +29,7 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
         position: "center",
         confirmButtonColor: "green",
         background: "none",
-        html: '<div class="popUpHome"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> </div>',
+        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> </div>',
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.reload();
@@ -83,7 +82,7 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       <div className="titleHeaterHelp">
         <OverlayTrigger trigger="click" placement="right" overlay={popover}>
           <Button variant="outline-light">
-            <img src="https://img.icons8.com/ios/50/000000/info--v1.png" />
+            <img src="https://img.icons8.com/ios/50/000000/info--v1.png" alt="give food"/>
           </Button>
         </OverlayTrigger>
       </div>
@@ -127,7 +126,6 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
     </div>
   );
 };
-
 
 
 export default InputEat;

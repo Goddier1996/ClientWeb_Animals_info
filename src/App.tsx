@@ -5,17 +5,14 @@ import Fotter from "./components/fotter";
 import { NotFoundPage } from "./components/NotFoundPage";
 import SearchAnimals from "./components/searchAnimals";
 
-
 function App() {
 
   return (
     <BrowserRouter>
-      
       <Menu />
 
-      <SearchAnimals/>
-
       <Switch>
+        <SearchAnimals />
         <Route path="/" exact component={Home} />
         <Route path="*" exact component={NotFoundPage} />
       </Switch>

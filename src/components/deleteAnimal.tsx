@@ -16,7 +16,6 @@ const DeleteInfo: React.FC = () => {
 
 
 
-  //load all card animals from database
   const LoadAllNotes = async () => {
 
     SetNotes(await LoadAllCardsAnimals());
@@ -24,7 +23,6 @@ const DeleteInfo: React.FC = () => {
 
 
 
-  // here we delete the info animal from data base
   const DeleteAnimalFromDataBase = async (Id: string) => {
 
     await DeleteAnimal(Id);
@@ -58,6 +56,7 @@ const DeleteInfo: React.FC = () => {
             Delete Info Animal{" "}
             <img
               src="https://i.postimg.cc/LsmXccMh/Pngtree-delete-button-3d-icon-8633077.png"
+              alt="Delete animal"
               style={{ height: "40px" }}
             />
           </h1>
@@ -71,6 +70,7 @@ const DeleteInfo: React.FC = () => {
                 <div className="card_image">
                   <img
                     src={node.image}
+                    alt="Delete animal"
                     onClick={() => DeleteAnimalFromDataBase(node._id)}
                   />
                 </div>
@@ -85,7 +85,6 @@ const DeleteInfo: React.FC = () => {
     </div>
   );
 };
-
 
 
 export default DeleteInfo;
