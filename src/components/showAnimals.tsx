@@ -206,7 +206,7 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
         <Modal
           show={showShowInfoAnimal}
           aria-labelledby="contained-modal-title-vcenter"
-          onHide={handleCloseShowInfoAnimal}
+          // onHide={handleCloseShowInfoAnimal}
           style={{ background: "rgba(0, 0, 0, 0.6)" }}
         >
           <Modal.Body>
