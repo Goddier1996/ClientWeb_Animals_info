@@ -36,7 +36,7 @@ const Menu: React.FC = () => {
             </div>
 
             <div className="titleInfoHowLearn">
-              <p>Here you can learn about animals and also their voices</p>
+              <p>Here you can learn about animals.</p>
             </div>
 
             <div className="imgInfo">
@@ -48,18 +48,19 @@ const Menu: React.FC = () => {
 
             <div className="titleInfoHowLearnStart">
               <p>
-                * to look about Animal , click to image Animal what you chiose.
+                * To read about the selected animal , click on the picture of that animal.
                 <br />
                 <br />
-                * hear animal sounds , click on a bowl of food next to the
-                picture, and write down what the animal is eating, and hear its
-                voice.
+                * The user can feed the animal as per his choice , After the animal eats you will hear its voice.
                 <br />
                 <br />
-                * if you don`t no what animal eat , click to info.
+                * If a user does not know what the animal eats , there is an option to click on information.
                 <br />
-                <br />* only Admin can add new info Animal , if you would like
-                new animal send mail to Admin.
+                <br />
+                * User can send message to Admin , if have a problem or add new animal. 
+                <br />
+                <br/>
+                * Only Admin can add new info about Animal.
               </p>
             </div>
 
