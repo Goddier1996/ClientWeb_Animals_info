@@ -40,7 +40,7 @@ const AddFoodAnimal: React.FC = () => {
 
       <div className="titleHeater">
         <h1>
-          Hi I Am {animalData.name} , i am angry{" "}
+          Hi I Am {animalData.name} , i am hungry{" "}
           <img src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg" alt="image animal" />
           Give me food.
         </h1>
