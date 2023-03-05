@@ -36,7 +36,7 @@ const Menu: React.FC = () => {
             </div>
 
             <div className="titleInfoHowLearn">
-              <p>Learning for children about animals and also their voices</p>
+              <p>Here you can learn about animals and also their voices</p>
             </div>
 
             <div className="imgInfo">
