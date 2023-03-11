@@ -36,7 +36,7 @@ export default function OptionChangeLanguage() {
         style={
           currentLanguageCode == "en"
             ? { height: "45px", width: "45px" }
-            : { height: "45px", width: "45px", opacity: "0.4" }
+            : { height: "34px", width: "34px", opacity: "0.8" }
         }
         alt="en"
       />
@@ -45,8 +45,8 @@ export default function OptionChangeLanguage() {
         src="https://i.postimg.cc/6Qgw4zvq/icons8-israel-100.png"
         style={
           currentLanguageCode == "hw"
-            ? { height: "50px", width: "55px" }
-            : { height: "50px", width: "55px", opacity: "0.4" }
+            ? { height: "52px", width: "52px" }
+            : { height: "44px", width: "44px", opacity: "0.8" }
         }
         alt="hw"
       />

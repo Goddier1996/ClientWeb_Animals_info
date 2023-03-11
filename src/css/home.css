@@ -132,12 +132,14 @@ html::-webkit-scrollbar-thumb {
 }
 
 .styleOptionChangeLanguage img {
-    margin-top: -12%;
+    margin-top: -10%;
+    transition: transform .3s ease-out;
+    display: inline-block;
 }
 
 
 .styleOptionChangeLanguage img:hover {
-    opacity: 0.9;
+    transform: translate(0, -5px);
 }
 
 
