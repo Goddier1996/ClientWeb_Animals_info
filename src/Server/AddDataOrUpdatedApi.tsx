@@ -19,7 +19,6 @@ export async function addAnimal(user: any) {
 
 
 export async function updateInDateAnimal(Animal: any, idAnimal: string) {
-
   try {
     await fetch(`${API.NODE.GET}/${idAnimal}`, {
       method: "PATCH",

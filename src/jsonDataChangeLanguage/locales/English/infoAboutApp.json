@@ -1,0 +1,305 @@
+{
+    "Welcome_To_Safari_popUp": [
+
+        {
+            "id": "1",
+            "title": "Welcome To Safari"
+        }
+    ],
+
+    "titleApp": [
+
+        {
+            "id": "1",
+            "title": "Information about all types of animals for children"
+        }
+    ],
+
+    "ButtonMoreInfo": [{
+            "id": "1",
+            "title": "More Info"
+        }
+
+    ],
+
+    "popUpInfoTitle": [
+
+        {
+            "id": "1",
+            "title": "Welcome to Safari"
+        }
+    ],
+
+    "popUpInfoAboutInfo": [
+
+        {
+            "id": "1",
+            "title": "Here you can learn about animals."
+        }
+    ],
+
+    "popUpInfoAboutHowUseApp": [
+
+        {
+            "id": "1",
+            "title": "* To read about the selected animal , click on the picture of that animal."
+        },
+        {
+            "id": "2",
+            "title": "* The user can feed the animal as per his choice , After the animal eats you will hear its voice."
+        },
+        {
+            "id": "3",
+            "title": "* If a user does not know what the animal eats , there is an option to click on information."
+        },
+        {
+            "id": "4",
+            "title": "* User can send message to Admin , if have a problem or add new animal."
+        },
+        {
+            "id": "5",
+            "title": "* Only Admin can add new info about Animal."
+        }
+    ],
+
+    "popUpInfoButtonLetsStart": [
+
+        {
+            "id": "1",
+            "title": "Let`s start"
+        }
+    ],
+
+    "optionsAppButton": [
+
+        {
+            "id": "1",
+            "title": "Option's Site"
+        }
+    ],
+
+    "optionsAppInfoAboutOptionTitle": [
+
+        {
+            "id": "1",
+            "title": "Add new Animal Info Can Only Admin"
+        }
+    ],
+
+    "optionsAppInfoAboutOptionUserCanSendMessageTitle": [
+
+        {
+            "id": "1",
+            "title": "if you want new animal Info send Message to Admin."
+        }
+    ],
+
+    "connectToAdmin": [
+
+        {
+            "id": "1",
+            "title": "Connect Admin"
+        }
+    ],
+
+    "sendMessage": [
+
+        {
+            "id": "1",
+            "title": "Send message"
+        }
+    ],
+
+    "ok": [
+
+        {
+            "id": "1",
+            "title": "Ok"
+        }
+    ],
+
+    "titleSendMessage": [
+
+        {
+            "id": "1",
+            "title": "Send Message To Admin"
+        }
+    ],
+
+    "close": [
+
+        {
+            "id": "1",
+            "title": "Close"
+        }
+    ],
+
+    "Send": [
+
+        {
+            "id": "1",
+            "title": "Send"
+        }
+    ],
+
+    "LoginAdmin": [
+
+        {
+            "id": "1",
+            "title": "Login Admin"
+        }
+    ],
+
+    "signIn": [
+
+        {
+            "id": "1",
+            "title": "Sign In"
+        }
+    ],
+
+    "infoAdmin": [
+
+        {
+            "id": "1",
+            "title": "Click See What Admin can to do !"
+        }
+    ],
+
+    "InfoAnimal": [
+
+        {
+            "id": "1",
+            "title": "Info Animal"
+        }
+    ],
+
+    "GoodInfoButton": [
+
+        {
+            "id": "1",
+            "title": "Wow Good Info"
+        }
+    ],
+
+    "Hi_I_AmTitle": [
+
+        {
+            "id": "1",
+            "title": "Hi I Am"
+        }
+    ],
+
+    "i_am_hungryTitle": [
+
+        {
+            "id": "1",
+            "title": "i am hungry"
+        }
+    ],
+
+    "Give_me_foodTitle": [
+
+        {
+            "id": "1",
+            "title": "Give me food"
+        }
+    ],
+
+    "optionsTitle": [
+
+        {
+            "id": "1",
+            "title": "Choose one of the options"
+        }
+    ],
+
+    "optionsSelectTitle": [
+
+        {
+            "id": "1",
+            "title": "Select image Or Input Text"
+        }
+    ],
+
+    "DontKnowWhatAnimalEatTitle": [
+
+        {
+            "id": "1",
+            "title": "if you don`t Do not know what"
+        }
+    ],
+
+    "Click_to_InfoTitle": [
+
+        {
+            "id": "1",
+            "title": "eat Click to Info"
+        }
+    ],
+
+    "inputEatAnimalTitle": [
+
+        {
+            "id": "1",
+            "title": "Please input what Animal need eat"
+        }
+    ],
+
+    "ToFeedTitle": [
+
+        {
+            "id": "1",
+            "title": "To Feed"
+        }
+    ],
+
+    "choose_imageTitle": [
+
+        {
+            "id": "1",
+            "title": "please to choose image"
+        }
+    ],
+
+    "SelectLanguageTitle": [
+
+        {
+            "id": "1",
+            "title": "Select Language"
+        }
+    ],
+
+    "animalDontFoundInDataBaseTitle": [
+
+        {
+            "id": "1",
+            "title": "ℹ️ Not found This Animal In Database , Try Again."
+        }
+    ],
+
+    "animalDontFoundInDataBaseTitleSendToAdminMessage": [
+
+        {
+            "id": "1",
+            "title": "* You Can Send Message to Admin If you thing need this info about animal."
+        }
+    ],
+
+    "need_input_what_animal_eat": [
+
+        {
+            "id": "1",
+            "title": "please input what i need eat"
+        }
+    ],
+
+    "i_dont_eat_this": [
+
+        {
+            "id": "1",
+            "title": "I don`t eat it ):"
+        }
+    ]
+
+}

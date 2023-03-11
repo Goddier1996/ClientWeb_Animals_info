@@ -7,7 +7,7 @@ import { LoadAllCardsAnimals } from "../Server/LoadDataApi";
 
 
 
-// this compoment to delete the info animal from database,use in home.js
+// this component to delete the info animal from database,use in home.js
 const DeleteInfo: React.FC = () => {
 
 

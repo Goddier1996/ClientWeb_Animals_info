@@ -9,6 +9,7 @@ import { addAnimal } from "../Server/AddDataOrUpdatedApi";
 //this is AddAnimal commpoment active in Home.js for add new animals info
 const AddAnimal: React.FC = () => {
 
+  
   //value input a add new animal
   const [title, setTitle] = useState<string>("");
   const [eat, setEat] = useState<string>("");

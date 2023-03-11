@@ -1,10 +1,43 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import "../css/home.css";
 import { Button, Modal } from "react-bootstrap";
 import OptionsSite from "./optionsSite";
+import OptionChangeLanguage from "./optionChangeLanguage";
+import { useTranslation } from "react-i18next";
+import cookies from "js-cookie";
+
 
 
 const Menu: React.FC = () => {
+
+
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+  const currentLanguageCode = cookies.get("i18next") || "en";
+
+  const titleAppChangeLanguage: any = t("titleApp", { returnObjects: true });
+
+  const buttonMoreInfoChangeLanguage: any = t("ButtonMoreInfo", {
+    returnObjects: true,
+  });
+
+  const popUpInfoTitleChangeLanguage: any = t("popUpInfoTitle", {
+    returnObjects: true,
+  });
+
+  const popUpInfoAboutInfoChangeLanguage: any = t("popUpInfoAboutInfo", {
+    returnObjects: true,
+  });
+
+  const popUpInfoAboutHowUseAppChangeLanguage: any = t(
+    "popUpInfoAboutHowUseApp",
+    { returnObjects: true }
+  );
+
+  const popUpInfoButtonLetsStartChangeLanguage: any = t(
+    "popUpInfoButtonLetsStart",
+    { returnObjects: true }
+  );
 
 
   const [show, setShow] = useState(false);
@@ -12,31 +45,44 @@ const Menu: React.FC = () => {
   const handleShow = () => setShow(true);
 
 
-  return (
 
+  return (
     <div className="title">
-      <div className="titleWeb">
-        <p>Information about all types of animals for children</p>
+
+      <div className="positionOptionChangeLanguage">
+        <OptionChangeLanguage /> 
+      </div>
+
+      <div className="titleWeb" >
+        {titleAppChangeLanguage.map((node: any) => (
+          <p>{node.title}</p>
+        ))}
       </div>
 
       <div className="help">
-        <Button size="sm" variant="warning" onClick={handleShow}>
-          More Info
-        </Button>
+        {buttonMoreInfoChangeLanguage.map((node: any) => (
+          <Button size="sm" variant="warning" onClick={handleShow}>
+            {node.title}
+          </Button>
+        ))}
 
         <Modal
           show={show}
           aria-labelledby="contained-modal-title-vcenter"
           onHide={handleClose}
-          style={{ background: "rgba(0, 0, 0, 0.8)" }}
+          style={{ background: "rgba(0, 0, 0, 0.3)" }}
         >
           <Modal.Body>
             <div className="titleInfoHowUseWebSite">
-              <p>Welcome to Safari</p>
+              {popUpInfoTitleChangeLanguage.map((node: any) => (
+                <p>{node.title}</p>
+              ))}
             </div>
 
             <div className="titleInfoHowLearn">
-              <p>Here you can learn about animals.</p>
+              {popUpInfoAboutInfoChangeLanguage.map((node: any) => (
+                <p>{node.title}</p>
+              ))}
             </div>
 
             <div className="imgInfo">
@@ -46,39 +92,32 @@ const Menu: React.FC = () => {
             <br />
             <br />
 
-            <div className="titleInfoHowLearnStart">
-              <p>
-                * To read about the selected animal , click on the picture of that animal.
-                <br />
-                <br />
-                * The user can feed the animal as per his choice , After the animal eats you will hear its voice.
-                <br />
-                <br />
-                * If a user does not know what the animal eats , there is an option to click on information.
-                <br />
-                <br />
-                * User can send message to Admin , if have a problem or add new animal. 
-                <br />
-                <br/>
-                * Only Admin can add new info about Animal.
-              </p>
+            <div className="titleInfoHowLearnStart" style={ currentLanguageCode=="hw" ? { textAlign:'right'} : { textAlign:'left'}}>
+              {popUpInfoAboutHowUseAppChangeLanguage.map((node: any) => (
+                <p key={node.id}>{node.title}</p>
+              ))}
             </div>
 
+            
             {/* choose options start or move to model component OptionsSite show all options site */}
-            <div style={{textAlign:"center"}}>
-              <Button style={{margin:"3%"}} variant="success" onClick={handleClose}>
-                Let`s start
-              </Button>
+            <div style={{ textAlign: "center" }}>
+              {popUpInfoButtonLetsStartChangeLanguage.map((node: any) => (
+                <Button
+                  style={{ margin: "3%" }}
+                  variant="success"
+                  onClick={handleClose}
+                >
+                  {node.title}
+                </Button>
+              ))}
 
               <OptionsSite />
             </div>
-
           </Modal.Body>
         </Modal>
       </div>
     </div>
   );
 };
-
 
 export default Menu;

@@ -11,6 +11,17 @@ export async function LoadAllCardsAnimals() {
 }
 
 
+
+export async function LoadAllCardsAnimalsHebrewLanguage() {
+
+    let res = await fetch(`${API.NODE.GET}/hebrewLanguage`, { method: "GET" });
+    let data = await res.json();
+
+    return data;
+}
+
+
+
 export async function LoadUserAdmin() {
     
     let res = await fetch(API.USER.GET, { method: "GET" });

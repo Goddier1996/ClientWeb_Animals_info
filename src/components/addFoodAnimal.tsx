@@ -1,13 +1,67 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "../css/home.css";
 import ImageEat from "../components/FotoEat";
 import InputEat from "../components/giveFoodAnimal";
-
+import { useTranslation } from "react-i18next";
+import cookies from "js-cookie";
 
 
 //here component we add to animal food and check if this he eat,show popup,use in showAnimals compoments
 const AddFoodAnimal: React.FC = () => {
+
+
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+  const currentLanguageCode = cookies.get("i18next") || "en";
+
+  const Hi_I_AmTitleChangeLanguage: any = t("Hi_I_AmTitle", {
+    returnObjects: true,
+  });
+  const InfoAnimalTitle: any = Hi_I_AmTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+  
+  const i_am_hungryTitleChangeLanguage: any = t("i_am_hungryTitle", {
+    returnObjects: true,
+  });
+  const i_am_hungryTitle: any = i_am_hungryTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const Give_me_foodTitleChangeLanguage: any = t("Give_me_foodTitle", {
+    returnObjects: true,
+  });
+  const Give_me_foodTitle: any = Give_me_foodTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const optionsTitleChangeLanguage: any = t("optionsTitle", {
+    returnObjects: true,
+  });
+  const optionsTitle: any = optionsTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const optionsSelectTitleChangeLanguage: any = t("optionsSelectTitle", {
+    returnObjects: true,
+  });
+  const optionsSelectTitle: any = optionsSelectTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const closeChangeLanguage: any = t("close", {
+    returnObjects: true,
+  });
+  const closeTitle: any = closeChangeLanguage.map(
+    (node: any) => node.title
+  );
+
 
 
   //take data from seeison storage this animal,we add sessioson storage in showAnimals.js start fucn
@@ -26,39 +80,49 @@ const AddFoodAnimal: React.FC = () => {
   const handleShowInputTextEat = () => setShowInputTextEat(true);
 
 
-
   // send this function to component showInfoAnimal to close model
   const hideModelInputTextFood = () => {
-
     setShowInputTextEat(false);
-  }
+  };
 
 
 
   return (
     <div>
-
       <div className="titleHeater">
-        <h1>
-          Hi I Am {animalData.name} , i am hungry{" "}
-          <img src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg" alt="image animal" />
-          Give me food.
-        </h1>
+        {currentLanguageCode == "hw" ? (
+          <h1>
+            {InfoAnimalTitle} {animalData.name} {Give_me_foodTitle} {" "}
+            <img
+              src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg"
+              alt="image animal"
+            />{" "} {i_am_hungryTitle}{" "}
+          </h1>
+        ) : (
+          <h1>
+            {InfoAnimalTitle} {animalData.name} , {i_am_hungryTitle}{" "}
+            <img
+              src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg"
+              alt="image animal"
+            />{" "}
+            {Give_me_foodTitle}.
+          </h1>
+        )}
 
         <p>
-          Choose one of the options :<br />
+          {optionsTitle}
+          <br />
         </p>
         <h6>
-          Select image Or Input Text
+          {optionsSelectTitle}
           <br />
         </h6>
       </div>
 
-      
       <div className="chioseInputOrImage">
         <img
           src="https://i.postimg.cc/SsP7gY7L/image.png"
-          alt="chiose image"
+          alt="choose image"
           onClick={handleShowImageEat}
         ></img>
 
@@ -70,13 +134,11 @@ const AddFoodAnimal: React.FC = () => {
       </div>
 
       
-
       {/* pop up chiose image eat , active here to show compoment FotoEat.js */}
       <div>
         <Modal
           show={showImageEat}
           onHide={handleCloseImageEat}
-          style={{ background: "rgba(0, 0, 0, 0.7)" }}
           aria-labelledby="contained-modal-title-vcenter"
         >
           <Modal.Body>
@@ -87,7 +149,7 @@ const AddFoodAnimal: React.FC = () => {
 
             <div className="buttonExit">
               <Button variant="danger" onClick={handleCloseImageEat}>
-                Close
+                {closeTitle}
               </Button>
             </div>
           </Modal.Body>
@@ -95,25 +157,21 @@ const AddFoodAnimal: React.FC = () => {
       </div>
 
       
-
-      
       {/* pop up chiose input eat , active here to show compoment InputEat.js */}
       <div>
         <Modal
           show={showInputTextEat}
           onHide={handleCloseInputTextEat}
-          style={{ background: "rgba(0, 0, 0, 0.7)" }}
           aria-labelledby="contained-modal-title-vcenter"
         >
           <Modal.Body>
             <Form>
               {/* active compoment InputEat.js */}
-              <InputEat hideModelFood={hideModelInputTextFood}/>
+              <InputEat hideModelFood={hideModelInputTextFood} />
             </Form>
           </Modal.Body>
         </Modal>
       </div>
-
     </div>
   );
 };

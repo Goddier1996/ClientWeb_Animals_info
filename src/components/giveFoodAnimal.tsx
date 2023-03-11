@@ -1,11 +1,73 @@
 import React , { useState } from "react";
 import { Button, Form, Popover, OverlayTrigger } from "react-bootstrap";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
+import cookies from "js-cookie";
 
 
-
-//here component we add to animal food and check if this he eat,show popup,use in AddFoodAnimal compoments
+//here component we add to animal food and check if this he eat,show popup,use in AddFoodAnimal components
 const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
+
+  
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+  const currentLanguageCode = cookies.get("i18next") || "en";
+
+  const DontKnowWhatAnimalEatTitleChangeLanguage: any = t("DontKnowWhatAnimalEatTitle", {
+    returnObjects: true,
+  });
+  const DontKnowWhatAnimalEatTitle: any = DontKnowWhatAnimalEatTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const Click_to_InfoTitleChangeLanguage: any = t("Click_to_InfoTitle", {
+    returnObjects: true,
+  });
+  const Click_to_InfoTitle: any = Click_to_InfoTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const inputEatAnimalTitleChangeLanguage: any = t("inputEatAnimalTitle", {
+    returnObjects: true,
+  });
+  const inputEatAnimalTitle: any = inputEatAnimalTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const ToFeedTitleChangeLanguage: any = t("ToFeedTitle", {
+    returnObjects: true,
+  });
+  const ToFeedTitle: any = ToFeedTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const closeChangeLanguage: any = t("close", {
+    returnObjects: true,
+  });
+  const closeTitle: any = closeChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const need_input_what_animal_eatChangeLanguage: any = t("need_input_what_animal_eat", {
+    returnObjects: true,
+  });
+  const need_input_what_animal_eat: any = need_input_what_animal_eatChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const i_dont_eat_thisChangeLanguage: any = t("i_dont_eat_this", {
+    returnObjects: true,
+  });
+  const i_dont_eat_this: any = i_dont_eat_thisChangeLanguage.map(
+    (node: any) => node.title
+  );
+
 
 
   //take data from seeison storage this animal,we add sessioson storage in showAnimals.js start fucn
@@ -44,8 +106,8 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
-        background: "none",
-        html: '<p class="popUpTextP3">please input what i need eat</p> ',
+        background: "rgba(0, 0, 0, 0.8)",
+        html: `<p class="popUpTextP3">${need_input_what_animal_eat}</p>`
       });
     }
     
@@ -56,11 +118,10 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
         position: "center",
         confirmButtonColor: "green",
         // position: "center",
-        background: "none",
-        html: '<p class="popUpTextP3">I don`t eat it ):</p> ',
+        background: "rgba(0, 0, 0, 0.8)",
+        html: `<p class="popUpTextP3">${i_dont_eat_this}</p>`
       });
     }
-
   };
 
 
@@ -88,12 +149,20 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       </div>
 
       <div className="titleHeaterInfo">
-        <p>
-          if you don`t Do not know what {animalData.name} eat Click to Info.
+        {(currentLanguageCode == "hw") ?
+          <p>{DontKnowWhatAnimalEatTitle} {animalData.name} {Click_to_InfoTitle}
           <br />
           <br />
-          Please input what Animal need eat :
+          : {inputEatAnimalTitle}
+          </p>
+          :
+          <p>
+          {DontKnowWhatAnimalEatTitle} {animalData.name} {Click_to_InfoTitle}.
+          <br />
+          <br />
+          {inputEatAnimalTitle} :
         </p>
+      }
       </div>
 
       <br />
@@ -115,11 +184,11 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
 
       <div className="ButtonInfo">
         <Button variant="success" onClick={GetEatToAnimal}>
-          To Feed
+          {ToFeedTitle}
         </Button>
         
         <Button variant="danger" onClick={() => hideModelFood()}>
-          Close
+          {closeTitle}
         </Button>
       </div>
       

@@ -5,10 +5,11 @@ import Fotter from "./components/fotter";
 import { NotFoundPage } from "./components/NotFoundPage";
 import SearchAnimals from "./components/searchAnimals";
 
-function App() {
 
+function App() {
   return (
     <BrowserRouter>
+      
       <Menu />
 
       <Switch>
@@ -18,6 +19,7 @@ function App() {
       </Switch>
 
       <Fotter />
+
     </BrowserRouter>
   );
 }

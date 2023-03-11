@@ -1,13 +1,51 @@
 import React from "react";
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
+import cookies from "js-cookie";
 
 
-
-//here component we add to animal food and check if this he eat,show popup,use in AddFoodAnimal compoments
+//here component we add to animal food and check if this he eat,show popup,use in AddFoodAnimal components
 const FotoEat: React.FC = () => {
 
 
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+  const currentLanguageCode = cookies.get("i18next") || "en";
+
+  const DontKnowWhatAnimalEatTitleChangeLanguage: any = t("DontKnowWhatAnimalEatTitle", {
+    returnObjects: true,
+  });
+  const DontKnowWhatAnimalEatTitle: any = DontKnowWhatAnimalEatTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const Click_to_InfoTitleChangeLanguage: any = t("Click_to_InfoTitle", {
+    returnObjects: true,
+  });
+  const Click_to_InfoTitle: any = Click_to_InfoTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const choose_imageTitleChangeLanguage: any = t("choose_imageTitle", {
+    returnObjects: true,
+  });
+  const choose_imageTitle: any = choose_imageTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const i_dont_eat_thisChangeLanguage: any = t("i_dont_eat_this", {
+    returnObjects: true,
+  });
+  const i_dont_eat_this: any = i_dont_eat_thisChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  
   //take data from seeison storage this animal,we add sessioson storage in showAnimals.js start fucn
   let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
@@ -20,8 +58,8 @@ const FotoEat: React.FC = () => {
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
-        background: "none",
-        html: '<p class="popUpTextP3">I don`t eat it ):</p> ',
+        background: "rgba(0, 0, 0, 0.8)",
+        html: `<p class="popUpTextP3">${i_dont_eat_this}</p>`,
       });
     }
 
@@ -44,7 +82,6 @@ const FotoEat: React.FC = () => {
         }
       });
     }
-
   };
 
 
@@ -73,12 +110,20 @@ const FotoEat: React.FC = () => {
       </div>
 
       <div className="titleHeaterInfo">
-        <p>
-          if you don`t Do not know what {animalData.name} eat Click to Info.
+        {(currentLanguageCode == "hw") ?
+          <p>{DontKnowWhatAnimalEatTitle} {animalData.name} {Click_to_InfoTitle}
           <br />
           <br />
-          please to chiose image :{" "}
+          : {choose_imageTitle}
+          </p>
+          :
+          <p>
+          {DontKnowWhatAnimalEatTitle} {animalData.name} {Click_to_InfoTitle}.
+          <br />
+          <br />
+          {choose_imageTitle} :
         </p>
+      }
       </div>
 
       <br />

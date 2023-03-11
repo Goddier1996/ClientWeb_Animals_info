@@ -3,11 +3,35 @@ import "../css/home.css";
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
 import { Form, Modal, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 
-//this compoment user send meesage to gmail Admin , if user need new info animal , use this compoment in home.js
+//this component user send message to gmail Admin , if user need new info animal , use this component in home.js
 const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail, }) => {
   
+
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+
+  const titleSendMessageChangeLanguage: any = t("titleSendMessage", {
+    returnObjects: true,
+  });
+
+  const optionsTitleSendMessage: any = titleSendMessageChangeLanguage.map((node: any) => (node.title))
+
+  const closeChangeLanguage: any = t("close", {
+    returnObjects: true,
+  });
+
+  const optionsClose: any = closeChangeLanguage.map((node: any) => (node.title))
+
+  const SendChangeLanguage: any = t("Send", {
+    returnObjects: true,
+  });
+
+  const optionsSend: any = SendChangeLanguage.map((node: any) => (node.title))
+
+
 
   //value input to message
   const [toSend, setToSend] = useState({
@@ -73,7 +97,7 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
     <div>
       <div className="titleHeater">
         <h1>
-          Send Message To Admin{" "}
+          { optionsTitleSendMessage}{" "}
           <img src="https://img.icons8.com/doodle/48/000000/gmail-new.png" alt="send message to admin" />
         </h1>
       </div>
@@ -116,11 +140,11 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
 
       <div className="ButtonInfo">
         <Button variant="success" onClick={onSubmit}>
-          Send
+          {optionsSend}
         </Button>
 
         <Button variant="danger" onClick={() => closeModelEmail()}>
-          Close
+          {optionsClose}
         </Button>
       </div>
     </div>

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../css/home.css";
 import { Form, Modal } from "react-bootstrap";
-
 import AddFoodAnimal from "./addFoodAnimal";
 import InfoAnimal from "./showInfoAnimal";
-import { LoadAllCardsAnimals } from "../Server/LoadDataApi";
+import {
+  LoadAllCardsAnimals,
+  LoadAllCardsAnimalsHebrewLanguage,
+} from "../Server/LoadDataApi";
+import cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -12,19 +16,68 @@ import { LoadAllCardsAnimals } from "../Server/LoadDataApi";
 const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
 
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+  const currentLanguageCode = cookies.get("i18next") || "en";
+
+  const Welcome_To_Safari_popUpChangeLanguage: any = t(
+    "Welcome_To_Safari_popUp",
+    {
+      returnObjects: true,
+    }
+  );
+  const Welcome_To_Safari_popUp: any = Welcome_To_Safari_popUpChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const animalDontFoundInDataBaseTitleChangeLanguage: any = t(
+    "animalDontFoundInDataBaseTitle",
+    {
+      returnObjects: true,
+    }
+  );
+  const animalDontFoundInDataBaseTitle: any = animalDontFoundInDataBaseTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
+  const animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage: any = t(
+    "animalDontFoundInDataBaseTitleSendToAdminMessage",
+    {
+      returnObjects: true,
+    }
+  );
+  const animalDontFoundInDataBaseTitleSendToAdminMessage: any = animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+
   //popup open or close , sound animal show popUp
   const [showGetFoodAnimal, setShowGetFoodAnimal] = useState(false);
   const handleCloseGetFoodAnimal = () => setShowGetFoodAnimal(false);
   const handleShowGetFoodAnimal = () => setShowGetFoodAnimal(true);
 
+
   //popup open or close , show info about animal
   const [showShowInfoAnimal, setShowShowInfoAnimal] = useState(false);
-  const handleCloseShowInfoAnimal = () => setShowShowInfoAnimal(false);
+  // const handleCloseShowInfoAnimal = () => setShowShowInfoAnimal(false);
   const handleShowShowInfoAnimal = () => setShowShowInfoAnimal(true);
 
   //save for show all models animals from nodejs json file
-  const [notes, SetNotes] = useState([] as any[]);
-  const [checkIfHaveValueWhenSearch, SetCheckIfHaveValueWhenSearch] = useState([] as any[]);
+  const [notesEnglishLanguage, SetNotesEnglishLanguage] = useState([] as any[]);
+  const [notesHebrewLanguage, SetNotesHebrewLanguage] = useState([] as any[]);
+
+
+  const [
+    checkIfHaveValueWhenSearchEnglishLanguage,
+    SetCheckIfHaveValueWhenSearchEnglishLanguage,
+  ] = useState([] as any[]);
+  const [
+    checkIfHaveValueWhenSearchHebrewLanguage,
+    SetCheckIfHaveValueWhenSearchHebrewLanguage,
+  ] = useState([] as any[]);
+
 
   const [loading, setLoading] = useState(false);
 
@@ -35,7 +88,8 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
     try {
       setLoading(true);
 
-      SetNotes(await LoadAllCardsAnimals());
+      SetNotesEnglishLanguage(await LoadAllCardsAnimals());
+      SetNotesHebrewLanguage(await LoadAllCardsAnimalsHebrewLanguage());
 
       setLoading(false); // Stop loading
     } catch (error) {
@@ -97,7 +151,6 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
 
   useEffect(() => {
-
     LoadAllNotes();
   }, []);
 
@@ -105,68 +158,119 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
   useEffect(() => {
 
-    SetCheckIfHaveValueWhenSearch(
-      notes.filter((item: any) => {
+    SetCheckIfHaveValueWhenSearchEnglishLanguage(
+      notesEnglishLanguage.filter((item: any) => {
+        return item.title.toLowerCase().startsWith(query);
+      })
+    );
+
+    SetCheckIfHaveValueWhenSearchHebrewLanguage(
+      notesHebrewLanguage.filter((item: any) => {
         return item.title.toLowerCase().startsWith(query);
       })
     );
   });
 
 
-  
+
   return (
     <div>
       {loading ? (
         <div className="popUpHome">
-          <h1>Welcome To Safari</h1>
-          <img src="https://i.pinimg.com/originals/ac/46/7c/ac467cbb2eb0fde593996c175cec0176.gif" alt="popupWelcome" />
+          <h1>{Welcome_To_Safari_popUp}</h1>
+          <img
+            src="https://i.pinimg.com/originals/ac/46/7c/ac467cbb2eb0fde593996c175cec0176.gif"
+            alt="popupWelcome"
+          />
         </div>
       ) : (
         <div className="cards-list">
-          {checkIfHaveValueWhenSearch.map((node) => (
-            <div key={node._id} className="cardx">
-              <div className="card_image">
-                <img
-                  src={node.image}
-                  alt="image animal"
-                  onClick={() =>
-                    clickToImageForInfo(
-                      node.infoAnimal,
-                      node.infoImage,
-                      node.title
-                    )
-                  }
-                />
-              </div>
+          {currentLanguageCode == "en"
+            ? checkIfHaveValueWhenSearchEnglishLanguage.map((node) => (
+                <div key={node._id} className="cardx">
+                  <div className="card_image">
+                    <img
+                      src={node.image}
+                      alt="image animal"
+                      onClick={() =>
+                        clickToImageForInfo(
+                          node.infoAnimal,
+                          node.infoImage,
+                          node.title
+                        )
+                      }
+                    />
+                  </div>
 
-              <div className="card_title title-white">
-                <h6> {node.title}</h6>
-                <p
-                  onClick={() =>
-                    start(
-                      node.sound,
-                      node.title,
-                      node.eat,
-                      node.notEatImage,
-                      node.eatImage
-                    )
-                  }
-                >
-                  <img src={require("../images/bowel1.png")} alt="give eat"></img>
-                </p>
-              </div>
-            </div>
-          ))}
+                  <div className="card_title title-white">
+                    <h6>{node.title}</h6>
+                    <p
+                      onClick={() =>
+                        start(
+                          node.sound,
+                          node.title,
+                          node.eat,
+                          node.notEatImage,
+                          node.eatImage
+                        )
+                      }
+                    >
+                      <img
+                        src={require("../images/bowel1.png")}
+                        alt="give eat"
+                      ></img>
+                    </p>
+                  </div>
+                </div>
+              ))
+            : checkIfHaveValueWhenSearchHebrewLanguage.map((node) => (
+                <div key={node._id} className="cardx">
+                  <div className="card_image">
+                    <img
+                      src={node.image}
+                      alt="image animal"
+                      onClick={() =>
+                        clickToImageForInfo(
+                          node.infoAnimal,
+                          node.infoImage,
+                          node.title
+                        )
+                      }
+                    />
+                  </div>
 
-          {checkIfHaveValueWhenSearch.length === 0 ? (
+                  <div className="card_title title-white">
+                    <h6> {node.title}</h6>
+                    <p
+                      onClick={() =>
+                        start(
+                          node.sound,
+                          node.title,
+                          node.eat,
+                          node.notEatImage,
+                          node.eatImage
+                        )
+                      }
+                    >
+                      <img
+                        src={require("../images/bowel1.png")}
+                        alt="give eat"
+                      ></img>
+                    </p>
+                  </div>
+                </div>
+              ))}
+
+          {checkIfHaveValueWhenSearchEnglishLanguage.length === 0 &&
+          checkIfHaveValueWhenSearchHebrewLanguage.length === 0 ? (
             <div className="dontHaveThisValueInArray">
-              <img src="https://media.tenor.com/IbZePZ2opZkAAAAi/rascal-nothing-to-see-here.gif"  alt="dont have this animal"/>
+              <img
+                src="https://media.tenor.com/IbZePZ2opZkAAAAi/rascal-nothing-to-see-here.gif"
+                alt="dont have this animal"
+              />
               <br />
-              <p>ℹ️ Not found This Animal In Database , Try Again.</p>
-              <p>
-                * You Can Send Message to Admin If you thing need this info
-                about animal.
-              </p>
+                  <p>{ animalDontFoundInDataBaseTitle }</p>
+                  <p>{ animalDontFoundInDataBaseTitleSendToAdminMessage }</p>
             </div>
           ) : (
             ""
@@ -181,7 +285,7 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
           show={showGetFoodAnimal}
           aria-labelledby="contained-modal-title-vcenter"
           onHide={handleCloseGetFoodAnimal}
-          style={{ background: "rgba(0, 0, 0, 0.8)" }}
+          style={{ background: "rgba(0, 0, 0, 0.3)" }}
         >
           <p
             className="closes"
@@ -206,8 +310,7 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
         <Modal
           show={showShowInfoAnimal}
           aria-labelledby="contained-modal-title-vcenter"
-          // onHide={handleCloseShowInfoAnimal}
-          style={{ background: "rgba(0, 0, 0, 0.6)" }}
+          style={{ background: "rgba(0, 0, 0, 0.3)" }}
         >
           <Modal.Body>
             <Form>

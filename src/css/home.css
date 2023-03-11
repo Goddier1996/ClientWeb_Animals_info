@@ -32,7 +32,7 @@ html::-webkit-scrollbar-thumb {
 
 .swal2-container.swal2-backdrop-show,
 .swal2-container.swal2-noanimation {
-    background: rgba(0, 0, 0, .9) !important;
+    background: rgba(0, 0, 0, .3) !important;
 }
 
 
@@ -50,7 +50,7 @@ html::-webkit-scrollbar-thumb {
 /* pop up when open web site */
 .popUpHome h1 {
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: .5rem;
     top: 8px;
     position: absolute;
@@ -74,7 +74,6 @@ html::-webkit-scrollbar-thumb {
 
 
 /* title menu */
-
 .title {
     background: url("https://i.postimg.cc/tTWpC7Tn/7588592-1311.jpg");
     box-shadow: inset rgba(0, 0, 0, 0.22) 0 0 0 500px;
@@ -98,6 +97,9 @@ html::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
+.titleWeb {
+    margin-top: -7%;
+}
 
 .help button {
     font-size: 15px;
@@ -108,10 +110,38 @@ html::-webkit-scrollbar-thumb {
     width: 155px;
 }
 
+.positionOptionChangeLanguage {
+    display: flex;
+    justify-content: end;
+    padding: 3%;
+}
+
+
+.positionOptionChangeLanguage img {
+    cursor: pointer;
+    margin: 5%;
+}
+
+.styleOptionChangeLanguage {
+    text-align: center;
+}
+
+.styleOptionChangeLanguage p {
+    font-size: 15px;
+    margin-top: -12%;
+}
+
+.styleOptionChangeLanguage img {
+    margin-top: -12%;
+}
+
+
+.styleOptionChangeLanguage img:hover {
+    opacity: 0.9;
+}
 
 
 /* title fotter */
-
 .titleFotter {
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
@@ -130,7 +160,6 @@ html::-webkit-scrollbar-thumb {
 
 
 /* info about how use this program */
-
 .titleInfoHowUseWebSite,
 .titleInfoHowLearn {
     display: flex;
@@ -170,9 +199,6 @@ html::-webkit-scrollbar-thumb {
 
 
 
-
-
-
 /* for popup check input value when add */
 .popUpTextP1 {
     color: rgb(0, 0, 0);
@@ -186,8 +212,6 @@ html::-webkit-scrollbar-thumb {
     font-size: 13px;
     letter-spacing: .1rem;
 }
-
-
 
 
 /* show all animals in a page this a card model */
@@ -270,11 +294,8 @@ html::-webkit-scrollbar-thumb {
 
 
 
-
-
 /* title cheack or info when we add eat to animal */
 /* pop up add new animal */
-
 .titleHeaterHelp {
     display: flex;
     justify-content: start;
@@ -292,8 +313,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 .titleHeater {
-    /* display: flex;
-    justify-content: center; */
     text-align: center;
     align-items: center;
 }
@@ -355,7 +374,6 @@ html::-webkit-scrollbar-thumb {
     object-fit: cover;
     border-radius: 40px;
     width: 400px;
-    box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
 }
 
 .soFull {
@@ -462,14 +480,10 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-
-
 .chioseImage img {
     cursor: pointer;
     height: 85px;
 }
-
-
 
 .closes {
     padding-left: 3%;
@@ -551,7 +565,6 @@ html::-webkit-scrollbar-thumb {
 
 
 /* search style */
-
 .dontHaveThisValueInArray {
     display: flex;
     flex-direction: column;

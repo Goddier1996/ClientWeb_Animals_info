@@ -10,13 +10,11 @@ const SearchAnimals: React.FC = () => {
   //save input value when search
   const [query, setQuery] = useState<string>("");
 
-
   
  // clear place input search
   const clearSearch = () => {
     setQuery("");
   };
-
 
 
   return (

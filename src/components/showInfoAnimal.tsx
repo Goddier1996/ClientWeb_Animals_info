@@ -1,55 +1,93 @@
 import React from "react";
 import "../css/home.css";
 import { Modal, Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+import cookies from "js-cookie";
 
 
 
-//this compoment show info about animal,active this compoment in showAnimal.js
+//this component show info about animal,active this compoment in showAnimal.js
 const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) => {
+  
+
+  // change language en or hw
+  const { t } = useTranslation(["home"]);
+  const currentLanguageCode = cookies.get("i18next") || "en";
+
+  const InfoAnimalTitleChangeLanguage: any = t("InfoAnimal", {
+    returnObjects: true,
+  });
+  const InfoAnimalTitle: any = InfoAnimalTitleChangeLanguage.map(
+    (node: any) => node.title
+  );
+
+  const GoodInfoButtonChangeLanguage: any = t("GoodInfoButton", {
+    returnObjects: true,
+  });
+  const GoodInfoButton: any = GoodInfoButtonChangeLanguage.map(
+    (node: any) => node.title
+  );
 
 
   let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
 
+
   const hideModel = () => {
-    
-     hideModelInfo()
-    // sessionStorage.clear();
-    //  window.location.reload();
-  }
+
+    hideModelInfo();
+  };
 
 
 
   return (
     <div>
-
       <Modal.Body>
         <div className="titleHeaterInfo">
-          <h1>Info Animal {animalData.name} :</h1>
+          {currentLanguageCode == "hw" ? (
+            <h1>
+              :{InfoAnimalTitle} {animalData.name}
+            </h1>
+          ) : (
+            <h1>
+              {InfoAnimalTitle} {animalData.name} :
+            </h1>
+          )}
         </div>
 
         <br />
 
         <div className="infoImage">
-          <img src={animalData.image} alt="info animal"/>
+          <img src={animalData.image} alt="info animal" />
         </div>
 
         <br />
 
-        <div className="infoText">
-          <p>{animalData.info}</p>
-        </div>
+        {currentLanguageCode == "hw" ? (
+          <div
+            className="infoText"
+            style={
+              currentLanguageCode == "hw"
+                ? { textAlign: "right" }
+                : { textAlign: "left" }
+            }
+          >
+            <p>{animalData.info}</p>
+          </div>
+        ) : (
+          <div className="infoText">
+            <p>{animalData.info}</p>
+          </div>
+        )}
 
         <div className="ButtonInfo">
-          <Button variant="success" onClick={ hideModel}>
-            Wow Good Info
+          <Button variant="success" onClick={hideModel}>
+            {GoodInfoButton}
           </Button>
         </div>
       </Modal.Body>
-      
     </div>
   );
 };
-
 
 export default InfoAnimal;

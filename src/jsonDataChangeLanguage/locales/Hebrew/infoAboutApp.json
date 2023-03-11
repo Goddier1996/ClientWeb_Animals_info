@@ -1,0 +1,305 @@
+{
+    "Welcome_To_Safari_popUp": [
+
+        {
+            "id": "1",
+            "title": "ברוכים הבאים לספארי"
+        }
+    ],
+
+    "titleApp": [
+
+        {
+            "id": "1",
+            "title": "מידע על כל סוגי בעלי חיים לילדים"
+        }
+    ],
+
+    "ButtonMoreInfo": [{
+            "id": "1",
+            "title": "עוד מידע"
+        }
+
+    ],
+
+    "popUpInfoTitle": [
+
+        {
+            "id": "1",
+            "title": "ברוכים הבאים לספארי"
+        }
+    ],
+
+    "popUpInfoAboutInfo": [
+
+        {
+            "id": "1",
+            "title": "כאן אתה יכול ללמוד על בעלי חיים"
+        }
+    ],
+
+    "popUpInfoAboutHowUseApp": [
+
+        {
+            "id": "1",
+            "title": "כדי לקרוא על החיה שנבחרה , לחץ על התמונה של אותה חיה *"
+        },
+        {
+            "id": "2",
+            "title": "המשתמש יכול להאכיל את החיה לפי בחירתו, לאחר שהחיה אכלה תשמע את קולה *"
+        },
+        {
+            "id": "3",
+            "title": "אם משתמש אינו יודע מה החיה אוכלת, ישנה אפשרות ללחוץ על מידע *"
+        },
+        {
+            "id": "4",
+            "title": "המשתמש יכול לשלוח הודעה למנהל, אם יש בעיה או להוסיף חיה חדשה *"
+        },
+        {
+            "id": "5",
+            "title": "רק מנהל מערכת יכול להוסיף מידע חדש על בעלי חיים *"
+        }
+    ],
+
+    "popUpInfoButtonLetsStart": [
+
+        {
+            "id": "1",
+            "title": "בואו נתחיל"
+        }
+    ],
+
+    "optionsAppButton": [
+
+        {
+            "id": "1",
+            "title": "אפשרויות "
+        }
+    ],
+
+    "optionsAppInfoAboutOptionTitle": [
+
+        {
+            "id": "1",
+            "title": "הוספת חיה חדשה למאגר רק מנהל האתר יכול"
+        }
+    ],
+
+    "optionsAppInfoAboutOptionUserCanSendMessageTitle": [
+
+        {
+            "id": "1",
+            "title": ".אם אתה ממליץ חיה חדשה למאגר , תשלח הודעה למנהל האתר"
+        }
+    ],
+
+    "connectToAdmin": [
+
+        {
+            "id": "1",
+            "title": "התחברות מנהל האתר"
+        }
+    ],
+
+    "sendMessage": [
+
+        {
+            "id": "1",
+            "title": "שליחת הודעה"
+        }
+    ],
+
+    "ok": [
+
+        {
+            "id": "1",
+            "title": "המשך"
+        }
+    ],
+
+    "titleSendMessage": [
+
+        {
+            "id": "1",
+            "title": "לשלוח הודעה למנהל האתר"
+        }
+    ],
+
+    "close": [
+
+        {
+            "id": "1",
+            "title": "סגירה"
+        }
+    ],
+
+    "Send": [
+
+        {
+            "id": "1",
+            "title": "שליחה"
+        }
+    ],
+
+    "LoginAdmin": [
+
+        {
+            "id": "1",
+            "title": "התחברות מנהל האתר"
+        }
+    ],
+
+    "signIn": [
+
+        {
+            "id": "1",
+            "title": "כניסה"
+        }
+    ],
+
+    "infoAdmin": [
+
+        {
+            "id": "1",
+            "title": "! לחץ כדאי לראות אפשריות של מנהל האתר"
+        }
+    ],
+
+    "InfoAnimal": [
+
+        {
+            "id": "1",
+            "title": "מידע על  "
+        }
+    ],
+
+    "GoodInfoButton": [
+
+        {
+            "id": "1",
+            "title": "וואו מידע טוב"
+        }
+    ],
+
+    "Hi_I_AmTitle": [
+
+        {
+            "id": "1",
+            "title": "היי אני"
+        }
+    ],
+
+    "i_am_hungryTitle": [
+
+        {
+            "id": "1",
+            "title": "אני רעב"
+        }
+    ],
+
+    "Give_me_foodTitle": [
+
+        {
+            "id": "1",
+            "title": "תאכיל אותי"
+        }
+    ],
+
+    "optionsTitle": [
+
+        {
+            "id": "1",
+            "title": "בחר אחת מהאפשריות הבאים"
+        }
+    ],
+
+    "optionsSelectTitle": [
+
+        {
+            "id": "1",
+            "title": "בחר תמונה או הקלט טקסט"
+        }
+    ],
+
+    "DontKnowWhatAnimalEatTitle": [
+
+        {
+            "id": "1",
+            "title": "אם אתה לא יודע מה"
+        }
+    ],
+
+    "Click_to_InfoTitle": [
+
+        {
+            "id": "1",
+            "title": "אוכל תלחץ על כפתור מידע"
+        }
+    ],
+
+    "inputEatAnimalTitle": [
+
+        {
+            "id": "1",
+            "title": "בבקשה הקלט מה החיה צריכה לאכול"
+        }
+    ],
+
+    "ToFeedTitle": [
+
+        {
+            "id": "1",
+            "title": "להאכיל"
+        }
+    ],
+
+    "choose_imageTitle": [
+
+        {
+            "id": "1",
+            "title": "בבקשה בחר תמונה המתאימה"
+        }
+    ],
+
+    "SelectLanguageTitle": [
+
+        {
+            "id": "1",
+            "title": "בחר שפה המתאימה"
+        }
+    ],
+
+    "animalDontFoundInDataBaseTitle": [
+
+        {
+            "id": "1",
+            "title": ".לא קיימת חיה כזאת במאגר נתונים , תנסה שוב ℹ️"
+        }
+    ],
+
+    "animalDontFoundInDataBaseTitleSendToAdminMessage": [
+
+        {
+            "id": "1",
+            "title": "אתה יכול לשלוח הודעה למנהל האתר , אם אתה חושב שצריך חיה כזאת במאגר נתונים *"
+        }
+    ],
+
+    "need_input_what_animal_eat": [
+
+        {
+            "id": "1",
+            "title": "בבקשה הקלט מה אני צריך לאכול"
+        }
+    ],
+
+    "i_dont_eat_this": [
+
+        {
+            "id": "1",
+            "title": "): אני לא אוכל את זה"
+        }
+    ]
+
+}
