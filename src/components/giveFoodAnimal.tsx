@@ -106,8 +106,8 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
-        background: "rgba(0, 0, 0, 0.8)",
-        html: `<p class="popUpTextP3">${need_input_what_animal_eat}</p>`
+        background: "none",
+        html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${need_input_what_animal_eat}</p></div>`
       });
     }
     
@@ -117,9 +117,8 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
-        // position: "center",
-        background: "rgba(0, 0, 0, 0.8)",
-        html: `<p class="popUpTextP3">${i_dont_eat_this}</p>`
+        background: "none",
+        html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${i_dont_eat_this}</p></div>`
       });
     }
   };

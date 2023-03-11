@@ -364,11 +364,9 @@ html::-webkit-scrollbar-thumb {
     position: absolute;
 }
 
-.popUpGiveEat {
+.popUpGiveEat,
+.popUpGiveEatNotEat {
     position: relative;
-    text-align: center;
-    display: flex;
-    justify-content: center;
     text-align: center;
 }
 
@@ -380,6 +378,24 @@ html::-webkit-scrollbar-thumb {
 
 .soFull {
     height: 230px;
+    border-radius: 50%;
+}
+
+.popUpGiveEatNotEat {
+    object-fit: cover;
+    border-radius: 40px;
+    width: auto;
+}
+
+.popUpGiveEatNotEat p{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+.soFullNotEat {
+    height: 200px;
     border-radius: 50%;
 }
 

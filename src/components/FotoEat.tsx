@@ -58,8 +58,8 @@ const FotoEat: React.FC = () => {
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
-        background: "rgba(0, 0, 0, 0.8)",
-        html: `<p class="popUpTextP3">${i_dont_eat_this}</p>`,
+        background: "none",
+        html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${i_dont_eat_this}</p></div>`,
       });
     }
 
