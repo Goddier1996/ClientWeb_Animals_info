@@ -36,7 +36,7 @@ export default function OptionChangeLanguage() {
         style={
           currentLanguageCode == "en"
             ? { height: "45px", width: "45px" }
-            : { height: "45px", width: "45px", opacity: "0.5" }
+            : { height: "45px", width: "45px", opacity: "0.4" }
         }
         alt="en"
       />
@@ -46,7 +46,7 @@ export default function OptionChangeLanguage() {
         style={
           currentLanguageCode == "hw"
             ? { height: "50px", width: "55px" }
-            : { height: "50px", width: "55px", opacity: "0.5" }
+            : { height: "50px", width: "55px", opacity: "0.4" }
         }
         alt="hw"
       />
