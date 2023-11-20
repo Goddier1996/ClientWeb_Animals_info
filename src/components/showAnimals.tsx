@@ -243,19 +243,6 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
                   <div className="card_title title-white">
                     <h6> {node.title}</h6>
-                    <img
-                      onClick={() =>
-                        start(
-                          node.sound,
-                          node.title,
-                          node.eat,
-                          node.notEatImage,
-                          node.eatImage
-                        )
-                      }
-                        src={require("../images/bowel1.png")}
-                        alt="give eat"
-                      ></img>
                   </div>
                 </div>
               ))}

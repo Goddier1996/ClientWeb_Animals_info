@@ -717,6 +717,14 @@ html::-webkit-scrollbar-thumb {
 }
 
 
+.g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin-top: -2.5%;
+    margin-bottom: 2%;
+}
+
+
 
 
 @media(max-width:991px) {

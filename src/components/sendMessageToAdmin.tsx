@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import { send } from "emailjs-com";
 import { Form, Modal, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 
 //this component user send message to gmail Admin , if user need new info animal , use this component in home.js
@@ -31,6 +33,8 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
 
   const optionsSend: any = SendChangeLanguage.map((node: any) => (node.title))
 
+    // check box if user not robot
+  const [capVal, setCapVal] = useState<any>(null);
 
 
   //value input to message
@@ -138,8 +142,17 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
         </Form.Group>
       </Modal.Body>
 
+
+      {/* check box if user don't robot */}
+      <ReCAPTCHA
+            className="g-recaptcha"
+            sitekey="6LdQBRYpAAAAAHNq2aSiwrJQDSZFvFtElGUWXzlP" 
+            onChange={(val) => setCapVal(val)}
+      />
+
+
       <div className="ButtonInfo">
-        <Button variant="success" onClick={onSubmit}>
+        <Button variant="success" disabled={!capVal} onClick={onSubmit}>
           {optionsSend}
         </Button>
 
