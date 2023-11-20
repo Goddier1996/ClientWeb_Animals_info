@@ -145,9 +145,9 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
 
       {/* check box if user don't robot */}
       <ReCAPTCHA
-            className="g-recaptcha"
-            sitekey="6LdQBRYpAAAAAHNq2aSiwrJQDSZFvFtElGUWXzlP" 
-            onChange={(val) => setCapVal(val)}
+          className="g-recaptcha"
+          sitekey="6LdQBRYpAAAAAHNq2aSiwrJQDSZFvFtElGUWXzlP" 
+          onChange={(val) => setCapVal(val)}
       />
 
 

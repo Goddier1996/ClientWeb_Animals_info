@@ -1,4 +1,3 @@
-import React from "react";
 import AnimalsModals from "../components/showAnimals";
 
 

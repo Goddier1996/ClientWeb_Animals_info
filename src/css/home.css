@@ -839,4 +839,8 @@ html::-webkit-scrollbar-thumb {
     .dontHaveThisValueInArray p {
         font-size: 13px;
     }
+
+    .popUpGiveEat img {
+        width: 250px;
+    }
 }

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "../css/home.css";
-import ImageEat from "../components/FotoEat";
-import InputEat from "../components/giveFoodAnimal";
+import ImageEat from "./FotoEat";
+import InputEat from "./giveFoodAnimal";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 

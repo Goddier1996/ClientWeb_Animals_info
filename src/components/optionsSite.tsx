@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/home.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
 import videoBg from "../images/animals-sound-kids-brave-2022-11-16-12-22-50_pFFaKSHG.mp4";
-import AddAnimal from "../components/AddAnimal";
-import SendMessage from "../components/sendMessageToAdmin";
-import DeleteInfo from "../components/deleteAnimal";
-import ChooseUpdatedAnimal from "../components/UpdatedInfoAnimal";
+import AddAnimal from "./AddAnimal";
+import SendMessage from "./sendMessageToAdmin";
+import DeleteInfo from "./deleteAnimal";
+import ChooseUpdatedAnimal from "./UpdatedInfoAnimal";
 import { LoadUserAdmin } from "../Server/LoadDataApi";
 import { useTranslation } from "react-i18next";
 
