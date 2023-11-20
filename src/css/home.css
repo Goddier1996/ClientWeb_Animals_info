@@ -264,7 +264,7 @@ html::-webkit-scrollbar-thumb {
 
 
 /* this image get animal food */
-.card_title p img {
+.card_title img {
     height: 82px;
     margin-top: 113px;
 }
@@ -387,7 +387,7 @@ html::-webkit-scrollbar-thumb {
     width: auto;
 }
 
-.popUpGiveEatNotEat p{
+.popUpGiveEatNotEat p {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     font-weight: 600;

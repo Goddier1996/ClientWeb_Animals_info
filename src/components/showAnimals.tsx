@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 
 
 
+
 //this in card ui style and load from node js data a animals name and sound commpoment active home.js for show
 const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
@@ -26,38 +27,40 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
       returnObjects: true,
     }
   );
-  const Welcome_To_Safari_popUp: any = Welcome_To_Safari_popUpChangeLanguage.map(
-    (node: any) => node.title
-  );
 
 
+  const Welcome_To_Safari_popUp: any =
+    Welcome_To_Safari_popUpChangeLanguage.map((node: any) => node.title);
+
+  
   const animalDontFoundInDataBaseTitleChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitle",
     {
       returnObjects: true,
     }
   );
-  const animalDontFoundInDataBaseTitle: any = animalDontFoundInDataBaseTitleChangeLanguage.map(
-    (node: any) => node.title
-  );
 
+  const animalDontFoundInDataBaseTitle: any =
+    animalDontFoundInDataBaseTitleChangeLanguage.map((node: any) => node.title);
 
+  
   const animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitleSendToAdminMessage",
     {
       returnObjects: true,
     }
   );
-  const animalDontFoundInDataBaseTitleSendToAdminMessage: any = animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage.map(
-    (node: any) => node.title
-  );
 
+  const animalDontFoundInDataBaseTitleSendToAdminMessage: any =
+    animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage.map(
+      (node: any) => node.title
+    );
 
+  
   //popup open or close , sound animal show popUp
   const [showGetFoodAnimal, setShowGetFoodAnimal] = useState(false);
   const handleCloseGetFoodAnimal = () => setShowGetFoodAnimal(false);
   const handleShowGetFoodAnimal = () => setShowGetFoodAnimal(true);
-
 
   //popup open or close , show info about animal
   const [showShowInfoAnimal, setShowShowInfoAnimal] = useState(false);
@@ -68,15 +71,17 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
   const [notesEnglishLanguage, SetNotesEnglishLanguage] = useState([] as any[]);
   const [notesHebrewLanguage, SetNotesHebrewLanguage] = useState([] as any[]);
 
-
   const [
     checkIfHaveValueWhenSearchEnglishLanguage,
     SetCheckIfHaveValueWhenSearchEnglishLanguage,
   ] = useState([] as any[]);
+
+
   const [
     checkIfHaveValueWhenSearchHebrewLanguage,
     SetCheckIfHaveValueWhenSearchHebrewLanguage,
   ] = useState([] as any[]);
+
 
 
   const [loading, setLoading] = useState(false);
@@ -157,7 +162,6 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
 
   useEffect(() => {
-
     SetCheckIfHaveValueWhenSearchEnglishLanguage(
       notesEnglishLanguage.filter((item: any) => {
         return item.title.toLowerCase().startsWith(query);
@@ -204,7 +208,8 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
                   <div className="card_title title-white">
                     <h6>{node.title}</h6>
-                    <p
+
+                    <img
                       onClick={() =>
                         start(
                           node.sound,
@@ -214,12 +219,9 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
                           node.eatImage
                         )
                       }
-                    >
-                      <img
-                        src={require("../images/bowel1.png")}
-                        alt="give eat"
-                      ></img>
-                    </p>
+                      src={require("../images/bowel1.png")}
+                      alt="give eat"
+                    ></img>
                   </div>
                 </div>
               ))
@@ -241,7 +243,7 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
                   <div className="card_title title-white">
                     <h6> {node.title}</h6>
-                    <p
+                    <img
                       onClick={() =>
                         start(
                           node.sound,
@@ -251,12 +253,9 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
                           node.eatImage
                         )
                       }
-                    >
-                      <img
                         src={require("../images/bowel1.png")}
                         alt="give eat"
                       ></img>
-                    </p>
                   </div>
                 </div>
               ))}
@@ -269,8 +268,8 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
                 alt="dont have this animal"
               />
               <br />
-                  <p>{ animalDontFoundInDataBaseTitle }</p>
-                  <p>{ animalDontFoundInDataBaseTitleSendToAdminMessage }</p>
+              <p>{animalDontFoundInDataBaseTitle}</p>
+              <p>{animalDontFoundInDataBaseTitleSendToAdminMessage}</p>
             </div>
           ) : (
             ""
@@ -278,7 +277,6 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
         </div>
       )}
 
-      
       {/* get a food animal */}
       <div>
         <Modal
@@ -304,7 +302,6 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
         </Modal>
       </div>
 
-      
       {/* show animal info model */}
       <div>
         <Modal
