@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# web Animals sound learn Kids - React TypeScript , NodeJs , Express , MongoDB
+ 
+This Web side Learn the kids sound animals and show images this animals , if user went add a new animal and sound he can.
+you need give food to Animal and you can listen a sound this Animal.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Add new Animal and delete info Or updated info Animal can only Admin
+  
+Link Web Side - https://animals-sound-info.web.app
 
-## Available Scripts
+Server this Web Side - https://github.com/Goddier1996/Server_Animals_info 
+  
+        
+# video : 
+ 
+https://user-images.githubusercontent.com/59862302/224503569-89884a6d-a18e-44f7-8de5-8dc5730f6c42.mp4
 
-In the project directory, you can run:
 
-### `npm start`
+# home page :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![1](https://user-images.githubusercontent.com/59862302/209565679-81ab2552-bfa9-45e7-b83a-8f134eb87641.jpg)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# change language EN or HW :
 
-### `npm test`
+![Screenshot 2023-03-11 172757](https://user-images.githubusercontent.com/59862302/224493036-98a35c67-1ba2-44b0-85b3-e90ef2be32e3.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# info This Web site : 
+ 
+![2](https://user-images.githubusercontent.com/59862302/209565714-bddd054e-8669-4ce8-9e63-4257c29177f6.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# start popUp :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![2](https://user-images.githubusercontent.com/59862302/199490995-fdc3eeab-539a-47f5-bf2e-218f8a7123a1.jpg)
 
-### `npm run eject`
+# send message :
+![3](https://user-images.githubusercontent.com/59862302/199491064-75b0a33c-704f-414a-a144-43c6d807a082.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# connect Admin :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![11](https://user-images.githubusercontent.com/59862302/199490636-f5c658b9-5da3-4c20-8886-31bbb672a9ae.jpg)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Choose Options Admin :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![1](https://user-images.githubusercontent.com/59862302/199711704-a75602e1-6985-42b8-9c65-a30d301dc833.jpg)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+# add new animal :
+
+![33](https://user-images.githubusercontent.com/59862302/199490436-4aff50e3-876d-4a79-8345-79709a063418.jpg)
+
+
+# Delete animal info :
+
+![44](https://user-images.githubusercontent.com/59862302/199490534-aa133456-105f-42fc-b255-bad0fb5f61a4.jpg)
+
+
+# Updated animal info :
+![2](https://user-images.githubusercontent.com/59862302/199711601-b02c4801-77ba-4f6b-a691-d23be72972a8.jpg)
+![22](https://user-images.githubusercontent.com/59862302/199711609-fd3514bf-0998-45ae-82c4-7bc5e0a468bd.jpg)
+
+
+# Choose How you give food to Animal :
+![32](https://user-images.githubusercontent.com/59862302/199492313-686ff685-c819-4e4d-84d6-1bbe6a1f44d2.jpg)
+
+
+# Give animal a food ( Input Text ) :
+
+![Screenshot 2022-08-18 161153](https://user-images.githubusercontent.com/59862302/185404150-86f69298-df43-4090-a848-505b67dad490.jpg)
+
+
+# Give animal a food ( Select Image ) :
+
+![7](https://user-images.githubusercontent.com/59862302/199491849-ea35f508-487a-4265-bd4c-9f9401a1089d.jpg)
+
+# end and sound this animal :
+
+![Screenshot 2022-08-18 161213](https://user-images.githubusercontent.com/59862302/185404289-7b618878-6f5e-44ca-ad2f-d28b8c5abc34.jpg)
