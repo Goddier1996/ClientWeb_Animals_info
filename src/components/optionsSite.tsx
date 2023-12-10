@@ -3,7 +3,6 @@ import "../css/home.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
-import videoBg from "../images/animals-sound-kids-brave-2022-11-16-12-22-50_pFFaKSHG.mp4";
 import AddAnimal from "./AddAnimal";
 import SendMessage from "./sendMessageToAdmin";
 import DeleteInfo from "./deleteAnimal";
@@ -201,7 +200,8 @@ export const OptionsSite = () => {
 
   const AdminInfo = async () => {
     Swal.fire({
-      html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline src=${videoBg}></video></div>`,
+      html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline 
+      src="https://github.com/Goddier1996/ClientWebSite_Animals_info/assets/59862302/1c14d40a-e777-446c-a076-2a09b74ec42e"</video></div>`,
       confirmButtonText: "Wow",
       background: "rgba(0, 0, 0, 0.501)",
       confirmButtonColor: "#2d79b5",

@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import { useState } from "react";
 import "../css/home.css";
 import { Form, Modal, Button } from "react-bootstrap";
 import Swal from "sweetalert2";

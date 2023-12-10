@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../css/home.css";
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
@@ -72,8 +72,11 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
     }
     else {
       e.preventDefault();
-
-      send("service_yn0kl3e", "template_gqgk97g", toSend, "sLQgUkQWpIKuhuhfD")
+      
+      send(process.env.REACT_APP_KEY_EMAIL || "",
+        process.env.REACT_APP_TEMPLATE || "",
+        toSend,
+        process.env.REACT_APP_PASSWORD || "")
         .then((response) => {
           Swal.fire({
             position: "top",
@@ -146,7 +149,7 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({ closeModelEmail,
       {/* check box if user don't robot */}
       <ReCAPTCHA
           className="g-recaptcha"
-          sitekey="6LdQBRYpAAAAAHNq2aSiwrJQDSZFvFtElGUWXzlP" 
+          sitekey={process.env.REACT_APP_RECAPTCHA || ""} 
           onChange={(val) => setCapVal(val)}
       />
 

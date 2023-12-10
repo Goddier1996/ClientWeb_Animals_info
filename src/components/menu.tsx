@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../css/home.css";
 import { Button, Modal } from "react-bootstrap";
 import OptionsSite from "./optionsSite";

@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/home.css";
 import { API } from "../Server/API";
 import { Form, Modal } from "react-bootstrap";

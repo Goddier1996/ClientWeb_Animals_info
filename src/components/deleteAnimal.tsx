@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/home.css";
 import { Modal } from "react-bootstrap";
 import Swal from "sweetalert2";

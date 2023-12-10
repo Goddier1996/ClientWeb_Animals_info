@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/home.css";
 import { Form, Modal } from "react-bootstrap";
 import AddFoodAnimal from "./addFoodAnimal";
@@ -157,6 +157,7 @@ const AnimalsModals: React.FC<{ query: string }> = ({ query }) => {
 
   useEffect(() => {
     LoadAllNotes();
+
   }, []);
 
 

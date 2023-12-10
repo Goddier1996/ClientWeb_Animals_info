@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import { useState } from "react";
 import { Button, Form, Popover, OverlayTrigger } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";

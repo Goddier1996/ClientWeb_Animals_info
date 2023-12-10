@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
