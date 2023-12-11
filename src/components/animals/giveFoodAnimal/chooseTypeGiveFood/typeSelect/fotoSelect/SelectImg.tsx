@@ -24,6 +24,7 @@ const SelectImg: React.FC<{ eatOrNo: string }> = ({ eatOrNo }) => {
     
     if (eat == "Not Eat") {
       Swal.fire({
+        allowOutsideClick: false,
         position: "center",
         confirmButtonColor: "green",
         background: "none",
@@ -37,6 +38,7 @@ const SelectImg: React.FC<{ eatOrNo: string }> = ({ eatOrNo }) => {
       audio.play();
 
       Swal.fire({
+        allowOutsideClick: false,
         position: "center",
         confirmButtonColor: "green",
         background: "none",
