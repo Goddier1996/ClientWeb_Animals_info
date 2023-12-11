@@ -12,6 +12,17 @@ export async function LoadAllCardsAnimals() {
 
 
 
+export async function LoadInfoIdAnimal(Serial_code:string) {
+    
+    let res = await fetch(`${API.NODE.GET}/${Serial_code}`, { method: 'GET' });
+
+    let data = await res.json();
+
+    return data;
+}
+
+
+
 export async function LoadAllCardsAnimalsHebrewLanguage() {
 
     let res = await fetch(`${API.NODE.GET}/hebrewLanguage`, { method: "GET" });

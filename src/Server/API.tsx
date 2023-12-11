@@ -12,5 +12,6 @@ export const API = {
 
   USER: {
     GET: `${Config.API.BASE}/api/admin`,
+    LOGIN: `${Config.API.BASE}/api/admin/login`
   },
 };

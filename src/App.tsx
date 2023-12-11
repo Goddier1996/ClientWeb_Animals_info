@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
-import Menu from "./components/menu";
-import Fotter from "./components/fotter";
-import { NotFoundPage } from "./components/NotFoundPage";
-import SearchAnimals from "./components/searchAnimals";
+import Menu from "./components/Menu";
+import Fotter from "./components/Fotter";
+import  NotFoundPage  from "./components/tools/NotFoundPage";
+import SearchAnimals from "./components/search/SearchAnimals";
 
 
 function App() {

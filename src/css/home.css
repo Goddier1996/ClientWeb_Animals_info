@@ -267,32 +267,30 @@ html::-webkit-scrollbar-thumb {
 .card_title img {
     height: 82px;
     margin-top: 113px;
-    -webkit-animation: spin 5s linear infinite;
-    -moz-animation: spin 5s linear infinite;
-    animation: spin 10s linear infinite;
+    animation: spin 2s infinite;
 }
 
 .card_title img:hover {
     opacity: 0.9;
+    animation: none;
 }
 
 
 @-moz-keyframes spin {
     50% {
-        -moz-transform: rotate(15deg);
+        height: 77px;
     }
 }
 
 @-webkit-keyframes spin {
     50% {
-        -webkit-transform: rotate(15deg);
+        height: 82px;
     }
 }
 
 @keyframes spin {
     50% {
-        -webkit-transform: rotate(15deg);
-        transform: rotate(15deg);
+        height: 77px;
     }
 }
 

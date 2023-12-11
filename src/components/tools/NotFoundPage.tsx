@@ -1,9 +1,8 @@
 import { Button } from "react-bootstrap";
-import "../css/NotFoundPage.css";
+import "../../css/NotFoundPage.css";
 
 
-
-export const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
 
   return (
     <>
@@ -41,3 +40,6 @@ export const NotFoundPage = () => {
     </>
   );
 };
+
+
+export default NotFoundPage;

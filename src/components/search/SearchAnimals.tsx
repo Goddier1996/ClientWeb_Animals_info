@@ -1,19 +1,17 @@
 import { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
-import Home from "../pages/home";
+import Home from "../../pages/home";
 
 
-// here Search animals from data base
+
 const SearchAnimals: React.FC = () => {
 
 
-  //save input value when search
-  const [query, setQuery] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
 
   
- // clear place input search
-  const clearSearch = () => {
-    setQuery("");
+  const clearInputSearch = () => {
+    setSearch("");
   };
 
 
@@ -27,17 +25,17 @@ const SearchAnimals: React.FC = () => {
           <input
             type="text"
             placeholder="Type to Search..."
-            id="search-query"
+            id="search"
             onChange={(event) => {
-              setQuery(event.target.value);
+              setSearch(event.target.value);
             }}
           />
-          <button type="reset" onClick={clearSearch}></button>
+          <button type="reset" onClick={clearInputSearch}></button>
         </form>
       </div>
 
       {/* send props input value Search */}
-      <Home query={query} />
+      <Home inputSearch={search} />
     </>
   );
 };

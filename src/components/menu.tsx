@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../css/home.css";
 import { Button, Modal } from "react-bootstrap";
-import OptionsSite from "./optionsSite";
-import OptionChangeLanguage from "./optionChangeLanguage";
+import OptionsSite from "./optionsSite/OptionsSite";
+import OptionChangeLanguage from "./tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 

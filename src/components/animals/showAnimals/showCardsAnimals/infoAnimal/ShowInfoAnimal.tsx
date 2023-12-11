@@ -1,11 +1,10 @@
-import "../css/home.css";
+import "../../../../../css/home.css";
 import { Modal, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 
 
 
-//this component show info about animal,active this compoment in showAnimal.js
 const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) => {
   
 
@@ -29,13 +28,6 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
 
 
   let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
-
-
-
-  const hideModel = () => {
-
-    hideModelInfo();
-  };
 
 
 
@@ -80,7 +72,7 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
         )}
 
         <div className="ButtonInfo">
-          <Button variant="success" onClick={hideModel}>
+          <Button variant="success" onClick={()=>hideModelInfo()}>
             {GoodInfoButton}
           </Button>
         </div>
@@ -88,5 +80,6 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function }> = ({ hideModelInfo }) =>
     </div>
   );
 };
+
 
 export default InfoAnimal;

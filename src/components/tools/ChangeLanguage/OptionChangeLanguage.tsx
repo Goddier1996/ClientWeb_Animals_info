@@ -3,7 +3,7 @@ import cookies from "js-cookie";
 
 
 
-export default function OptionChangeLanguage() {
+const OptionChangeLanguage: React.FC=()=> {
 
 
   // change language en or hw
@@ -21,9 +21,10 @@ export default function OptionChangeLanguage() {
 
   const onClickLanguageChange = (e: any) => {
 
-    i18n.changeLanguage(e); //change the language
+    i18n.changeLanguage(e);
   };
 
+  
   
   return (
 
@@ -50,6 +51,10 @@ export default function OptionChangeLanguage() {
         }
         alt="hw"
       />
+
     </div>
   );
 }
+
+
+export default OptionChangeLanguage;

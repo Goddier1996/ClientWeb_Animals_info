@@ -1,14 +1,16 @@
-import AnimalsModals from "../components/showAnimals";
+import AnimalsModals from "../components/animals/showAnimals/ShowAnimals";
 
 
-const Home: React.FC<{ query: string }> = ({ query }) => {
+// Home give value from SearchAnimals component !
+const Home: React.FC<{ inputSearch: string }> = ({ inputSearch }) => {
 
   return (
     <>
-      {/* here you active all card animals and sound with compoment showAnimals */}
-      <AnimalsModals query={query} />
+      {/* here active show all Animals */}
+      <AnimalsModals Search={inputSearch} />
     </>
   );
 };
+
 
 export default Home;

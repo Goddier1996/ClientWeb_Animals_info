@@ -31,3 +31,24 @@ export async function updateInDateAnimal(Animal: any, idAnimal: string) {
     console.log(error);
   }
 }
+
+
+
+export async function connectAdmin(userValue:any) {
+
+  try {
+    let res = await fetch(API.USER.LOGIN, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userValue),
+    });
+
+    let data = await res.json();
+
+    sessionStorage.setItem("adminInfo", JSON.stringify(data));
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import "../css/home.css";
+import "../../../css/home.css";
 import { Form, Modal, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { updateInDateAnimal } from "../Server/AddDataOrUpdatedApi";
-import { LoadAllCardsAnimals } from "../Server/LoadDataApi";
+import { updateInDateAnimal } from "../../../Server/AddDataOrUpdatedApi";
+import { LoadInfoIdAnimal } from "../../../Server/LoadDataApi";
 
 
 
-// in this components Updated a info animal what we choose , in ChooseUpdatedAnimal.js components
-const UpdatedInfo: React.FC = () => {
+const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
 
 
   //value input a Updated animal
@@ -22,18 +21,13 @@ const UpdatedInfo: React.FC = () => {
   const [notEatImage, setNotEatImage] = useState<string>("");
 
 
-  // take a id animal
-  let AnimalData = JSON.parse(sessionStorage.getItem("IdAnimalUpdated") as any);
-
-
   const [dataAnimal, SetDataAnimal] = useState({} as any);
-
 
 
   // here load a info animal with id data base
   const LoadAnimalInfo = async () => {
 
-    SetDataAnimal(await LoadAllCardsAnimals());
+    SetDataAnimal(await LoadInfoIdAnimal(idAnimal));
   };
 
 
@@ -52,7 +46,6 @@ const UpdatedInfo: React.FC = () => {
     ); // validate fragment locator
     return !!urlPattern.test(urlString);
   };
-
 
 
 
@@ -120,10 +113,8 @@ const UpdatedInfo: React.FC = () => {
         notEatImage: notEatImage,
         eatImage: eatImage,
       };
-
-    let id: string = AnimalData.idAnimal;
     
-    await updateInDateAnimal(Animal, id);
+    await updateInDateAnimal(Animal, idAnimal);
 
   };
 
@@ -131,7 +122,8 @@ const UpdatedInfo: React.FC = () => {
 
   useEffect(() => {
     LoadAnimalInfo();
-  }, []);
+
+  }, [idAnimal]);
 
 
 
@@ -230,5 +222,6 @@ const UpdatedInfo: React.FC = () => {
   );
   
 };
+
 
 export default UpdatedInfo;
