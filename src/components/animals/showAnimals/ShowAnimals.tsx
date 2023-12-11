@@ -95,7 +95,7 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
 
 
-  //here we save data animal from nodeJs database to session storage,and show popup where we input value what animal eat
+  //here we save data animal 
   const start = async (
     sound: string,
     name: string,

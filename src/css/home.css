@@ -267,18 +267,20 @@ html::-webkit-scrollbar-thumb {
 .card_title img {
     height: 82px;
     margin-top: 113px;
-    animation: spin 2s linear infinite;
+    animation: spin 2.5s linear infinite;
+    transition: transform 400ms ease-in-out;
 }
 
 .card_title img:hover {
     opacity: 0.9;
     animation: none;
+    transform: rotate(360deg);
 }
 
 
 @-moz-keyframes spin {
     50% {
-        height: 77px;
+        height: 75px;
     }
 }
 
@@ -290,7 +292,7 @@ html::-webkit-scrollbar-thumb {
 
 @keyframes spin {
     50% {
-        height: 77px;
+        height: 75px;
     }
 }
 
