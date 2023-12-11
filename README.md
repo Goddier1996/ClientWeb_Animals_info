@@ -10,10 +10,6 @@ Link Web Side - https://animals-sound-info.web.app
 Server this Web Side - https://github.com/Goddier1996/Server_Animals_info 
   
         
-# video : 
- 
-https://user-images.githubusercontent.com/59862302/224503569-89884a6d-a18e-44f7-8de5-8dc5730f6c42.mp4
-
 
 # home page :
 
