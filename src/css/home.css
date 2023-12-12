@@ -1,7 +1,9 @@
 body {
     background-color: #DDF6E3 !important;
     padding-right: 0px;
+    cursor: url("https://cur.cursors-4u.net/cursors/cur-2/cur111.cur"), pointer;
 }
+
 
 /* desgin scroll in web */
 html::-webkit-scrollbar-track {
@@ -645,8 +647,8 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     margin-top: 2%;
-    cursor: pointer;
 }
+
 
 .search-box {
     font-size: 16px;
@@ -727,6 +729,7 @@ html::-webkit-scrollbar-thumb {
     opacity: 0;
     transition: transform 150ms ease-out, opacity 150ms ease-out;
 }
+
 
 
 .g-recaptcha {
