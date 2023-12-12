@@ -5,7 +5,7 @@ import OverlayTriggerWhatAnimalEat from "../tools/OverlayTriggerWhatAnimalEat";
 
 
 
-const FotoEat: React.FC = () => {
+const FotoEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
 
 
   // change language en or hw
@@ -17,23 +17,23 @@ const FotoEat: React.FC = () => {
 
       {/* here info if user don't know what animal eat */}
       <div className="titleHeaterHelp">
-         <OverlayTriggerWhatAnimalEat/>
+        <OverlayTriggerWhatAnimalEat dataAnimal={dataAnimal } />
       </div>
 
       
       <div className="titleHeaterInfo">
         {(currentLanguageCode == "hw") ?
-            <DontKnowWhatAnimalEat/>
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title } />
           :
-          <DontKnowWhatAnimalEat/>
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title }/>
       }
       </div>
 
       <br />
 
       <div className="chioseImage">
-        <SelectImg eatOrNo={"Eat"} />
-        <SelectImg eatOrNo={"Not Eat"} />
+        <SelectImg eatOrNo={"Eat"} dataAnimal={ dataAnimal} />
+        <SelectImg eatOrNo={"Not Eat"} dataAnimal={ dataAnimal} />
       </div>
 
       <br />

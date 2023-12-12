@@ -21,6 +21,8 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
   const { t } = useTranslation(["home"]);
   const currentLanguageCode = cookies.get("i18next") || "en";
 
+  const [idAnimal, setIdAnimal] = useState();
+
 
   
   const animalDontFoundInDataBaseTitleChangeLanguage: any = t(
@@ -96,22 +98,9 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
 
   //here we save data animal 
-  const start = async (
-    sound: string,
-    name: string,
-    eat: string,
-    notEatImage: string,
-    eatImage: string
-  ) => {
-    let animal = {
-      name: name,
-      eat: eat,
-      sound: sound,
-      eatImage: eatImage,
-      notEatImage: notEatImage,
-    };
+  const start = async (id:any) => {
 
-    sessionStorage.setItem("animal", JSON.stringify(animal));
+    setIdAnimal(id);
 
     //show popup
     handleShowGetFoodAnimal();
@@ -120,18 +109,9 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
 
   //here we save data animal from nodeJs json file to session storage,and show popup about Animal show info
-  const clickToImageForInfo = async (
-    info: string,
-    imageInfo: string,
-    name: string
-  ) => {
-    let animal = {
-      name: name,
-      info: info,
-      image: imageInfo,
-    };
+  const clickToImageForInfo = async (id:any) => {
 
-    sessionStorage.setItem("animal", JSON.stringify(animal));
+    setIdAnimal(id);
 
     handleShowShowInfoAnimal();
   };
@@ -176,12 +156,12 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
           {currentLanguageCode == "en"
               ? checkIfHaveValueWhenSearchEnglishLanguage.map((node) => (
                 <>
-                <CardAnimals node={node} clickToImageForInfo={clickToImageForInfo} start={start}/>
+                  <CardAnimals node={node} clickToImageForInfo={clickToImageForInfo} start={start} />
                 </>
               ))
               : checkIfHaveValueWhenSearchHebrewLanguage.map((node) => (
                 <>
-                <CardAnimals node={node} clickToImageForInfo={clickToImageForInfo} start={start}/>
+                <CardAnimals node={node} clickToImageForInfo={clickToImageForInfo} start={start} />
                 </>
               ))}
 
@@ -199,13 +179,13 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
       {/* get a food animal */}
       <div>
-        <ModelGetFood showGetFoodAnimal={showGetFoodAnimal} handleCloseGetFoodAnimal={()=>handleCloseGetFoodAnimal} />
+        <ModelGetFood showGetFoodAnimal={showGetFoodAnimal} handleCloseGetFoodAnimal={()=>handleCloseGetFoodAnimal} idAnimal={idAnimal }/>
       </div>
 
       
       {/* show animal info model */}
       <div>
-        <ModelInfoAnimal showShowInfoAnimal={showShowInfoAnimal} hideModelInfoAnimal={()=>handleCloseInfoAnimal}/>
+        <ModelInfoAnimal showShowInfoAnimal={showShowInfoAnimal} hideModelInfoAnimal={() => handleCloseInfoAnimal} idAnimal={idAnimal } />
       </div>
       
     </div>

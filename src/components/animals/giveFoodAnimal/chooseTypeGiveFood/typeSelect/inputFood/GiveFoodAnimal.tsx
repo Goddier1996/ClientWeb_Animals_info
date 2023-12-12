@@ -5,7 +5,7 @@ import InputValue from "./InputValue";
 
 
 //here component we add to animal food and check if this he eat,show popup,use in AddFoodAnimal components
-const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
+const InputEat: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({hideModelFood,dataAnimal}) => {
 
 
   // change language en or hw
@@ -17,22 +17,22 @@ const InputEat: React.FC<{ hideModelFood: Function }> = ({hideModelFood}) => {
 
       {/* here info if user don't know what animal eat */}
       <div className="titleHeaterHelp">
-        <OverlayTriggerWhatAnimalEat/>
+        <OverlayTriggerWhatAnimalEat dataAnimal={dataAnimal} />
       </div>
 
       
 
       <div className="titleHeaterInfo">
         {(currentLanguageCode == "hw") ?
-          <DontKnowWhatAnimalEat/>
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title } />
           :
-          <DontKnowWhatAnimalEat/>
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title }/>
       }
       </div>
 
       {/* here input value what animal eat */}
       <br />
-      <InputValue hideModelFood={ hideModelFood} />
+      <InputValue hideModelFood={ hideModelFood} dataAnimal={dataAnimal} />
       
     </div>
   );

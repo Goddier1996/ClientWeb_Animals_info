@@ -1,6 +1,8 @@
 import { Button, Form, Modal } from "react-bootstrap";
 import ImageEat from "./typeSelect/fotoSelect/FotoEat";
 import InputEat from "./typeSelect/inputFood/GiveFoodAnimal";
+import cookies from "js-cookie";
+
 
 
 const ModelTypeSelectGiveEat: React.FC<{
@@ -8,7 +10,12 @@ const ModelTypeSelectGiveEat: React.FC<{
   onHide: any;
   title: string;
   typeSelect: string;
-}> = ({ show, onHide, title, typeSelect }) => {
+  dataAnimalId: any
+  dataAnimalInfoHebrewLanguage:any
+}> = ({ show, onHide, title, typeSelect,dataAnimalId,dataAnimalInfoHebrewLanguage }) => {
+
+
+  const currentLanguageCode = cookies.get("i18next") || "en";
 
 
   return (
@@ -22,7 +29,8 @@ const ModelTypeSelectGiveEat: React.FC<{
           {typeSelect == "imgSelect" ? (
             <>
               <Form>
-                <ImageEat />
+                {currentLanguageCode == "hw" ? <ImageEat dataAnimal={dataAnimalInfoHebrewLanguage} /> :
+                  <ImageEat dataAnimal={dataAnimalId} />}
               </Form>
 
               <div className="buttonExit">
@@ -34,7 +42,8 @@ const ModelTypeSelectGiveEat: React.FC<{
           ) : typeSelect == "inputValue" ? (
             <>
               <Form>
-                <InputEat hideModelFood={onHide} />
+                  {currentLanguageCode == "hw" ? <InputEat hideModelFood={onHide} dataAnimal={dataAnimalInfoHebrewLanguage} /> :
+                    <InputEat hideModelFood={onHide} dataAnimal={dataAnimalId} />}
               </Form>
             </>
           ) : (

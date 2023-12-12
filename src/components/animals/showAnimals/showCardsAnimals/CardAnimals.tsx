@@ -15,7 +15,7 @@ const CardAnimals: React.FC<{
             src={node.image}
             alt="image animal"
             onClick={() =>
-              clickToImageForInfo(node.infoAnimal, node.infoImage, node.title)
+              clickToImageForInfo(node._id)
             }
           />
         </div>
@@ -25,13 +25,7 @@ const CardAnimals: React.FC<{
 
           <img
             onClick={() =>
-              start(
-                node.sound,
-                node.title,
-                node.eat,
-                node.notEatImage,
-                node.eatImage
-              )
+              start(node._id)
             }
             src={require("../../../../images/bowel1.png")}
             alt="give eat"

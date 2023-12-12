@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 
-const ShowTitleNameAnimal: React.FC = ({ }) => {
+const ShowTitleNameAnimal: React.FC<{idAnimal:any}> = ({ idAnimal}) => {
     
   // change language en or hw
   const { t } = useTranslation(["home"]);
@@ -31,13 +31,15 @@ const ShowTitleNameAnimal: React.FC = ({ }) => {
   );
 
     
-  let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
-    
   return (
     <>
       <h1>
-        {InfoAnimalTitle} {animalData.name} {i_am_hungryTitle}{" "}
+        {InfoAnimalTitle }
+        
+        {" "}{idAnimal.title},{" "}
+        
+        {i_am_hungryTitle}{" "}
         <img
           src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg"
           alt="image animal"

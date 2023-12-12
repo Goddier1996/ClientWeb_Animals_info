@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 
 
-const SelectImg: React.FC<{ eatOrNo: string }> = ({ eatOrNo }) => {
+const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:any }> = ({ eatOrNo,dataAnimal }) => {
 
 
   const { t } = useTranslation(["home"]);
@@ -34,7 +34,7 @@ const SelectImg: React.FC<{ eatOrNo: string }> = ({ eatOrNo }) => {
 
     if (eat == "Eat") {
       //play sound animal
-      let audio = new Audio(animalData.sound);
+      let audio = new Audio(dataAnimal.sound);
       audio.play();
 
       Swal.fire({
@@ -46,7 +46,6 @@ const SelectImg: React.FC<{ eatOrNo: string }> = ({ eatOrNo }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.reload();
-          sessionStorage.clear();
         }
       });
     }
@@ -57,7 +56,7 @@ const SelectImg: React.FC<{ eatOrNo: string }> = ({ eatOrNo }) => {
   return (
     <>
       <img
-        src={eatOrNo == "Eat" ? animalData.eatImage : animalData.notEatImage}
+        src={eatOrNo == "Eat" ? dataAnimal.eatImage : dataAnimal.notEatImage}
         alt="photo eat"
         onClick={() => {
           GetEatToAnimal(eatOrNo);

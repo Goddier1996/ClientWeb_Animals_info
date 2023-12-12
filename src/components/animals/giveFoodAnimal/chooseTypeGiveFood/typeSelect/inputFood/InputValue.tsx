@@ -5,8 +5,9 @@ import Swal from "sweetalert2";
 
 
 
-const InputValue: React.FC<{ hideModelFood: Function }> = ({
+const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
   hideModelFood,
+  dataAnimal
 }) => {
 
 
@@ -46,16 +47,15 @@ const InputValue: React.FC<{ hideModelFood: Function }> = ({
     
   const [eat, setEat] = useState<string>("");
 
-  let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
-    
     
   //get animal and check input value,and lesten sound animal
   const GetEatToAnimal = async () => {
+
     //if input was == value from nodeJs , we save in session storge before this easy use now for check
-    if (animalData.eat == eat.toLowerCase()) {
+    if (dataAnimal.eat == eat.toLowerCase()) {
       //play sound animal
-      let audio = new Audio(animalData.sound);
+      let audio = new Audio(dataAnimal.sound);
       audio.play();
 
       Swal.fire({
@@ -66,7 +66,6 @@ const InputValue: React.FC<{ hideModelFood: Function }> = ({
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.reload();
-          sessionStorage.clear();
         }
       });
     }
@@ -79,7 +78,7 @@ const InputValue: React.FC<{ hideModelFood: Function }> = ({
         background: "none",
         html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${need_input_what_animal_eat}</p></div>`,
       });
-    } else if (animalData.eat != eat) {
+    } else if (dataAnimal.eat != eat) {
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",

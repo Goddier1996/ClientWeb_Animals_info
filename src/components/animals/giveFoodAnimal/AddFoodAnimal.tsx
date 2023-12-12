@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../../css/home.css";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 import SelectTypeGiveEat from "./chooseTypeGiveFood/SelectTypeGiveEat";
 import ModelTypeSelectGiveEat from "./chooseTypeGiveFood/ModelTypeSelectGiveEat";
 import ShowTitleNameAnimal from "./chooseTypeGiveFood/ShowTitleNameAnimal";
+import {
+  LoadInfoIdAnimal,
+  LoadAnimalInfoIdHebrewLanguage,
+} from "../../../Server/LoadDataApi";
+import Loading from "../../tools/Loading";
 
 
 
-const AddFoodAnimal: React.FC = () => {
+const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
 
 
   // change language en or hw
@@ -35,9 +40,7 @@ const AddFoodAnimal: React.FC = () => {
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
   });
-  const closeTitle: any = closeChangeLanguage.map(
-    (node: any) => node.title
-  );
+  const closeTitle: any = closeChangeLanguage.map((node: any) => node.title);
 
 
 
@@ -53,40 +56,101 @@ const AddFoodAnimal: React.FC = () => {
   const handleShowInputTextEat = () => setShowInputTextEat(true);
 
 
+  const [dataAnimalInfo, setDataAnimalInfo] = useState<any>([]);
+
+  const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
+    useState<any>([]);
+
+  const [loading, setLoading] = useState(false);
+
+
+
+  const loadAnimalIdInfo = async () => {
+
+    try {
+      setLoading(true);
+
+      setDataAnimalInfo(await LoadInfoIdAnimal(idAnimal));
+
+      setDataAnimalInfoHebrewLanguage(
+        await LoadAnimalInfoIdHebrewLanguage(idAnimal)
+      );
+
+      setLoading(false); // Stop loading
+    } catch (error) {
+      setLoading(false); // Stop loading in case of error
+      console.error(error);
+    }
+  };
+
+
+
+  useEffect(() => {
+    loadAnimalIdInfo();
+  }, [idAnimal]);
+
+
 
   return (
     <div>
-      <div className="titleHeater">
-        {currentLanguageCode == "hw" ? (
-          <ShowTitleNameAnimal/>
-        ) : (
-          <ShowTitleNameAnimal/>
-        )}
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="titleHeater">
+            {currentLanguageCode == "hw" ? (
+              <ShowTitleNameAnimal idAnimal={dataAnimalInfoHebrewLanguage} />
+            ) : (
+              <ShowTitleNameAnimal idAnimal={dataAnimalInfo} />
+            )}
 
-        <p>
-          {optionsTitle}
-          <br />
-        </p>
-        <h6>
-          {optionsSelectTitle}
-          <br />
-        </h6>
-      </div>
+            <p>
+              {optionsTitle}
+              <br />
+            </p>
+            <h6>
+              {optionsSelectTitle}
+              <br />
+            </h6>
+          </div>
 
-      
-      {/* select type give eat animal img or input value */}
-      <div className="chioseInputOrImage">
-        <SelectTypeGiveEat imgSelect={"https://i.postimg.cc/SsP7gY7L/image.png"} handleShow={handleShowImageEat} typeSelect={"choose image"}/>
-        <SelectTypeGiveEat imgSelect={"https://i.postimg.cc/MpG0JYP0/pencil11.png"} handleShow={handleShowInputTextEat} typeSelect={"input text food"}/>
-      </div>
+            
+          {/* select type give eat animal img or input value */}
+          <div className="chioseInputOrImage">
+            <SelectTypeGiveEat
+              imgSelect={"https://i.postimg.cc/SsP7gY7L/image.png"}
+              handleShow={handleShowImageEat}
+              typeSelect={"choose image"}
+            />
+            <SelectTypeGiveEat
+              imgSelect={"https://i.postimg.cc/MpG0JYP0/pencil11.png"}
+              handleShow={handleShowInputTextEat}
+              typeSelect={"input text food"}
+            />
+          </div>
 
-      
-      {/* pop up choose image eat , active here to show component FotoEat.js */}
-        <ModelTypeSelectGiveEat show={showImageEat} onHide={handleCloseImageEat} title={closeTitle} typeSelect={"imgSelect"}/>
+            
+          {/* pop up choose image eat , active here to show component FotoEat.js */}
+          <ModelTypeSelectGiveEat
+            show={showImageEat}
+            onHide={handleCloseImageEat}
+            title={closeTitle}
+            typeSelect={"imgSelect"}
+            dataAnimalId={dataAnimalInfo}
+            dataAnimalInfoHebrewLanguage={dataAnimalInfoHebrewLanguage}
+          />
 
-      {/* pop up choose input value eat , active here to show component InputEat.js */}
-        <ModelTypeSelectGiveEat show={showInputTextEat} onHide={handleCloseInputTextEat} title={""} typeSelect={"inputValue"}/>
-
+          {/* pop up choose input value eat , active here to show component InputEat.js */}
+          <ModelTypeSelectGiveEat
+            show={showInputTextEat}
+            onHide={handleCloseInputTextEat}
+            title={""}
+            typeSelect={"inputValue"}
+            dataAnimalId={dataAnimalInfo}
+            dataAnimalInfoHebrewLanguage={dataAnimalInfoHebrewLanguage}
+          />
+        </>
+      )}
     </div>
   );
 };

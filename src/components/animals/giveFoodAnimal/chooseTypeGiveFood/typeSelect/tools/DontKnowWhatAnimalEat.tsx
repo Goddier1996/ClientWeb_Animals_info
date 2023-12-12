@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 
-const DontKnowWhatAnimalEat: React.FC = () => {
+const DontKnowWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
 
 
   const { t } = useTranslation(["home"]);
@@ -32,14 +32,11 @@ const DontKnowWhatAnimalEat: React.FC = () => {
   );
 
     
-  let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
-    
-    
   return (
     <>
       <p>
-        {DontKnowWhatAnimalEatTitle} {animalData.name} {Click_to_InfoTitle}
+        {DontKnowWhatAnimalEatTitle} {dataAnimal} {Click_to_InfoTitle}
         <br />
         <br />
         {choose_imageTitle}
@@ -47,7 +44,6 @@ const DontKnowWhatAnimalEat: React.FC = () => {
     </>
   );
 };
-
 
 
 export default DontKnowWhatAnimalEat;
