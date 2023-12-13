@@ -6,7 +6,6 @@ const OptionAddNewAnimal: React.FC<{ handleCloseAddNewAnimal: Function }> = ({
   handleCloseAddNewAnimal,
 }) => {
 
-
   return (
     <>
       <p

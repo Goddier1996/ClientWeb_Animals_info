@@ -4,19 +4,20 @@ import { Modal } from "react-bootstrap";
 import { LoadAllCardsAnimals } from "../../../Server/LoadDataApi";
 import PopUpUpdated from "./PopUpUpdated";
 import ShowCardsAnimals from "./ShowCardsAnimals";
+import {AnimalsInfo} from "../../../interface/info.model"
 
 
 
 const ChooseUpdatedAnimal: React.FC = () => {
 
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState<boolean>(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const [saveIdAnimal, setSaveIdAnimal] = useState<string>("");
 
-  const [animals, SetAnimals] = useState([] as any[]);
+  const [animals, SetAnimals] = useState<AnimalsInfo[]>([]);
 
 
 

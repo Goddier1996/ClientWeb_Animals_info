@@ -5,11 +5,9 @@ import AddFoodAnimal from "../../giveFoodAnimal/AddFoodAnimal";
 const ModelGetFood: React.FC<{
   showGetFoodAnimal: boolean;
   handleCloseGetFoodAnimal: Function;
-  idAnimal:any
+  idAnimal:string
 }> = ({ showGetFoodAnimal, handleCloseGetFoodAnimal,idAnimal }) => {
 
-
-  
 
   return (
     <>

@@ -1,10 +1,9 @@
 
-
 const CheckIfHaveThisAnimals: React.FC<{
     checkIfHaveValueWhenSearchEnglishLanguage: number;
     checkIfHaveValueWhenSearchHebrewLanguage: number;
-    animalDontFoundInDataBaseTitle: string;
-    animalDontFoundInDataBaseTitleSendToAdminMessage: string;
+    animalDontFoundInDataBaseTitle: String;
+    animalDontFoundInDataBaseTitleSendToAdminMessage: String;
 }> = ({
   checkIfHaveValueWhenSearchEnglishLanguage,
   checkIfHaveValueWhenSearchHebrewLanguage,

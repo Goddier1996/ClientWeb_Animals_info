@@ -1,6 +1,4 @@
-
 import {Config} from './config';
-
 
 export const API = {
   NODE: {

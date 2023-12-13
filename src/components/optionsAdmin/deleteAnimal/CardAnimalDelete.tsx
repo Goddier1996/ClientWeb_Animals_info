@@ -1,8 +1,10 @@
 import Swal from "sweetalert2";
 import { DeleteAnimal } from "../../../Server/DeleteDataApi";
+import {AnimalsInfo} from "../../../interface/info.model"
 
 
-const CardAnimalDelete: React.FC<{ data: any }> = ({ data }) => {
+
+const CardAnimalDelete: React.FC<{ data: AnimalsInfo }> = ({ data }) => {
 
 
 

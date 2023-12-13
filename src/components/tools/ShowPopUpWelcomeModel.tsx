@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 
 
-
 const ShowPopUpWelcomeModel: React.FC = () => {
 
 
@@ -15,7 +14,7 @@ const ShowPopUpWelcomeModel: React.FC = () => {
       returnObjects: true,
     }
   );
-  const Welcome_To_Safari_popUp: any =
+  const Welcome_To_Safari_popUp: String =
     Welcome_To_Safari_popUpChangeLanguage.map((node: any) => node.title);
 
   

@@ -3,13 +3,13 @@ import "../../../css/home.css";
 import { Modal } from "react-bootstrap";
 import { LoadAllCardsAnimals } from "../../../Server/LoadDataApi";
 import CardAnimalDelete from "./CardAnimalDelete";
-
+import {AnimalsInfo} from "../../../interface/info.model"
 
 
 const DeleteInfo: React.FC = () => {
 
 
-  const [animals, SetAnimals] = useState([] as any[]);
+  const [animals, SetAnimals] = useState<AnimalsInfo[]>([]);
 
 
   const LoadAllNotes = async () => {

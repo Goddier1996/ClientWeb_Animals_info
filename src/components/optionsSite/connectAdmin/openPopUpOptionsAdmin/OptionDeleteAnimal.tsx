@@ -6,7 +6,6 @@ const OptionDeleteAnimal: React.FC<{ handleCloseDeleteAnimal: Function }> = ({
   handleCloseDeleteAnimal,
 }) => {
 
-
   return (
     <>
       <p

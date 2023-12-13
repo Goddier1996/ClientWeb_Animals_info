@@ -1,31 +1,32 @@
+import {AnimalsInfo} from "../../../../interface/info.model"
+
 
 const CardAnimals: React.FC<{
-  node: any;
+  dataAllAnimals: AnimalsInfo;
   clickToImageForInfo: Function;
   start: Function;
-}> = ({ node, clickToImageForInfo, start }) => {
-
+}> = ({ dataAllAnimals, clickToImageForInfo, start }) => {
 
 
   return (
     <>
-      <div key={node._id} className="cardx">
+      <div key={dataAllAnimals._id} className="cardx">
         <div className="card_image">
           <img
-            src={node.image}
+            src={dataAllAnimals.image}
             alt="image animal"
             onClick={() =>
-              clickToImageForInfo(node._id)
+              clickToImageForInfo(dataAllAnimals._id)
             }
           />
         </div>
 
         <div className="card_title title-white">
-          <h6>{node.title}</h6>
+          <h6>{dataAllAnimals.title}</h6>
 
           <img
             onClick={() =>
-              start(node._id)
+              start(dataAllAnimals._id)
             }
             src={require("../../../../images/bowel1.png")}
             alt="give eat"

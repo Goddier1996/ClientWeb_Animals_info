@@ -3,7 +3,7 @@ import "../../css/home.css";
 import { Form, Modal, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { addAnimal } from "../../Server/AddDataOrUpdatedApi";
-
+import {ValueAddOrUpdatedNewAnimal} from "../../interface/info.model"
 
 
 const AddAnimal: React.FC = () => {
@@ -93,7 +93,7 @@ const AddAnimal: React.FC = () => {
 
   const addNewAnimal = async () => {
 
-    let user = {
+    let user:ValueAddOrUpdatedNewAnimal = {
       title: title,
       sound: sound,
       image: image,

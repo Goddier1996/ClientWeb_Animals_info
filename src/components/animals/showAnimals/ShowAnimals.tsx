@@ -11,30 +11,31 @@ import CardAnimals from "./showCardsAnimals/CardAnimals";
 import CheckIfHaveThisAnimals from "./showCardsAnimals/checkIfHaveAnimals/CheckIfHaveThisAnimals";
 import ModelGetFood from "./showCardsAnimals/ModelGetFood";
 import ModelInfoAnimal from "./showCardsAnimals/infoAnimal/ModelInfoAnimal";
+import {AnimalsInfo} from "../../../interface/info.model"
 
 
 
 const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
 
+  const [idAnimal, setIdAnimal] = useState<string>("");
+
+
   // change language en or hw
   const { t } = useTranslation(["home"]);
   const currentLanguageCode = cookies.get("i18next") || "en";
 
-  const [idAnimal, setIdAnimal] = useState();
 
-
-  
   const animalDontFoundInDataBaseTitleChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitle",
     {
       returnObjects: true,
     }
   );
-
-  const animalDontFoundInDataBaseTitle: any =
+  const animalDontFoundInDataBaseTitle: String =
     animalDontFoundInDataBaseTitleChangeLanguage.map((node: any) => node.title);
 
+  
   
   const animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitleSendToAdminMessage",
@@ -42,40 +43,38 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
       returnObjects: true,
     }
   );
-
-  const animalDontFoundInDataBaseTitleSendToAdminMessage: any =
+  const animalDontFoundInDataBaseTitleSendToAdminMessage: String =
     animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage.map(
       (node: any) => node.title
     );
 
   
+  
   //popup open or close , sound animal show popUp
-  const [showGetFoodAnimal, setShowGetFoodAnimal] = useState(false);
+  const [showGetFoodAnimal, setShowGetFoodAnimal] = useState<boolean>(false);
   const handleCloseGetFoodAnimal = () => setShowGetFoodAnimal(false);
   const handleShowGetFoodAnimal = () => setShowGetFoodAnimal(true);
 
   //popup open or close , show info about animal
-  const [showShowInfoAnimal, setShowShowInfoAnimal] = useState(false);
+  const [showShowInfoAnimal, setShowShowInfoAnimal] = useState<boolean>(false);
   const handleCloseInfoAnimal = () => setShowShowInfoAnimal(false);
   const handleShowShowInfoAnimal = () => setShowShowInfoAnimal(true);
 
   //save for show all models animals from nodejs json file
-  const [notesEnglishLanguage, SetNotesEnglishLanguage] = useState([] as any[]);
-  const [notesHebrewLanguage, SetNotesHebrewLanguage] = useState([] as any[]);
+  const [notesEnglishLanguage, SetNotesEnglishLanguage] = useState<AnimalsInfo[]>([]);
+  const [notesHebrewLanguage, SetNotesHebrewLanguage] = useState<AnimalsInfo[]>([]);
 
   const [
     checkIfHaveValueWhenSearchEnglishLanguage,
     SetCheckIfHaveValueWhenSearchEnglishLanguage,
-  ] = useState([] as any[]);
-
+  ] = useState<AnimalsInfo[]>([]);
 
   const [
     checkIfHaveValueWhenSearchHebrewLanguage,
     SetCheckIfHaveValueWhenSearchHebrewLanguage,
-  ] = useState([] as any[]);
+  ] = useState<AnimalsInfo[]>([]);
 
-
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
 
 
@@ -98,7 +97,7 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
 
   //here we save data animal 
-  const start = async (id:any) => {
+  const start = async (id:string) => {
 
     setIdAnimal(id);
 
@@ -108,8 +107,8 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
 
 
 
-  //here we save data animal from nodeJs json file to session storage,and show popup about Animal show info
-  const clickToImageForInfo = async (id:any) => {
+  //show popup about Animal show info
+  const clickToImageForInfo = async (id:string) => {
 
     setIdAnimal(id);
 
@@ -125,17 +124,17 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
   }, []);
 
 
-
+// Saving language according to user's choice
   useEffect(() => {
 
     SetCheckIfHaveValueWhenSearchEnglishLanguage(
-      notesEnglishLanguage.filter((item: any) => {
+      notesEnglishLanguage.filter((item: AnimalsInfo) => {
         return item.title.toLowerCase().startsWith(Search);
       })
     );
 
     SetCheckIfHaveValueWhenSearchHebrewLanguage(
-      notesHebrewLanguage.filter((item: any) => {
+      notesHebrewLanguage.filter((item: AnimalsInfo) => {
         return item.title.toLowerCase().startsWith(Search);
       })
     );
@@ -154,14 +153,14 @@ const AnimalsModals: React.FC<{ Search: string }> = ({ Search }) => {
           
           {/* show cards Animals HE or EN */}
           {currentLanguageCode == "en"
-              ? checkIfHaveValueWhenSearchEnglishLanguage.map((node) => (
+              ? checkIfHaveValueWhenSearchEnglishLanguage.map((animal) => (
                 <>
-                  <CardAnimals node={node} clickToImageForInfo={clickToImageForInfo} start={start} />
+                  <CardAnimals dataAllAnimals={animal} clickToImageForInfo={clickToImageForInfo} start={start} />
                 </>
               ))
-              : checkIfHaveValueWhenSearchHebrewLanguage.map((node) => (
+              : checkIfHaveValueWhenSearchHebrewLanguage.map((animal) => (
                 <>
-                <CardAnimals node={node} clickToImageForInfo={clickToImageForInfo} start={start} />
+                <CardAnimals dataAllAnimals={animal} clickToImageForInfo={clickToImageForInfo} start={start} />
                 </>
               ))}
 

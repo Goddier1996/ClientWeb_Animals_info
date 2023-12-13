@@ -1,14 +1,14 @@
 
 const SelectTypeGiveEat: React.FC<{
-    imgSelect: string;
-    handleShow: any;
+  imgSelect: string;
+  handleShow: Function;
   typeSelect: string;
 }> = ({ imgSelect, handleShow, typeSelect }) => {
 
 
   return (
     <>
-      <img src={imgSelect} alt={typeSelect} onClick={()=>handleShow()}></img>
+      <img src={imgSelect} alt={typeSelect} onClick={() => handleShow()}></img>
     </>
   );
 };

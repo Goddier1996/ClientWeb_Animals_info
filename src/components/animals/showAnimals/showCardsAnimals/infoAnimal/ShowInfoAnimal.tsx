@@ -11,7 +11,7 @@ import Loading from "../../../../tools/Loading";
 
 
 
-const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: any }> = ({
+const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
   hideModelInfo,
   idAnimal,
 }) => {
@@ -25,7 +25,7 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: any }> = ({
   const InfoAnimalTitleChangeLanguage: any = t("InfoAnimal", {
     returnObjects: true,
   });
-  const InfoAnimalTitle: any = InfoAnimalTitleChangeLanguage.map(
+  const InfoAnimalTitle: String = InfoAnimalTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -33,7 +33,7 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: any }> = ({
   const GoodInfoButtonChangeLanguage: any = t("GoodInfoButton", {
     returnObjects: true,
   });
-  const GoodInfoButton: any = GoodInfoButtonChangeLanguage.map(
+  const GoodInfoButton: String = GoodInfoButtonChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -42,9 +42,9 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: any }> = ({
   const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
     useState<any>([]);
 
-  
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
+  
 
   const loadAnimalIdInfo = async () => {
 

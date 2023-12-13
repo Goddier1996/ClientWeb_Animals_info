@@ -3,7 +3,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { connectAdmin } from "../../../Server/AddDataOrUpdatedApi";
 import { useTranslation } from "react-i18next";
-
+import {ConnectAdminLogin} from "../../../interface/info.model"
 
 
 const LoginAdmin: React.FC<{
@@ -13,8 +13,9 @@ const LoginAdmin: React.FC<{
 
 
   //input data admin login
-  const [Login, setLogin] = useState("");
-  const [Password, setPassword] = useState("");
+  const [Login, setLogin] = useState<string>("");
+  const [Password, setPassword] = useState<string>("");
+
 
   // change Language
   const { t } = useTranslation(["home"]);
@@ -22,7 +23,7 @@ const LoginAdmin: React.FC<{
   const LoginAdminChangeLanguage: any = t("LoginAdmin", {
     returnObjects: true,
   });
-  const optionsLoginAdmin: any = LoginAdminChangeLanguage.map(
+  const optionsLoginAdmin: String = LoginAdminChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -30,7 +31,7 @@ const LoginAdmin: React.FC<{
   const signInChangeLanguage: any = t("signIn", {
     returnObjects: true,
   });
-  const optionsSignIn: any = signInChangeLanguage.map(
+  const optionsSignIn: String = signInChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -38,7 +39,7 @@ const LoginAdmin: React.FC<{
   const infoAdminChangeLanguage: any = t("infoAdmin", {
     returnObjects: true,
   });
-  const optionsInfoAdmin: any = infoAdminChangeLanguage.map(
+  const optionsInfoAdmin: String = infoAdminChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -46,7 +47,7 @@ const LoginAdmin: React.FC<{
     
   const ConnectToAdmin = async () => {
     
-    let userValue = {
+    let userValue:ConnectAdminLogin = {
       Login: Login,
       Password: Password,
     };
@@ -70,6 +71,7 @@ const LoginAdmin: React.FC<{
     
     
   const AdminInfo = async () => {
+
     Swal.fire({
       html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline 
           src="https://github.com/Goddier1996/ClientWeb_Animals_info/assets/59862302/370e88fe-b545-4a66-a7cc-f15ff6ab8be8"</video></div>`,
@@ -138,7 +140,6 @@ const LoginAdmin: React.FC<{
     </>
   );
 };
-
 
 
 export default LoginAdmin;

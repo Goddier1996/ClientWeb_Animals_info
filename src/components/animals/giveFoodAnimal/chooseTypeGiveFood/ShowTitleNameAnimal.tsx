@@ -10,7 +10,7 @@ const ShowTitleNameAnimal: React.FC<{idAnimal:any}> = ({ idAnimal}) => {
   const Hi_I_AmTitleChangeLanguage: any = t("Hi_I_AmTitle", {
     returnObjects: true,
   });
-  const InfoAnimalTitle: any = Hi_I_AmTitleChangeLanguage.map(
+  const InfoAnimalTitle: String = Hi_I_AmTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -18,7 +18,7 @@ const ShowTitleNameAnimal: React.FC<{idAnimal:any}> = ({ idAnimal}) => {
   const i_am_hungryTitleChangeLanguage: any = t("i_am_hungryTitle", {
     returnObjects: true,
   });
-  const i_am_hungryTitle: any = i_am_hungryTitleChangeLanguage.map(
+  const i_am_hungryTitle: String = i_am_hungryTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -26,7 +26,7 @@ const ShowTitleNameAnimal: React.FC<{idAnimal:any}> = ({ idAnimal}) => {
   const Give_me_foodTitleChangeLanguage: any = t("Give_me_foodTitle", {
     returnObjects: true,
   });
-  const Give_me_foodTitle: any = Give_me_foodTitleChangeLanguage.map(
+  const Give_me_foodTitle: String = Give_me_foodTitleChangeLanguage.map(
     (node: any) => node.title
   );
 

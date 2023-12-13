@@ -4,7 +4,6 @@ import ChooseUpdatedAnimal from "../../../optionsAdmin/updatedAnimal/UpdatedInfo
 
 const OptionUpdatedAnimal:React.FC<{ handleCloseUpdatedAnimal: Function }> = ({handleCloseUpdatedAnimal}) => {
 
-
   return (
       <>
        <p

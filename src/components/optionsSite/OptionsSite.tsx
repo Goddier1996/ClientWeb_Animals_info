@@ -30,7 +30,7 @@ export const OptionsSite: React.FC = () => {
       returnObjects: true,
     }
   );
-  const optionsTitle: any = optionsAppInfoAboutOptionChangeLanguage.map(
+  const optionsTitle: String = optionsAppInfoAboutOptionChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -41,7 +41,7 @@ export const OptionsSite: React.FC = () => {
       returnObjects: true,
     }
   );
-  const optionsTitleIfUserNeedNewAnimal: any =
+  const optionsTitleIfUserNeedNewAnimal: String =
     optionsAppInfoAboutOptionUserCanSendMessageTitleChangeLanguage.map(
       (node: any) => node.title
     );
@@ -50,7 +50,7 @@ export const OptionsSite: React.FC = () => {
   const connectToAdminChangeLanguage: any = t("connectToAdmin", {
     returnObjects: true,
   });
-  const optionsConnectToAdmin: any = connectToAdminChangeLanguage.map(
+  const optionsConnectToAdmin: String = connectToAdminChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -58,7 +58,7 @@ export const OptionsSite: React.FC = () => {
   const sendMessageChangeLanguage: any = t("sendMessage", {
     returnObjects: true,
   });
-  const optionsSendMessage: any = sendMessageChangeLanguage.map(
+  const optionsSendMessage: String = sendMessageChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -66,37 +66,37 @@ export const OptionsSite: React.FC = () => {
   const okChangeLanguage: any = t("ok", {
     returnObjects: true,
   });
-  const optionsOk: any = okChangeLanguage.map((node: any) => node.title);
+  const optionsOk: String = okChangeLanguage.map((node: any) => node.title);
 
 
 
   //pop up connect admin
-  const [showConnectAdmin, setShowConnectAdmin] = useState(false);
+  const [showConnectAdmin, setShowConnectAdmin] = useState<boolean>(false);
   const handleCloseConnectAdmin = () => setShowConnectAdmin(false);
   const handleShowConnectAdmin = () => setShowConnectAdmin(true);
 
   //popup send meesage to admin
-  const [showSendMessage, setShowSendMessage] = useState(false);
+  const [showSendMessage, setShowSendMessage] = useState<boolean>(false);
   const handleCloseSendMessage = () => setShowSendMessage(false);
   const handleShowSendMessage = () => setShowSendMessage(true);
 
   //popup chiose options add new animal , delete info animal , Updated info Animal
-  const [showOptionsAdmin, setShowOptionsAdmin] = useState(false);
+  const [showOptionsAdmin, setShowOptionsAdmin] = useState<boolean>(false);
   const handleCloseOptionsAdmin = () => setShowOptionsAdmin(false);
   const handleShowOptionsAdmin = () => setShowOptionsAdmin(true);
 
   //popup add new animal
-  const [showAddNewAnimal, setShowAddNewAnimal] = useState(false);
+  const [showAddNewAnimal, setShowAddNewAnimal] = useState<boolean>(false);
   const handleCloseAddNewAnimal = () => setShowAddNewAnimal(false);
   const handleShowAddNewAnimal = () => setShowAddNewAnimal(true);
 
   //popup delete info animal
-  const [showDeleteAnimal, setShowDeleteAnimal] = useState(false);
+  const [showDeleteAnimal, setShowDeleteAnimal] = useState<boolean>(false);
   const handleCloseDeleteAnimal = () => setShowDeleteAnimal(false);
   const handleShowDeleteAnimal = () => setShowDeleteAnimal(true);
 
   //popup Updated info Animal
-  const [showUpdatedAnimal, setShowUpdatedAnimal] = useState(false);
+  const [showUpdatedAnimal, setShowUpdatedAnimal] = useState<boolean>(false);
   const handleCloseUpdatedAnimal = () => setShowUpdatedAnimal(false);
   const handleShowUpdatedAnimal = () => setShowUpdatedAnimal(true);
 
@@ -104,6 +104,7 @@ export const OptionsSite: React.FC = () => {
 
   //pop up when you click + say if you went connect to admin show popup
   const clickToButtonAddPopUp = async () => {
+
     Swal.fire({
       position: "top",
       confirmButtonColor: "grey",
@@ -129,6 +130,7 @@ export const OptionsSite: React.FC = () => {
 
   // here admin chiose add new animal or delete , we send a number when onclick to button , and check with number what we need active
   const chioseForAdmin = async (chiose: number) => {
+    
     if (chiose == 1) {
       handleShowAddNewAnimal();
     }

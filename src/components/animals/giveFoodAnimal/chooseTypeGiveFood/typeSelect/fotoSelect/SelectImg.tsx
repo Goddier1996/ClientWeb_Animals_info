@@ -8,12 +8,11 @@ const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:any }> = ({ eatOrNo,dataA
 
   const { t } = useTranslation(["home"]);
 
-  let animalData = JSON.parse(sessionStorage.getItem("animal") as any);
 
   const i_dont_eat_thisChangeLanguage: any = t("i_dont_eat_this", {
     returnObjects: true,
   });
-  const i_dont_eat_this: any = i_dont_eat_thisChangeLanguage.map(
+  const i_dont_eat_this: String = i_dont_eat_thisChangeLanguage.map(
     (node: any) => node.title
   );
 

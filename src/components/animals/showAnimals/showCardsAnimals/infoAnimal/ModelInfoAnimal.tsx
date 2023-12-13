@@ -5,7 +5,7 @@ import InfoAnimal from "./ShowInfoAnimal";
 const ModelInfoAnimal: React.FC<{
   showShowInfoAnimal: boolean;
   hideModelInfoAnimal: Function;
-  idAnimal: any;
+  idAnimal: string;
 }> = ({ showShowInfoAnimal, hideModelInfoAnimal, idAnimal }) => {
 
 
@@ -16,7 +16,6 @@ const ModelInfoAnimal: React.FC<{
         aria-labelledby="contained-modal-title-vcenter"
         style={{ background: "rgba(0, 0, 0, 0.3)" }}
       >
-
           <Modal.Body>
             <Form>
               {/* show pop up info about animal - use showInfoAnimal.js */}

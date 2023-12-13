@@ -1,5 +1,7 @@
+import {AnimalsInfo} from "../../../interface/info.model"
 
-const ShowCardsAnimals: React.FC<{infoAnimal:any,AnimalChoose:Function}> = ({infoAnimal,AnimalChoose}) => {
+
+const ShowCardsAnimals: React.FC<{infoAnimal:AnimalsInfo,AnimalChoose:Function}> = ({infoAnimal,AnimalChoose}) => {
 
   return (
     <>

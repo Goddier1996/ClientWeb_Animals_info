@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
 import { send } from "emailjs-com";
+import RobotBox from "../ReCAPTCHA/RobotBox";
 
 
 
@@ -15,24 +15,29 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
   // change language en or hw
   const { t } = useTranslation(["home"]);
 
+
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
   });
+  const optionsClose: String = closeChangeLanguage.map((node: any) => node.title);
+
 
   const SendChangeLanguage: any = t("Send", {
     returnObjects: true,
   });
-
-  const optionsClose: any = closeChangeLanguage.map((node: any) => node.title);
-  const optionsSend: any = SendChangeLanguage.map((node: any) => node.title);
+  const optionsSend: String = SendChangeLanguage.map((node: any) => node.title);
 
     
   // check box if user not robot
-  const [capVal, setCapVal] = useState<any>(null);
+  const [capVal, setCapVal] = useState<boolean>(false);
 
     
   //value input to message
-  const [toSend, setToSend] = useState({
+  const [toSend, setToSend] = useState<{
+    from_name: string;
+    message: string;
+    reply_to: string;
+  }>({
     from_name: "",
     message: "",
     reply_to: "",
@@ -132,12 +137,9 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
         </Form.Group>
       </Modal.Body>
 
-      {/* check box if user don't robot */}
-      <ReCAPTCHA
-        className="g-recaptcha"
-        sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-        onChange={(val) => setCapVal(val)}
-      />
+      {/* robot check if user dont robot */}
+      <RobotBox activeRobotBox={() => setCapVal(true)} />
+
 
       <div className="ButtonInfo">
         <Button variant="success" disabled={!capVal} onClick={onSubmit}>

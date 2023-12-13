@@ -17,7 +17,7 @@ const FotoEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
 
       {/* here info if user don't know what animal eat */}
       <div className="titleHeaterHelp">
-        <OverlayTriggerWhatAnimalEat dataAnimal={dataAnimal } />
+        <OverlayTriggerWhatAnimalEat dataAnimal={dataAnimal} />
       </div>
 
       

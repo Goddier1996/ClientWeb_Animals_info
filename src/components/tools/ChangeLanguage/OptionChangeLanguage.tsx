@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 
 
-
 const OptionChangeLanguage: React.FC=()=> {
 
 
@@ -10,16 +9,17 @@ const OptionChangeLanguage: React.FC=()=> {
   const { i18n, t } = useTranslation(["home"]);
   const currentLanguageCode = cookies.get("i18next") || "en";
 
+
   const SelectLanguageTitleChangeLanguage: any = t("SelectLanguageTitle", {
     returnObjects: true,
   });
-  const SelectLanguageTitle: any = SelectLanguageTitleChangeLanguage.map(
+  const SelectLanguageTitle: String = SelectLanguageTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
 
 
-  const onClickLanguageChange = (e: any) => {
+  const onClickLanguageChange = (e: string) => {
 
     i18n.changeLanguage(e);
   };

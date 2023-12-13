@@ -12,8 +12,7 @@ import {
 import Loading from "../../tools/Loading";
 
 
-
-const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
+const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
 
 
   // change language en or hw
@@ -24,7 +23,7 @@ const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
   const optionsTitleChangeLanguage: any = t("optionsTitle", {
     returnObjects: true,
   });
-  const optionsTitle: any = optionsTitleChangeLanguage.map(
+  const optionsTitle: String = optionsTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -32,7 +31,7 @@ const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
   const optionsSelectTitleChangeLanguage: any = t("optionsSelectTitle", {
     returnObjects: true,
   });
-  const optionsSelectTitle: any = optionsSelectTitleChangeLanguage.map(
+  const optionsSelectTitle: String = optionsSelectTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -40,18 +39,18 @@ const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
   });
-  const closeTitle: any = closeChangeLanguage.map((node: any) => node.title);
+  const closeTitle: String = closeChangeLanguage.map((node: any) => node.title);
 
 
 
   // show popUp
   //choose image eat
-  const [showImageEat, setShowImageEat] = useState(false);
+  const [showImageEat, setShowImageEat] = useState<boolean>(false);
   const handleCloseImageEat = () => setShowImageEat(false);
   const handleShowImageEat = () => setShowImageEat(true);
 
   //choose input eat
-  const [showInputTextEat, setShowInputTextEat] = useState(false);
+  const [showInputTextEat, setShowInputTextEat] = useState<boolean>(false);
   const handleCloseInputTextEat = () => setShowInputTextEat(false);
   const handleShowInputTextEat = () => setShowInputTextEat(true);
 
@@ -61,7 +60,7 @@ const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
   const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
     useState<any>([]);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
 
 
@@ -86,7 +85,9 @@ const AddFoodAnimal: React.FC<{ idAnimal: any }> = ({ idAnimal }) => {
 
 
   useEffect(() => {
+    
     loadAnimalIdInfo();
+
   }, [idAnimal]);
 
 

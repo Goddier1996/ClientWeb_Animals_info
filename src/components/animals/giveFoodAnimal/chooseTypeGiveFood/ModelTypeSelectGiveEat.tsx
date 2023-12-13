@@ -4,14 +4,13 @@ import InputEat from "./typeSelect/inputFood/GiveFoodAnimal";
 import cookies from "js-cookie";
 
 
-
 const ModelTypeSelectGiveEat: React.FC<{
-  show: any;
-  onHide: any;
-  title: string;
+  show: boolean;
+  onHide: Function;
+  title: String;
   typeSelect: string;
-  dataAnimalId: any
-  dataAnimalInfoHebrewLanguage:any
+  dataAnimalId: string
+  dataAnimalInfoHebrewLanguage:string
 }> = ({ show, onHide, title, typeSelect,dataAnimalId,dataAnimalInfoHebrewLanguage }) => {
 
 
@@ -22,7 +21,7 @@ const ModelTypeSelectGiveEat: React.FC<{
     <>
       <Modal
         show={show}
-        onHide={onHide}
+        onHide={()=>onHide()}
         aria-labelledby="contained-modal-title-vcenter"
       >
         <Modal.Body>
@@ -34,7 +33,7 @@ const ModelTypeSelectGiveEat: React.FC<{
               </Form>
 
               <div className="buttonExit">
-                <Button variant="danger" onClick={onHide}>
+                <Button variant="danger" onClick={()=>onHide()}>
                   {title}
                 </Button>
               </div>

@@ -4,6 +4,7 @@ import { Form, Modal, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { updateInDateAnimal } from "../../../Server/AddDataOrUpdatedApi";
 import { LoadInfoIdAnimal } from "../../../Server/LoadDataApi";
+import {ValueAddOrUpdatedNewAnimal} from "../../../interface/info.model"
 
 
 
@@ -103,7 +104,7 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
   // here Admin Update a info Animal
   const updateDateAnimal = async () => {
 
-      let Animal:any = {
+      let Animal:ValueAddOrUpdatedNewAnimal = {
         title: title,
         sound: sound,
         image: image,

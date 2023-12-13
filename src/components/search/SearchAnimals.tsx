@@ -3,7 +3,6 @@ import "font-awesome/css/font-awesome.min.css";
 import Home from "../../pages/home";
 
 
-
 const SearchAnimals: React.FC = () => {
 
 

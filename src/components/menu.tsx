@@ -40,7 +40,7 @@ const Menu: React.FC = () => {
   );
 
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState<boolean>(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

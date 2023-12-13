@@ -4,7 +4,6 @@ import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 const OverlayTriggerWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
 
 
-
   //show info what animal eat - when click in pop up info
   const popover = (
     <Popover id="popover-basic">
@@ -13,7 +12,6 @@ const OverlayTriggerWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) =
     </Popover>
   );
 
-    
     
   return (
     <>

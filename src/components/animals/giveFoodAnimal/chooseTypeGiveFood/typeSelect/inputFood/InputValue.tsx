@@ -16,7 +16,7 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
   const ToFeedTitleChangeLanguage: any = t("ToFeedTitle", {
     returnObjects: true,
   });
-  const ToFeedTitle: any = ToFeedTitleChangeLanguage.map(
+  const ToFeedTitle: String = ToFeedTitleChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -24,7 +24,7 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
   });
-  const closeTitle: any = closeChangeLanguage.map((node: any) => node.title);
+  const closeTitle: String = closeChangeLanguage.map((node: any) => node.title);
 
     
   const need_input_what_animal_eatChangeLanguage: any = t(
@@ -33,14 +33,14 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
       returnObjects: true,
     }
     );
-  const need_input_what_animal_eat: any =
+  const need_input_what_animal_eat: String =
     need_input_what_animal_eatChangeLanguage.map((node: any) => node.title);
 
 
   const i_dont_eat_thisChangeLanguage: any = t("i_dont_eat_this", {
     returnObjects: true,
   });
-  const i_dont_eat_this: any = i_dont_eat_thisChangeLanguage.map(
+  const i_dont_eat_this: String = i_dont_eat_thisChangeLanguage.map(
     (node: any) => node.title
   );
 
@@ -48,7 +48,7 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
   const [eat, setEat] = useState<string>("");
 
 
-    
+  
   //get animal and check input value,and lesten sound animal
   const GetEatToAnimal = async () => {
 
@@ -89,7 +89,7 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
   };
 
     
-    
+  
   return (
     <>
       <Form.Group
