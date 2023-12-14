@@ -2,6 +2,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import ImageEat from "./typeSelect/fotoSelect/FotoEat";
 import InputEat from "./typeSelect/inputFood/GiveFoodAnimal";
 import cookies from "js-cookie";
+import {AnimalIdInfo} from "../../../../interface/info.model"
 
 
 const ModelTypeSelectGiveEat: React.FC<{
@@ -9,8 +10,8 @@ const ModelTypeSelectGiveEat: React.FC<{
   onHide: Function;
   title: String;
   typeSelect: string;
-  dataAnimalId: string
-  dataAnimalInfoHebrewLanguage:string
+  dataAnimalId: AnimalIdInfo
+  dataAnimalInfoHebrewLanguage:AnimalIdInfo
 }> = ({ show, onHide, title, typeSelect,dataAnimalId,dataAnimalInfoHebrewLanguage }) => {
 
 

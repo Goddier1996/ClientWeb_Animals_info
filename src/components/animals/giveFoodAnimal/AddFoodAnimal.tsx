@@ -10,6 +10,8 @@ import {
   LoadAnimalInfoIdHebrewLanguage,
 } from "../../../Server/LoadDataApi";
 import Loading from "../../tools/Loading";
+import {AnimalIdInfo} from "../../../interface/info.model"
+
 
 
 const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
@@ -55,10 +57,10 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
   const handleShowInputTextEat = () => setShowInputTextEat(true);
 
 
-  const [dataAnimalInfo, setDataAnimalInfo] = useState<any>([]);
+  const [dataAnimalInfo, setDataAnimalInfo] = useState<AnimalIdInfo>({});
 
   const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
-    useState<any>([]);
+    useState<AnimalIdInfo>({});
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -100,9 +102,9 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
         <>
           <div className="titleHeater">
             {currentLanguageCode == "hw" ? (
-              <ShowTitleNameAnimal idAnimal={dataAnimalInfoHebrewLanguage} />
+              <ShowTitleNameAnimal dataAnimalId={dataAnimalInfoHebrewLanguage} />
             ) : (
-              <ShowTitleNameAnimal idAnimal={dataAnimalInfo} />
+              <ShowTitleNameAnimal dataAnimalId={dataAnimalInfo} />
             )}
 
             <p>

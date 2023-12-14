@@ -2,10 +2,10 @@ import cookies from "js-cookie";
 import DontKnowWhatAnimalEat from "../tools/DontKnowWhatAnimalEat";
 import SelectImg from "./SelectImg";
 import OverlayTriggerWhatAnimalEat from "../tools/OverlayTriggerWhatAnimalEat";
+import {AnimalIdInfo} from "../../../../../../interface/info.model"
 
 
-
-const FotoEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
+const FotoEat: React.FC<{dataAnimal:AnimalIdInfo}> = ({dataAnimal}) => {
 
 
   // change language en or hw
@@ -23,9 +23,9 @@ const FotoEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
       
       <div className="titleHeaterInfo">
         {(currentLanguageCode == "hw") ?
-          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title } />
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal } />
           :
-          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title }/>
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal }/>
       }
       </div>
 

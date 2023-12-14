@@ -2,10 +2,12 @@ import cookies from "js-cookie";
 import DontKnowWhatAnimalEat from "../tools/DontKnowWhatAnimalEat";
 import OverlayTriggerWhatAnimalEat from "../tools/OverlayTriggerWhatAnimalEat";
 import InputValue from "./InputValue";
+import {AnimalIdInfo} from "../../../../../../interface/info.model"
+
 
 
 //here component we add to animal food and check if this he eat,show popup,use in AddFoodAnimal components
-const InputEat: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({hideModelFood,dataAnimal}) => {
+const InputEat: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> = ({hideModelFood,dataAnimal}) => {
 
 
   // change language en or hw
@@ -24,9 +26,9 @@ const InputEat: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({hideMod
 
       <div className="titleHeaterInfo">
         {(currentLanguageCode == "hw") ?
-          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title } />
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal } />
           :
-          <DontKnowWhatAnimalEat dataAnimal={dataAnimal.title }/>
+          <DontKnowWhatAnimalEat dataAnimal={dataAnimal }/>
       }
       </div>
 

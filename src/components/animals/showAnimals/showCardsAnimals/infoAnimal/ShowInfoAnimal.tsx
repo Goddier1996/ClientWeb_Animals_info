@@ -8,6 +8,7 @@ import {
   LoadAnimalInfoIdHebrewLanguage,
 } from "../../../../../Server/LoadDataApi";
 import Loading from "../../../../tools/Loading";
+import {AnimalIdInfo} from "../../../../../interface/info.model"
 
 
 
@@ -38,9 +39,9 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
   );
 
 
-  const [dataAnimalInfo, setDataAnimalInfo] = useState<any>([]);
+  const [dataAnimalInfo, setDataAnimalInfo] = useState<AnimalIdInfo>({});
   const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
-    useState<any>([]);
+    useState<AnimalIdInfo>({});
 
   const [loading, setLoading] = useState<boolean>(false);
 

@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
+import {AnimalIdInfo} from "../../../../../../interface/info.model"
 
 
-const DontKnowWhatAnimalEat: React.FC<{dataAnimal:string}> = ({dataAnimal}) => {
+const DontKnowWhatAnimalEat: React.FC<{dataAnimal:AnimalIdInfo}> = ({dataAnimal}) => {
 
 
   const { t } = useTranslation(["home"]);
@@ -35,7 +36,7 @@ const DontKnowWhatAnimalEat: React.FC<{dataAnimal:string}> = ({dataAnimal}) => {
   return (
     <>
       <p>
-        {DontKnowWhatAnimalEatTitle} {dataAnimal} {Click_to_InfoTitle}
+        {DontKnowWhatAnimalEatTitle} {dataAnimal.title} {Click_to_InfoTitle}
         <br />
         <br />
         {choose_imageTitle}

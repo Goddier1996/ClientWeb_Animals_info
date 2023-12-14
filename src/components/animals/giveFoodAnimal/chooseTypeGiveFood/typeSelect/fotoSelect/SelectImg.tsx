@@ -1,9 +1,9 @@
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
+import {AnimalIdInfo} from "../../../../../../interface/info.model"
 
 
-
-const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:any }> = ({ eatOrNo,dataAnimal }) => {
+const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:AnimalIdInfo }> = ({ eatOrNo,dataAnimal }) => {
 
 
   const { t } = useTranslation(["home"]);

@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
+import {AnimalIdInfo} from "../../../../../../interface/info.model"
 
 
 
-const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:any }> = ({
+const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> = ({
   hideModelFood,
   dataAnimal
 }) => {
