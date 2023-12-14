@@ -55,13 +55,13 @@ const Menu: React.FC = () => {
 
       <div className="titleWeb" >
         {titleAppChangeLanguage.map((node: any) => (
-          <p>{node.title}</p>
+          <p key={node.title}>{node.title}</p>
         ))}
       </div>
 
       <div className="help">
         {buttonMoreInfoChangeLanguage.map((node: any) => (
-          <Button size="sm" variant="warning" onClick={handleShow}>
+          <Button key={node.title} size="sm" variant="warning" onClick={handleShow}>
             {node.title}
           </Button>
         ))}
@@ -75,13 +75,13 @@ const Menu: React.FC = () => {
           <Modal.Body>
             <div className="titleInfoHowUseWebSite">
               {popUpInfoTitleChangeLanguage.map((node: any) => (
-                <p>{node.title}</p>
+                <p key={node.title}>{node.title}</p>
               ))}
             </div>
 
             <div className="titleInfoHowLearn">
               {popUpInfoAboutInfoChangeLanguage.map((node: any) => (
-                <p>{node.title}</p>
+                <p key={node.title}>{node.title}</p>
               ))}
             </div>
 
@@ -103,6 +103,7 @@ const Menu: React.FC = () => {
             <div style={{ textAlign: "center" }}>
               {popUpInfoButtonLetsStartChangeLanguage.map((node: any) => (
                 <Button
+                  key={node.title}
                   style={{ margin: "3%" }}
                   variant="success"
                   onClick={handleClose}

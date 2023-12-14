@@ -170,13 +170,11 @@ const AnimalsModals: React.FC = () => {
             {/* show cards Animals HE or EN */}
             {currentLanguageCode == "en"
               ? checkIfHaveValueWhenSearchEnglishLanguage.map((animal) => (
-                  <>
                     <CardAnimals
                       dataAllAnimals={animal}
                       clickToImageForInfo={clickToImageForInfo}
                       start={start}
                     />
-                  </>
                 ))
               : checkIfHaveValueWhenSearchHebrewLanguage.map((animal) => (
                   <>
