@@ -18,7 +18,7 @@ const CheckIfHaveThisAnimals: React.FC<{
       checkIfHaveValueWhenSearchHebrewLanguage === 0 ? (
         <div className="dontHaveThisValueInArray">
           <img
-            src="https://media.tenor.com/IbZePZ2opZkAAAAi/rascal-nothing-to-see-here.gif"
+            src="https://i.postimg.cc/B6tXwjnh/999.webp"
             alt="dont have this animal"
           />
           <br />
