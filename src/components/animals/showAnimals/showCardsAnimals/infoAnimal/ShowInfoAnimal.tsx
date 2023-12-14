@@ -9,7 +9,8 @@ import {
 } from "../../../../../Server/LoadDataApi";
 import Loading from "../../../../tools/Loading";
 import {AnimalIdInfo} from "../../../../../interface/info.model"
-
+import { AsyncImage } from 'loadable-image'
+import { Blur } from 'transitions-kit'
 
 
 const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
@@ -96,14 +97,21 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
 
           {currentLanguageCode == "hw" ? (
             <div className="infoImage">
-              <img
-                src={dataAnimalInfoHebrewLanguage.infoImage}
-                alt="info animal"
-              />
+              <AsyncImage
+                  src={dataAnimalInfoHebrewLanguage.infoImage}
+                  style={{ width: "100%", height: 230}}
+                  Transition={Blur}
+                  alt="info animal"
+                />
             </div>
           ) : (
             <div className="infoImage">
-              <img src={dataAnimalInfo.infoImage} alt="info animal" />
+                <AsyncImage
+                  src={dataAnimalInfo.infoImage}
+                  style={{ width: "100%", height: 230}}
+                  Transition={Blur}
+                  alt="info animal"
+                />
             </div>
           )}
 

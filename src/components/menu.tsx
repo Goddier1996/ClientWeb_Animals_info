@@ -86,7 +86,7 @@ const Menu: React.FC = () => {
             </div>
 
             <div className="imgInfo">
-              <img src="https://i.postimg.cc/YSFWpGHh/mflx-zhpt.webp"></img>
+              <img src="https://i.postimg.cc/YSFWpGHh/mflx-zhpt.webp"/>
             </div>
 
             <br />

@@ -19,9 +19,9 @@ export interface AnimalIdInfo {
     image?: string;
     eat?: string;
     infoAnimal?: string;
-    infoImage?: string;
-    eatImage?: string;
-    notEatImage?: string;
+    infoImage?: any;
+    eatImage?: any;
+    notEatImage?: any;
 }
 
 

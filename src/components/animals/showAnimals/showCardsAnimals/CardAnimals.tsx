@@ -1,4 +1,6 @@
 import {AnimalsInfo} from "../../../../interface/info.model"
+import { AsyncImage } from 'loadable-image'
+import { Blur } from 'transitions-kit'
 
 
 const CardAnimals: React.FC<{
@@ -12,8 +14,11 @@ const CardAnimals: React.FC<{
     <>
       <div key={dataAllAnimals._id} className="cardx">
         <div className="card_image">
-          <img
+          <AsyncImage
             src={dataAllAnimals.image}
+            style={{ width: 150, height: 150,objectFit:"cover",borderRadius:"40px"}}
+            Transition={Blur}
+
             alt="image animal"
             onClick={() =>
               clickToImageForInfo(dataAllAnimals._id)
@@ -30,7 +35,7 @@ const CardAnimals: React.FC<{
             }
             src={require("../../../../images/bowel1.png")}
             alt="give eat"
-          ></img>
+          />
         </div>
       </div>
     </>

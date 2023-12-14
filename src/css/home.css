@@ -230,7 +230,7 @@ html::-webkit-scrollbar-thumb {
 
 .cardx {
     margin: 30px auto;
-    width: 150px;
+    width: 15z0px;
     height: 150px;
     border-radius: 40px;
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
@@ -246,12 +246,12 @@ html::-webkit-scrollbar-thumb {
     border-radius: 40px;
 }
 
-.cardx .card_image img {
+/* .cardx .card_image img {
     width: inherit;
     height: inherit;
     border-radius: 40px;
     object-fit: cover;
-}
+} */
 
 .cardx .card_title {
     text-align: center;
@@ -267,6 +267,7 @@ html::-webkit-scrollbar-thumb {
 
 /* this image get animal food */
 .card_title img {
+    position: relative;
     height: 82px;
     margin-top: 113px;
     animation: spin 2.5s linear infinite;
@@ -458,12 +459,11 @@ html::-webkit-scrollbar-thumb {
 
 }
 
+
+
 .infoImage {
     display: flex;
     justify-content: center;
-}
-
-.infoImage img {
     height: 230px;
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
 }
