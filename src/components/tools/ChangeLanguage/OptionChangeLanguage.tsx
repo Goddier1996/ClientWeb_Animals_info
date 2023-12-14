@@ -33,7 +33,7 @@ const OptionChangeLanguage: React.FC=()=> {
 
       <img
         onClick={() => onClickLanguageChange("en")}
-        src="https://i.postimg.cc/65kdzNxf/icons8-usa-70.png"
+        src="https://i.postimg.cc/WzqGJWRw/usx.webp"
         style={
           currentLanguageCode == "en"
             ? { height: "45px", width: "45px" }
@@ -43,7 +43,7 @@ const OptionChangeLanguage: React.FC=()=> {
       />
       <img
         onClick={() => onClickLanguageChange("hw")}
-        src="https://i.postimg.cc/6Qgw4zvq/icons8-israel-100.png"
+        src="https://i.postimg.cc/9MdR36jS/il.webp"
         style={
           currentLanguageCode == "hw"
             ? { height: "52px", width: "52px" }

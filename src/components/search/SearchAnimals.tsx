@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "font-awesome/css/font-awesome.min.css";
+// import "font-awesome/css/font-awesome.min.css";
 
 
 const SearchAnimals: React.FC<{ onChangeCallback: Function }> = ({

@@ -24,7 +24,7 @@ const ShowPopUpWelcomeModel: React.FC = () => {
       <div className="popUpHome">
         <h1>{Welcome_To_Safari_popUp}</h1>
         <img
-          src="https://i.pinimg.com/originals/ac/46/7c/ac467cbb2eb0fde593996c175cec0176.gif"
+          src="https://i.postimg.cc/Fs3XsmRW/popup.webp"
           alt="popupWelcome"
         />
       </div>
