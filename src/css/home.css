@@ -44,8 +44,8 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 6%;
-    margin-bottom: 50%;
+    margin-top: 12%;
+    margin-bottom: 15.5%;
 }
 
 
@@ -774,6 +774,11 @@ html::-webkit-scrollbar-thumb {
 
     .wrap {
         margin-top: 8%;
+    }
+
+    .popUpHome {
+        margin-top: 20%;
+        margin-bottom: 80%;
     }
 
 

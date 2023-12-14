@@ -1,13 +1,12 @@
 import AnimalsModals from "../components/animals/showAnimals/ShowAnimals";
 
 
-// Home give value from SearchAnimals component !
-const Home: React.FC<{ inputSearch: string }> = ({ inputSearch }) => {
+const Home: React.FC = () => {
 
   return (
     <>
       {/* here active show all Animals */}
-      <AnimalsModals Search={inputSearch} />
+      <AnimalsModals  />
     </>
   );
 };

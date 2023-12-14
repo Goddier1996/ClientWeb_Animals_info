@@ -1,5 +1,8 @@
 import { API } from "./API";
-import {ValueAddOrUpdatedNewAnimal,ConnectAdminLogin} from "../interface/info.model"
+import {
+  ValueAddOrUpdatedNewAnimal,
+  ConnectAdminLogin,
+} from "../interface/info.model";
 
 
 
@@ -19,7 +22,10 @@ export async function addAnimal(user: ValueAddOrUpdatedNewAnimal) {
 
 
 
-export async function updateInDateAnimal(Animal: ValueAddOrUpdatedNewAnimal, idAnimal: string) {
+export async function updateInDateAnimal(
+  Animal: ValueAddOrUpdatedNewAnimal,
+  idAnimal: string
+) {
   try {
     await fetch(`${API.NODE.GET}/${idAnimal}`, {
       method: "PATCH",
@@ -35,8 +41,7 @@ export async function updateInDateAnimal(Animal: ValueAddOrUpdatedNewAnimal, idA
 
 
 
-export async function connectAdmin(userValue:ConnectAdminLogin) {
-
+export async function connectAdmin(userValue: ConnectAdminLogin) {
   try {
     let res = await fetch(API.USER.LOGIN, {
       method: "POST",
