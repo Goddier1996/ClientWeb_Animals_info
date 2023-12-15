@@ -39,8 +39,8 @@ html::-webkit-scrollbar-thumb {
 
 
 .popUpHome {
-    margin-top: 12%;
-    margin-bottom: 15.5%;
+    margin-top: 8%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: center;
 }
@@ -755,22 +755,12 @@ html::-webkit-scrollbar-thumb {
         margin-top: 8%;
     }
 
-    .popUpHome {
-        margin-top: 20%;
-        margin-bottom: 80%;
+    .popUpHome{
+        margin-top: 15%;
     }
-
-
-    .popUpHome h1 {
-        font-size: 15px;
-        letter-spacing: .2rem;
-        top: 30px;
-    }
-
 
     .popUpHome img {
         width: 300px;
-        margin-top: 5%;
     }
 
 
