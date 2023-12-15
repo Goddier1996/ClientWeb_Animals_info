@@ -391,14 +391,11 @@ html::-webkit-scrollbar-thumb {
     border-radius: 50%;
 }
 
-
 .popUpTextP3 {
     color: rgb(255, 255, 255);
     font-size: 19px;
     letter-spacing: .1rem;
 }
-
-
 
 @media all and (max-width: 500px) {
     .cardx-list {
@@ -526,8 +523,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-
-
 /* pop up button style admin chiose */
 .styleChioseOptionAdmin {
     display: flex;
@@ -581,8 +576,6 @@ html::-webkit-scrollbar-thumb {
     box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
         -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
-
-
 
 
 /* search style */
@@ -709,11 +702,6 @@ html::-webkit-scrollbar-thumb {
         margin-top: 0;
     }
 
-    .styleOptionChangeLanguage p {
-        font-size: 16px;
-        letter-spacing: .1rem;
-        padding: 0;
-    }
 
     .titleWeb p {
         letter-spacing: .1rem;
@@ -721,13 +709,11 @@ html::-webkit-scrollbar-thumb {
         padding: 4.5%;
     }
 
-    .titleWeb h6,
-    .help p {
-        font-size: 12px;
-        padding: 15%;
+    .styleOptionChangeLanguage p {
+        font-size: 16px;
+        letter-spacing: .1rem;
+        padding: 0;
     }
-
-
 
     .wrap {
         margin-top: 8%;
