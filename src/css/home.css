@@ -63,7 +63,7 @@ html::-webkit-scrollbar-thumb {
 
 /* title menu */
 .title {
-    background: url("https://i.postimg.cc/DfSdDZW4/121.webp");
+    background: url("https://i.postimg.cc/DfSdDZW4/121.webp") fixed;
     box-shadow: inset rgba(0, 0, 0, 0.22) 0 0 0 500px;
     transition: box-shadow 400ms;
     width: 100%;
