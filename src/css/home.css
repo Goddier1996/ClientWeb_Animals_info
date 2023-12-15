@@ -39,7 +39,7 @@ html::-webkit-scrollbar-thumb {
 
 
 .popUpHome {
-    margin-top: 8%;
+    margin-top: 2%;
     margin-bottom: 2%;
     display: flex;
     justify-content: center;
@@ -67,7 +67,7 @@ html::-webkit-scrollbar-thumb {
     box-shadow: inset rgba(0, 0, 0, 0.22) 0 0 0 500px;
     transition: box-shadow 400ms;
     width: 100%;
-    height: 280px;
+    height: 350px;
     border-radius: 0 0 15% 50%;
     text-align: center;
     align-items: center;
@@ -81,6 +81,7 @@ html::-webkit-scrollbar-thumb {
     font-size: 22px;
     letter-spacing: .1rem;
     font-weight: 500;
+    padding: 2.5%;
 }
 
 
@@ -108,7 +109,8 @@ html::-webkit-scrollbar-thumb {
 .styleOptionChangeLanguage p {
     color: rgb(255, 255, 255);
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 600;
+    padding: 0;
 }
 
 
@@ -123,7 +125,6 @@ html::-webkit-scrollbar-thumb {
 .styleOptionChangeLanguage img:hover {
     transform: translate(0, -5px);
 }
-
 
 
 /* info about how use this program */
@@ -144,6 +145,10 @@ html::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.titleInfoHowLearnStart {
+    margin-top: -7%;
 }
 
 .titleInfoHowLearnStart p {
@@ -707,29 +712,33 @@ html::-webkit-scrollbar-thumb {
     .styleOptionChangeLanguage p {
         font-size: 16px;
         letter-spacing: .1rem;
+        padding: 0;
     }
 
     .titleWeb p {
         letter-spacing: .1rem;
         font-size: 16px;
-        padding: 3%;
+        padding: 4.5%;
     }
 
     .titleWeb h6,
     .help p {
         font-size: 12px;
+        padding: 15%;
     }
+
+
 
     .wrap {
         margin-top: 8%;
     }
 
     .popUpHome {
-        margin-top: 15%;
+        margin-top: 5%;
     }
 
     .popUpHome img {
-        width: 300px;
+        width: 270px;
     }
 
     .card_title svg {
