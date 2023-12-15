@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import {AnimalIdInfo} from "../../../../../../interface/info.model"
+import { AsyncImage } from 'loadable-image'
+import { Blur } from 'transitions-kit'
+
 
 
 const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:AnimalIdInfo }> = ({ eatOrNo,dataAnimal }) => {
@@ -53,15 +56,17 @@ const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:AnimalIdInfo }> = ({ eatO
     
     
   return (
-    <>
-      <img
+    <div className="styleSelectImageRat">
+      <AsyncImage
         src={eatOrNo == "Eat" ? dataAnimal.eatImage : dataAnimal.notEatImage}
+        style={{ width: "125px", height: "90px",objectFit: "contain"}}
+        Transition={Blur}
         alt="photo eat"
         onClick={() => {
           GetEatToAnimal(eatOrNo);
         }}
-      ></img>
-    </>
+      />
+    </div>
   );
 };
 

@@ -535,15 +535,15 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-.chioseImage img {
+.styleSelectImageRat {
     cursor: pointer;
     height: 85px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
 }
 
-.chioseImage img:hover {
-    height: 70px;
+.styleSelectImageRat:hover {
+    opacity: 0.8;
 }
 
 .closes {
