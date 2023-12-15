@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import "font-awesome/css/font-awesome.min.css";
 
 
 const SearchAnimals: React.FC<{ onChangeCallback: Function }> = ({
@@ -24,7 +23,7 @@ const SearchAnimals: React.FC<{ onChangeCallback: Function }> = ({
 
     // if the component receives a callback, call it,
     // and pass the input value as an argument
-    onChangeCallback && onChangeCallback(inputValue);
+    onChangeCallback(inputValue);
   };
 
 

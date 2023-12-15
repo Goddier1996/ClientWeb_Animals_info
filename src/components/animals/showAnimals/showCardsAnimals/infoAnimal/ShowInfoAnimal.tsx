@@ -13,6 +13,7 @@ import { AsyncImage } from 'loadable-image'
 import { Blur } from 'transitions-kit'
 
 
+
 const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
   hideModelInfo,
   idAnimal,

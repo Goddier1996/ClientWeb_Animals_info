@@ -67,22 +67,14 @@ html::-webkit-scrollbar-thumb {
     box-shadow: inset rgba(0, 0, 0, 0.22) 0 0 0 500px;
     transition: box-shadow 400ms;
     width: 100%;
-    height: auto;
+    height: 280px;
     border-radius: 0 0 15% 50%;
-    padding: 1%;
-}
-
-
-.titleWeb,
-.help {
+    text-align: center;
+    align-items: center;
     display: flex;
     justify-content: center;
-    text-align: center;
 }
 
-.titleWeb {
-    margin-top: -6.5%;
-}
 
 .titleWeb p {
     color: rgb(255, 255, 255);
@@ -93,16 +85,14 @@ html::-webkit-scrollbar-thumb {
 
 
 .help button {
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: .1rem;
     color: rgb(0, 0, 0);
-    margin-bottom: 1%;
 }
 
 .positionOptionChangeLanguage {
     display: flex;
-    justify-content: end;
-    padding: 3%;
+    justify-content: center;
 }
 
 
@@ -144,8 +134,8 @@ html::-webkit-scrollbar-thumb {
 }
 
 .titleInfoHowUseWebSite p {
-    font-size: 19px;
-    letter-spacing: .2rem;
+    font-size: 20px;
+    letter-spacing: .1rem;
 }
 
 .titleInfoHowLearn p {
@@ -157,9 +147,10 @@ html::-webkit-scrollbar-thumb {
 }
 
 .titleInfoHowLearnStart p {
-    font-size: 13px;
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
 }
-
 
 .imgInfo {
     display: flex;
@@ -167,12 +158,6 @@ html::-webkit-scrollbar-thumb {
     align-items: center;
     text-align: center;
 }
-
-.imgInfo img {
-    height: 100px;
-}
-
-
 
 
 
@@ -203,7 +188,7 @@ html::-webkit-scrollbar-thumb {
 
 .cardx {
     margin: 30px auto;
-    width: 15z0px;
+    width: 150px;
     height: 150px;
     border-radius: 40px;
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
@@ -270,8 +255,6 @@ html::-webkit-scrollbar-thumb {
 
     }
 }
-
-
 
 
 
@@ -605,6 +588,7 @@ html::-webkit-scrollbar-thumb {
     margin-top: 5%;
     margin-bottom: 10%;
     align-items: center;
+    text-align: center;
     font-family: inherit;
     font-weight: 600;
 }
@@ -619,6 +603,7 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     margin-top: 2%;
+    margin-bottom: -2%;
 }
 
 
@@ -703,14 +688,12 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-
 .g-recaptcha {
     display: flex;
     justify-content: center;
     margin-top: -2.5%;
     margin-bottom: 2%;
 }
-
 
 
 
@@ -721,32 +704,18 @@ html::-webkit-scrollbar-thumb {
         margin-top: 0;
     }
 
-
     .styleOptionChangeLanguage p {
         font-size: 16px;
         letter-spacing: .1rem;
     }
 
-    .title {
+    .titleWeb p {
+        letter-spacing: .1rem;
+        font-size: 16px;
         padding: 3%;
     }
 
-    .titleWeb p {
-        letter-spacing: .1rem;
-        width: 80%;
-        font-size: 16px;
-    }
-
-    .titleWeb {
-        margin-top: 0;
-    }
-
-
-    .titleWeb h6 {
-        font-size: 12px;
-    }
-
-
+    .titleWeb h6,
     .help p {
         font-size: 12px;
     }
@@ -755,7 +724,7 @@ html::-webkit-scrollbar-thumb {
         margin-top: 8%;
     }
 
-    .popUpHome{
+    .popUpHome {
         margin-top: 15%;
     }
 
@@ -763,24 +732,20 @@ html::-webkit-scrollbar-thumb {
         width: 300px;
     }
 
-
     .card_title svg {
         height: 40px;
         margin-top: 130px;
     }
-
 
     .cardx {
         width: 150px;
         height: 150px;
     }
 
-
     .cards-list {
         row-gap: 11px;
         column-gap: 8px;
     }
-
 
     .titleHeater h1 {
         color: rgb(0, 0, 0);
@@ -795,11 +760,9 @@ html::-webkit-scrollbar-thumb {
         height: 25px;
     }
 
-
     .infoImage img {
         height: 190px;
     }
-
 
     .help button {
         font-size: 14px;
@@ -830,4 +793,3 @@ html::-webkit-scrollbar-thumb {
         width: 250px;
     }
 }
-

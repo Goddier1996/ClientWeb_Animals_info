@@ -18,7 +18,6 @@ const CardAnimals: React.FC<{
             src={dataAllAnimals.image}
             style={{ width: 150, height: 150,objectFit:"cover",borderRadius:"40px"}}
             Transition={Blur}
-
             alt="image animal"
             onClick={() =>
               clickToImageForInfo(dataAllAnimals._id)
