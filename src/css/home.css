@@ -39,25 +39,11 @@ html::-webkit-scrollbar-thumb {
 
 
 .popUpHome {
-    position: relative;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
     margin-top: 12%;
     margin-bottom: 15.5%;
+    display: flex;
+    justify-content: center;
 }
-
-
-/* pop up when open web site */
-.popUpHome h1 {
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    letter-spacing: .5rem;
-    top: 8px;
-    position: absolute;
-}
-
 
 .popUpHome img {
     object-fit: cover;
@@ -146,23 +132,6 @@ html::-webkit-scrollbar-thumb {
 
 .styleOptionChangeLanguage img:hover {
     transform: translate(0, -5px);
-}
-
-
-/* title fotter */
-.titleFotter {
-    background: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-
-.titleFotter p {
-    color: white;
-    font-size: 12px;
-    letter-spacing: .1rem;
 }
 
 
@@ -871,3 +840,4 @@ html::-webkit-scrollbar-thumb {
         width: 250px;
     }
 }
+
