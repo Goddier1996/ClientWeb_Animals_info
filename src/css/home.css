@@ -83,33 +83,34 @@ html::-webkit-scrollbar-thumb {
     width: 100%;
     height: auto;
     border-radius: 0 0 15% 50%;
+    padding: 1%;
 }
 
-.title p {
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    letter-spacing: .2rem;
-    font-weight: 400;
-    margin-top: 0.5%;
-}
 
 .titleWeb,
 .help {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .titleWeb {
-    margin-top: -7%;
+    margin-top: -6.5%;
 }
+
+.titleWeb p {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    letter-spacing: .1rem;
+    font-weight: 500;
+}
+
 
 .help button {
     font-size: 15px;
-    letter-spacing: .2rem;
-    cursor: pointer;
+    letter-spacing: .1rem;
     color: rgb(0, 0, 0);
     margin-bottom: 1%;
-    width: 155px;
 }
 
 .positionOptionChangeLanguage {
@@ -129,9 +130,12 @@ html::-webkit-scrollbar-thumb {
 }
 
 .styleOptionChangeLanguage p {
-    font-size: 15px;
-    margin-top: -12%;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: 400;
 }
+
+
 
 .styleOptionChangeLanguage img {
     margin-top: -10%;
@@ -246,12 +250,6 @@ html::-webkit-scrollbar-thumb {
     border-radius: 40px;
 }
 
-/* .cardx .card_image img {
-    width: inherit;
-    height: inherit;
-    border-radius: 40px;
-    object-fit: cover;
-} */
 
 .cardx .card_title {
     text-align: center;
@@ -269,6 +267,7 @@ html::-webkit-scrollbar-thumb {
 .card_title img {
     position: relative;
     height: 82px;
+    width: 82px;
     margin-top: 113px;
     animation: spin 2.5s linear infinite;
     transition: transform 400ms ease-in-out;
@@ -284,18 +283,22 @@ html::-webkit-scrollbar-thumb {
 @-moz-keyframes spin {
     50% {
         height: 75px;
+        width: 80px;
     }
 }
 
 @-webkit-keyframes spin {
     50% {
         height: 82px;
+        width: 82px;
     }
 }
 
 @keyframes spin {
     50% {
         height: 75px;
+        width: 80px;
+
     }
 }
 
@@ -750,18 +753,25 @@ html::-webkit-scrollbar-thumb {
     }
 
 
-    .title p {
+    .styleOptionChangeLanguage p {
         font-size: 16px;
         letter-spacing: .1rem;
-        margin-top: 4%;
+    }
+
+    .title {
+        padding: 3%;
+    }
+
+    .titleWeb p {
+        letter-spacing: .1rem;
+        width: 80%;
+        font-size: 16px;
     }
 
     .titleWeb {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        margin-top: 0;
     }
+
 
     .titleWeb h6 {
         font-size: 12px;
@@ -834,9 +844,6 @@ html::-webkit-scrollbar-thumb {
 
     .help button {
         font-size: 14px;
-        width: 140px;
-        letter-spacing: .2rem;
-        margin-bottom: 4%;
     }
 
     .chioseImage img {

@@ -33,7 +33,7 @@ const CardAnimals: React.FC<{
             onClick={() =>
               start(dataAllAnimals._id)
             }
-            src={require("../../../../images/bowel1.png")}
+            src="https://i.postimg.cc/fyh8t96R/bowel.webp"
             alt="give eat"
           />
         </div>

@@ -61,7 +61,7 @@ const Menu: React.FC = () => {
 
       <div className="help">
         {buttonMoreInfoChangeLanguage.map((node: any) => (
-          <Button key={node.title} size="sm" variant="warning" onClick={handleShow}>
+          <Button key={node.title} size="lg" variant="warning" onClick={handleShow}>
             {node.title}
           </Button>
         ))}
