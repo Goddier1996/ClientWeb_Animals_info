@@ -34,7 +34,7 @@ html::-webkit-scrollbar-thumb {
 
 .swal2-container.swal2-backdrop-show,
 .swal2-container.swal2-noanimation {
-    background: rgba(0, 0, 0, .3) !important;
+    background: rgba(0, 0, 0, .7);
 }
 
 
@@ -59,8 +59,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-
-
 /* title menu */
 .title {
     background: url("https://i.postimg.cc/DfSdDZW4/121.webp") fixed;
@@ -68,7 +66,7 @@ html::-webkit-scrollbar-thumb {
     transition: box-shadow 400ms;
     width: 100%;
     height: 320px;
-    border-radius: 0 0 15% 50%;
+    border-radius: 0 0 10% 40%;
     text-align: center;
     align-items: center;
     display: flex;
@@ -365,8 +363,37 @@ html::-webkit-scrollbar-thumb {
 .popUpGiveEat img {
     object-fit: cover;
     border-radius: 40px;
-    width: 400px;
+    width: auto;
 }
+
+.popUpGiveEat h1 {
+    color: white;
+    font-size: 20px;
+    margin-top: 5%;
+    animation: titleEat 3s linear infinite;
+    transition: transform 400ms ease-in-out;
+}
+
+@-moz-keyframes titleEat {
+    50% {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.679);
+    }
+}
+
+@-webkit-keyframes titleEat {
+    50% {
+        font-size: 20px;
+    }
+}
+
+@keyframes titleEat {
+    50% {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.679);
+    }
+}
+
 
 .soFull {
     height: 230px;
@@ -374,16 +401,12 @@ html::-webkit-scrollbar-thumb {
 }
 
 .popUpGiveEatNotEat {
-    object-fit: cover;
-    border-radius: 40px;
     width: auto;
 }
 
 .popUpGiveEatNotEat p {
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
     font-weight: 600;
-    border-radius: 50%;
 }
 
 .soFullNotEat {
@@ -790,5 +813,31 @@ html::-webkit-scrollbar-thumb {
 
     .popUpGiveEat img {
         width: 250px;
+    }
+
+    .popUpGiveEat h1 {
+        font-size: 15px;
+        animation: titleEatResponsiveScreen 3s linear infinite;
+    }
+
+
+    @-moz-keyframes titleEatResponsiveScreen {
+        50% {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.679);
+        }
+    }
+
+    @-webkit-keyframes titleEatResponsiveScreen {
+        50% {
+            font-size: 15px;
+        }
+    }
+
+    @keyframes titleEatResponsiveScreen {
+        50% {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.679);
+        }
     }
 }

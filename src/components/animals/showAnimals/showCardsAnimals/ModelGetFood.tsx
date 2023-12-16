@@ -5,8 +5,8 @@ import AddFoodAnimal from "../../giveFoodAnimal/AddFoodAnimal";
 const ModelGetFood: React.FC<{
   showGetFoodAnimal: boolean;
   handleCloseGetFoodAnimal: Function;
-  idAnimal:string
-}> = ({ showGetFoodAnimal, handleCloseGetFoodAnimal,idAnimal }) => {
+  idAnimal: string;
+}> = ({ showGetFoodAnimal, handleCloseGetFoodAnimal, idAnimal }) => {
 
 
   return (
@@ -28,13 +28,17 @@ const ModelGetFood: React.FC<{
         <Modal.Body>
           <Form>
             {/* show pop up add eat animal */}
-            <AddFoodAnimal idAnimal={ idAnimal} />
+            <AddFoodAnimal
+              idAnimal={idAnimal}
+              closeStartPopUpSelectTypeGiveEat={() =>
+                handleCloseGetFoodAnimal()
+              }
+            />
           </Form>
         </Modal.Body>
       </Modal>
     </>
   );
 };
-
 
 export default ModelGetFood;

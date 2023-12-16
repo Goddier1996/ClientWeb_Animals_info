@@ -2,13 +2,20 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
-import {AnimalIdInfo} from "../../../../../../interface/info.model"
+import { AnimalIdInfo } from "../../../../../../interface/info.model";
 
 
 
-const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> = ({
+const InputValue: React.FC<{
+  hideModelFood: Function;
+  dataAnimal: AnimalIdInfo;
+  closeStartPopUpSelectTypeGiveEat: Function;
+  closeInputEatPopUp: Function;
+}> = ({
   hideModelFood,
-  dataAnimal
+  dataAnimal,
+  closeStartPopUpSelectTypeGiveEat,
+  closeInputEatPopUp,
 }) => {
 
 
@@ -21,22 +28,19 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> 
     (node: any) => node.title
   );
 
-    
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
   });
   const closeTitle: String = closeChangeLanguage.map((node: any) => node.title);
 
-    
   const need_input_what_animal_eatChangeLanguage: any = t(
     "need_input_what_animal_eat",
     {
       returnObjects: true,
     }
-    );
+  );
   const need_input_what_animal_eat: String =
     need_input_what_animal_eatChangeLanguage.map((node: any) => node.title);
-
 
   const i_dont_eat_thisChangeLanguage: any = t("i_dont_eat_this", {
     returnObjects: true,
@@ -45,12 +49,12 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> 
     (node: any) => node.title
   );
 
-    
+
   const [eat, setEat] = useState<string>("");
 
 
   
-  //get animal and check input value,and lesten sound animal
+  //get animal and check input value,and lenten sound animal
   const GetEatToAnimal = async () => {
 
     //if input was == value from nodeJs , we save in session storge before this easy use now for check
@@ -63,10 +67,12 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> 
         position: "center",
         confirmButtonColor: "green",
         background: "none",
-        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> </div>',
+        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>Yummy its delicious<br/>Listen to the voice of an animal</h1></div>',
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.reload();
+          closeStartPopUpSelectTypeGiveEat();
+          closeInputEatPopUp();
+          audio.pause();
         }
       });
     }
@@ -89,8 +95,9 @@ const InputValue: React.FC<{ hideModelFood: Function,dataAnimal:AnimalIdInfo }> 
     }
   };
 
-    
-  
+
+
+
   return (
     <>
       <Form.Group

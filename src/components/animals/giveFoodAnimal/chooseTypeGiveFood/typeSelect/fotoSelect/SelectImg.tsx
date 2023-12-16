@@ -1,16 +1,25 @@
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
-import {AnimalIdInfo} from "../../../../../../interface/info.model"
-import { AsyncImage } from 'loadable-image'
-import { Blur } from 'transitions-kit'
+import { AnimalIdInfo } from "../../../../../../interface/info.model";
+import { AsyncImage } from "loadable-image";
+import { Blur } from "transitions-kit";
 
 
 
-const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:AnimalIdInfo }> = ({ eatOrNo,dataAnimal }) => {
+const SelectImg: React.FC<{
+  eatOrNo: string;
+  dataAnimal: AnimalIdInfo;
+  closeStartPopUpSelectTypeGiveEat: Function;
+  closeImgEatPopUp: Function;
+}> = ({
+  eatOrNo,
+  dataAnimal,
+  closeStartPopUpSelectTypeGiveEat,
+  closeImgEatPopUp,
+}) => {
 
 
   const { t } = useTranslation(["home"]);
-
 
   const i_dont_eat_thisChangeLanguage: any = t("i_dont_eat_this", {
     returnObjects: true,
@@ -19,11 +28,11 @@ const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:AnimalIdInfo }> = ({ eatO
     (node: any) => node.title
   );
 
-    
-    
+
+
   //choose image food check if eat this food,and lessen sound animal
-  const GetEatToAnimal = async (eat: string) => {
-    
+  const GetEatToAnimal = (eat: string) => {
+
     if (eat == "Not Eat") {
       Swal.fire({
         allowOutsideClick: false,
@@ -44,22 +53,24 @@ const SelectImg: React.FC<{ eatOrNo: string,dataAnimal:AnimalIdInfo }> = ({ eatO
         position: "center",
         confirmButtonColor: "green",
         background: "none",
-        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> </div>',
+        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>Yummy its delicious<br/>Listen to the voice of an animal</h1></div>',
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.reload();
+          closeImgEatPopUp();
+          closeStartPopUpSelectTypeGiveEat();
+          audio.pause();
         }
       });
     }
   };
 
-    
-    
+
+
   return (
     <div className="styleSelectImageRat">
       <AsyncImage
         src={eatOrNo == "Eat" ? dataAnimal.eatImage : dataAnimal.notEatImage}
-        style={{ width: "125px", height: "90px",objectFit: "contain"}}
+        style={{ width: "125px", height: "90px", objectFit: "contain" }}
         Transition={Blur}
         alt="photo eat"
         onClick={() => {

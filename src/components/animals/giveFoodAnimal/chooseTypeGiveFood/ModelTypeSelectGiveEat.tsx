@@ -2,7 +2,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import ImageEat from "./typeSelect/fotoSelect/FotoEat";
 import InputEat from "./typeSelect/inputFood/GiveFoodAnimal";
 import cookies from "js-cookie";
-import {AnimalIdInfo} from "../../../../interface/info.model"
+import { AnimalIdInfo } from "../../../../interface/info.model";
 
 
 const ModelTypeSelectGiveEat: React.FC<{
@@ -10,9 +10,18 @@ const ModelTypeSelectGiveEat: React.FC<{
   onHide: Function;
   title: String;
   typeSelect: string;
-  dataAnimalId: AnimalIdInfo
-  dataAnimalInfoHebrewLanguage:AnimalIdInfo
-}> = ({ show, onHide, title, typeSelect,dataAnimalId,dataAnimalInfoHebrewLanguage }) => {
+  dataAnimalId: AnimalIdInfo;
+  dataAnimalInfoHebrewLanguage: AnimalIdInfo;
+  closeStartPopUpSelectTypeGiveEat: Function;
+}> = ({
+  show,
+  onHide,
+  title,
+  typeSelect,
+  dataAnimalId,
+  dataAnimalInfoHebrewLanguage,
+  closeStartPopUpSelectTypeGiveEat,
+}) => {
 
 
   const currentLanguageCode = cookies.get("i18next") || "en";
@@ -22,28 +31,60 @@ const ModelTypeSelectGiveEat: React.FC<{
     <>
       <Modal
         show={show}
-        onHide={()=>onHide()}
+        onHide={() => onHide()}
         aria-labelledby="contained-modal-title-vcenter"
       >
         <Modal.Body>
           {typeSelect == "imgSelect" ? (
             <>
               <Form>
-                {currentLanguageCode == "hw" ? <ImageEat dataAnimal={dataAnimalInfoHebrewLanguage} /> :
-                  <ImageEat dataAnimal={dataAnimalId} />}
+                {currentLanguageCode == "hw" ? (
+                  <ImageEat
+                    dataAnimal={dataAnimalInfoHebrewLanguage}
+                    closeStartPopUpSelectTypeGiveEat={() =>
+                      closeStartPopUpSelectTypeGiveEat()
+                    }
+                    closeImgEatPopUp={() => onHide()}
+                  />
+                ) : (
+                  <ImageEat
+                    dataAnimal={dataAnimalId}
+                    closeStartPopUpSelectTypeGiveEat={() =>
+                      closeStartPopUpSelectTypeGiveEat()
+                    }
+                    closeImgEatPopUp={() => onHide()}
+                  />
+                )}
               </Form>
 
               <div className="buttonExit">
-                <Button variant="danger" onClick={()=>onHide()}>
+                <Button variant="danger" onClick={() => onHide()}>
                   {title}
                 </Button>
               </div>
             </>
-          ) : typeSelect == "inputValue" ? (
+          ) :
+            typeSelect == "inputValue" ? (
             <>
               <Form>
-                  {currentLanguageCode == "hw" ? <InputEat hideModelFood={onHide} dataAnimal={dataAnimalInfoHebrewLanguage} /> :
-                    <InputEat hideModelFood={onHide} dataAnimal={dataAnimalId} />}
+                {currentLanguageCode == "hw" ? (
+                  <InputEat
+                    hideModelFood={onHide}
+                    dataAnimal={dataAnimalInfoHebrewLanguage}
+                    closeStartPopUpSelectTypeGiveEat={() =>
+                      closeStartPopUpSelectTypeGiveEat()
+                    }
+                    closeInputEatPopUp={() => onHide()}    
+                  />
+                ) : (
+                      <InputEat hideModelFood={onHide}
+                        dataAnimal={dataAnimalId}
+                        closeStartPopUpSelectTypeGiveEat={() =>
+                          closeStartPopUpSelectTypeGiveEat()
+                        }
+                        closeInputEatPopUp={() => onHide()}
+                      />
+                )}
               </Form>
             </>
           ) : (
@@ -54,7 +95,5 @@ const ModelTypeSelectGiveEat: React.FC<{
     </>
   );
 };
-
-
 
 export default ModelTypeSelectGiveEat;

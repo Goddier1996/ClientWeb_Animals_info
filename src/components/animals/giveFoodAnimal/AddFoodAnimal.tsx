@@ -10,17 +10,19 @@ import {
   LoadAnimalInfoIdHebrewLanguage,
 } from "../../../Server/LoadDataApi";
 import Loading from "../../tools/Loading";
-import {AnimalIdInfo} from "../../../interface/info.model"
+import { AnimalIdInfo } from "../../../interface/info.model";
 
 
 
-const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
+const AddFoodAnimal: React.FC<{
+  idAnimal: string;
+  closeStartPopUpSelectTypeGiveEat: Function;
+}> = ({ idAnimal, closeStartPopUpSelectTypeGiveEat }) => {
 
 
   // change language en or hw
   const { t } = useTranslation(["home"]);
   const currentLanguageCode = cookies.get("i18next") || "en";
-
 
   const optionsTitleChangeLanguage: any = t("optionsTitle", {
     returnObjects: true,
@@ -29,14 +31,12 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
     (node: any) => node.title
   );
 
-
   const optionsSelectTitleChangeLanguage: any = t("optionsSelectTitle", {
     returnObjects: true,
   });
   const optionsSelectTitle: String = optionsSelectTitleChangeLanguage.map(
     (node: any) => node.title
   );
-
 
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
@@ -51,6 +51,7 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
   const handleCloseImageEat = () => setShowImageEat(false);
   const handleShowImageEat = () => setShowImageEat(true);
 
+
   //choose input eat
   const [showInputTextEat, setShowInputTextEat] = useState<boolean>(false);
   const handleCloseInputTextEat = () => setShowInputTextEat(false);
@@ -59,8 +60,10 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
 
   const [dataAnimalInfo, setDataAnimalInfo] = useState<AnimalIdInfo>({});
 
+
   const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
     useState<AnimalIdInfo>({});
+
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -86,8 +89,9 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
 
 
 
+
   useEffect(() => {
-    
+
     loadAnimalIdInfo();
 
   }, [idAnimal]);
@@ -102,7 +106,9 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
         <>
           <div className="titleHeater">
             {currentLanguageCode == "hw" ? (
-              <ShowTitleNameAnimal dataAnimalId={dataAnimalInfoHebrewLanguage} />
+              <ShowTitleNameAnimal
+                dataAnimalId={dataAnimalInfoHebrewLanguage}
+              />
             ) : (
               <ShowTitleNameAnimal dataAnimalId={dataAnimalInfo} />
             )}
@@ -117,7 +123,6 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
             </h6>
           </div>
 
-            
           {/* select type give eat animal img or input value */}
           <div className="chioseInputOrImage">
             <SelectTypeGiveEat
@@ -132,7 +137,6 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
             />
           </div>
 
-            
           {/* pop up choose image eat , active here to show component FotoEat.js */}
           <ModelTypeSelectGiveEat
             show={showImageEat}
@@ -141,6 +145,9 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
             typeSelect={"imgSelect"}
             dataAnimalId={dataAnimalInfo}
             dataAnimalInfoHebrewLanguage={dataAnimalInfoHebrewLanguage}
+            closeStartPopUpSelectTypeGiveEat={() =>
+              closeStartPopUpSelectTypeGiveEat()
+            }
           />
 
           {/* pop up choose input value eat , active here to show component InputEat.js */}
@@ -151,6 +158,9 @@ const AddFoodAnimal: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
             typeSelect={"inputValue"}
             dataAnimalId={dataAnimalInfo}
             dataAnimalInfoHebrewLanguage={dataAnimalInfoHebrewLanguage}
+            closeStartPopUpSelectTypeGiveEat={() =>
+              closeStartPopUpSelectTypeGiveEat()
+            }
           />
         </>
       )}
