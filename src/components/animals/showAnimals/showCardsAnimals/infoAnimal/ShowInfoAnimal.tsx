@@ -136,7 +136,10 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
           )}
 
           <div className="ButtonInfo">
-            <Button variant="success" onClick={() => hideModelInfo()}>
+              <Button variant="success"
+                onClick={() => hideModelInfo()}
+                style={{cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
+              >
               {GoodInfoButton}
             </Button>
           </div>

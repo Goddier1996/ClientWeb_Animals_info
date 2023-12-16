@@ -28,6 +28,14 @@ const SelectImg: React.FC<{
     (node: any) => node.title
   );
 
+  const Yummy: any = t("Yummy", {
+    returnObjects: true,
+  });
+  const YummyGoodEat: String = Yummy.map(
+    (node: any) => node.title
+  );
+
+
 
 
   //choose image food check if eat this food,and lessen sound animal
@@ -53,7 +61,7 @@ const SelectImg: React.FC<{
         position: "center",
         confirmButtonColor: "green",
         background: "none",
-        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>Yummy its delicious<br/>Listen to the voice of an animal</h1></div>',
+        html: `<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>${YummyGoodEat}</h1></div>`,
       }).then((result) => {
         if (result.isConfirmed) {
           closeImgEatPopUp();

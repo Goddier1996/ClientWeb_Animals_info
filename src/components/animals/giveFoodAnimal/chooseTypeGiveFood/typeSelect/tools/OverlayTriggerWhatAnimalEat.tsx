@@ -16,7 +16,10 @@ const OverlayTriggerWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) =
   return (
     <>
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-        <Button variant="outline-light">
+        <Button
+          variant="outline-light"
+          style={{cursor: "url(https://cur.cursors-4u.net/cursors/cur-8/cur743.cur), pointer"}}
+        >
           <img src="https://img.icons8.com/ios/50/000000/info--v1.png" />
         </Button>
       </OverlayTrigger>

@@ -163,7 +163,7 @@ export const OptionsSite: React.FC = () => {
     <>
       {optionsAppButtonChangeLanguage.map((node: any) => (
         <Button
-          style={{ margin: "3%" }}
+          style={{ margin: "3%",cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer" }}
           variant="primary"
           onClick={clickToButtonAddPopUp}
         >

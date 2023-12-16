@@ -47,12 +47,9 @@ const Menu: React.FC = () => {
   );
 
 
-
   const [show, setShow] = useState<boolean>(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
 
 
   return (
@@ -131,7 +128,7 @@ const Menu: React.FC = () => {
             {popUpInfoButtonLetsStartChangeLanguage.map((node: any) => (
               <Button
                 key={node.title}
-                style={{ margin: "3%" }}
+                style={{ margin: "3%",cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
                 variant="success"
                 onClick={handleClose}
               >

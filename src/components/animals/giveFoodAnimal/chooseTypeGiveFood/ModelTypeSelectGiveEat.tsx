@@ -58,7 +58,11 @@ const ModelTypeSelectGiveEat: React.FC<{
               </Form>
 
               <div className="buttonExit">
-                <Button variant="danger" onClick={() => onHide()}>
+                <Button
+                  variant="danger"
+                  onClick={() => onHide()}
+                  style={{cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
+                >
                   {title}
                 </Button>
               </div>

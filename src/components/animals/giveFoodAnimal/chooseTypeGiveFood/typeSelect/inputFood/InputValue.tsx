@@ -49,11 +49,17 @@ const InputValue: React.FC<{
     (node: any) => node.title
   );
 
+  const Yummy: any = t("Yummy", {
+    returnObjects: true,
+  });
+  const YummyGoodEat: String = Yummy.map(
+    (node: any) => node.title
+  );
+
 
   const [eat, setEat] = useState<string>("");
 
 
-  
   //get animal and check input value,and lenten sound animal
   const GetEatToAnimal = async () => {
 
@@ -67,7 +73,7 @@ const InputValue: React.FC<{
         position: "center",
         confirmButtonColor: "green",
         background: "none",
-        html: '<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>Yummy its delicious<br/>Listen to the voice of an animal</h1></div>',
+        html: `<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>${YummyGoodEat}</h1></div>`,
       }).then((result) => {
         if (result.isConfirmed) {
           closeStartPopUpSelectTypeGiveEat();
@@ -116,11 +122,19 @@ const InputValue: React.FC<{
       <br />
 
       <div className="ButtonInfo">
-        <Button variant="success" onClick={() => GetEatToAnimal()}>
+        <Button
+          variant="success"
+          onClick={() => GetEatToAnimal()}
+          style={{cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
+        >
           {ToFeedTitle}
         </Button>
 
-        <Button variant="danger" onClick={() => hideModelFood()}>
+        <Button
+          variant="danger"
+          onClick={() => hideModelFood()}
+          style={{cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
+        >
           {closeTitle}
         </Button>
       </div>

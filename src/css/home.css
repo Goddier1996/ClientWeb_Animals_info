@@ -357,6 +357,7 @@ html::-webkit-scrollbar-thumb {
 .popUpGiveEatNotEat {
     position: relative;
     text-align: center;
+
 }
 
 .popUpGiveEat img {
@@ -532,7 +533,7 @@ html::-webkit-scrollbar-thumb {
     border: none;
     background-color: none;
     -webkit-appearance: none;
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
 }
 
 
