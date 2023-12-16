@@ -96,7 +96,7 @@ html::-webkit-scrollbar-thumb {
 
 
 .positionOptionChangeLanguage img {
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
     margin: 5%;
 }
 
@@ -195,7 +195,7 @@ html::-webkit-scrollbar-thumb {
     height: 150px;
     border-radius: 40px;
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/cursors/cur-8/cur743.cur"), pointer;
     transition: 0.4s;
 }
 
@@ -228,6 +228,7 @@ html::-webkit-scrollbar-thumb {
     margin-top: 113px;
     animation: spin 2.5s linear infinite;
     transition: transform 400ms ease-in-out;
+    cursor: url("https://cur.cursors-4u.net/food/foo-5/foo429.cur"), pointer;
 }
 
 .card_title img:hover {
@@ -282,8 +283,6 @@ html::-webkit-scrollbar-thumb {
 .title-black {
     color: black;
 }
-
-
 
 
 /* title cheack or info when we add eat to animal */
@@ -502,7 +501,7 @@ html::-webkit-scrollbar-thumb {
 
 
 .chioseInputOrImage img {
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
     height: 130px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
@@ -514,14 +513,14 @@ html::-webkit-scrollbar-thumb {
 
 
 .styleSelectImageRat {
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
     height: 85px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
 }
 
 .styleSelectImageRat:hover {
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .closes {
@@ -649,7 +648,7 @@ html::-webkit-scrollbar-thumb {
     border-radius: 2.5em;
     transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
     background: rgba(0, 0, 0, 0);
-    cursor: pointer;
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
 }
 
 .search-box input[type=text]:focus {
@@ -689,6 +688,8 @@ html::-webkit-scrollbar-thumb {
     right: 0.55em;
     transform: rotate(-45deg) translateY(2.2em);
     transition: transform 150ms ease-out 150ms;
+    cursor: url("https://cur.cursors-4u.net/cursors/cur-5/cur418.cur"), pointer;
+
 }
 
 .search-box button[type=reset]:before,
@@ -705,6 +706,7 @@ html::-webkit-scrollbar-thumb {
     opacity: 0;
     transition: transform 150ms ease-out, opacity 150ms ease-out;
 }
+
 
 
 .g-recaptcha {

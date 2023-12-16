@@ -70,6 +70,7 @@ const Menu: React.FC = () => {
         <div className="help">
           {buttonMoreInfoChangeLanguage.map((node: any) => (
             <Button
+              style={{cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
               key={node.title}
               size="lg"
               variant="warning"
