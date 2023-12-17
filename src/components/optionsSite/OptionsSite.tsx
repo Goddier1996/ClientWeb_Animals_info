@@ -23,7 +23,6 @@ export const OptionsSite: React.FC = () => {
     returnObjects: true,
   });
 
-
   const optionsAppInfoAboutOptionChangeLanguage: any = t(
     "optionsAppInfoAboutOptionTitle",
     {
@@ -33,7 +32,6 @@ export const OptionsSite: React.FC = () => {
   const optionsTitle: String = optionsAppInfoAboutOptionChangeLanguage.map(
     (node: any) => node.title
   );
-
 
   const optionsAppInfoAboutOptionUserCanSendMessageTitleChangeLanguage: any = t(
     "optionsAppInfoAboutOptionUserCanSendMessageTitle",
@@ -46,7 +44,6 @@ export const OptionsSite: React.FC = () => {
       (node: any) => node.title
     );
 
-  
   const connectToAdminChangeLanguage: any = t("connectToAdmin", {
     returnObjects: true,
   });
@@ -54,14 +51,12 @@ export const OptionsSite: React.FC = () => {
     (node: any) => node.title
   );
 
-
   const sendMessageChangeLanguage: any = t("sendMessage", {
     returnObjects: true,
   });
   const optionsSendMessage: String = sendMessageChangeLanguage.map(
     (node: any) => node.title
   );
-
 
   const okChangeLanguage: any = t("ok", {
     returnObjects: true,

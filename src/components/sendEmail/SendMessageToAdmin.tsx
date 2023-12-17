@@ -12,7 +12,6 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({
   // change language en or hw
   const { t } = useTranslation(["home"]);
 
-
   const titleSendMessageChangeLanguage: any = t("titleSendMessage", {
     returnObjects: true,
   });

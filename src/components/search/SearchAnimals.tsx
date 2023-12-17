@@ -8,12 +8,10 @@ const SearchAnimals: React.FC<{ onChangeCallback: Function }> = ({
 
   const [search, setSearch] = useState<string>("");
 
-
   const clearInputSearch = () => {
     setSearch("");
     onChangeCallback("");
   };
-
 
 
   const handleChange = (e: any) => {
@@ -25,7 +23,6 @@ const SearchAnimals: React.FC<{ onChangeCallback: Function }> = ({
     // and pass the input value as an argument
     onChangeCallback(inputValue);
   };
-
 
 
   return (

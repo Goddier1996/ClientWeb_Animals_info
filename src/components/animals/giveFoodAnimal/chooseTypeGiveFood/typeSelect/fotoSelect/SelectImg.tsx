@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { AnimalIdInfo } from "../../../../../../interface/info.model";
 import { AsyncImage } from "loadable-image";
 import { Blur } from "transitions-kit";
-import { useState } from "react";
 
 
 
@@ -58,6 +57,7 @@ const SelectImg: React.FC<{
   );
 
 
+  
   //choose image food check if eat this food,and lessen sound animal
   const GetEatToAnimal = (eat: string) => {
 

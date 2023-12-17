@@ -24,14 +24,12 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
   const { t } = useTranslation(["home"]);
   const currentLanguageCode = cookies.get("i18next") || "en";
 
-
   const InfoAnimalTitleChangeLanguage: any = t("InfoAnimal", {
     returnObjects: true,
   });
   const InfoAnimalTitle: String = InfoAnimalTitleChangeLanguage.map(
     (node: any) => node.title
   );
-
 
   const GoodInfoButtonChangeLanguage: any = t("GoodInfoButton", {
     returnObjects: true,

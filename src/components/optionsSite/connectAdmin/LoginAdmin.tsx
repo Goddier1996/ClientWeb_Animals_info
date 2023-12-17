@@ -27,7 +27,6 @@ const LoginAdmin: React.FC<{
     (node: any) => node.title
   );
 
-    
   const signInChangeLanguage: any = t("signIn", {
     returnObjects: true,
   });
@@ -35,7 +34,6 @@ const LoginAdmin: React.FC<{
     (node: any) => node.title
   );
 
-    
   const infoAdminChangeLanguage: any = t("infoAdmin", {
     returnObjects: true,
   });

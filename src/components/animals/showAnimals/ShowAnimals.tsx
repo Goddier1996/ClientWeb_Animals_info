@@ -35,7 +35,6 @@ const AnimalsModals: React.FC = () => {
   const animalDontFoundInDataBaseTitle: String =
     animalDontFoundInDataBaseTitleChangeLanguage.map((node: any) => node.title);
 
-  
   const animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitleSendToAdminMessage",
     {
@@ -47,8 +46,6 @@ const AnimalsModals: React.FC = () => {
       (node: any) => node.title
     );
 
-  
-  
   
   //popup open or close , sound animal show popUp
   const [showGetFoodAnimal, setShowGetFoodAnimal] = useState<boolean>(false);

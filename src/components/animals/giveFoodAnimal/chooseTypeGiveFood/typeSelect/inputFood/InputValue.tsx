@@ -78,7 +78,6 @@ const InputValue: React.FC<{
   );
 
 
-
   const [eat, setEat] = useState<string>("");
 
 
