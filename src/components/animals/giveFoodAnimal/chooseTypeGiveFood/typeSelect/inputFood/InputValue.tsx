@@ -56,6 +56,28 @@ const InputValue: React.FC<{
     (node: any) => node.title
   );
 
+  const NoSound: any = t("NoSound", {
+    returnObjects: true,
+  });
+  const NoSoundRefresh: String = NoSound.map(
+    (node: any) => node.title
+  );
+
+  const Exit: any = t("Exit", {
+    returnObjects: true,
+  });
+  const ExitAnimal: String = Exit.map(
+    (node: any) => node.title
+  );
+
+  const TryAgain: any = t("TryAgain", {
+    returnObjects: true,
+  });
+  const TryAgainAnimal: String = TryAgain.map(
+    (node: any) => node.title
+  );
+
+
 
   const [eat, setEat] = useState<string>("");
 
@@ -71,9 +93,19 @@ const InputValue: React.FC<{
 
       Swal.fire({
         position: "center",
+        allowOutsideClick: false,
         confirmButtonColor: "green",
+        confirmButtonText: `${ExitAnimal}`,
         background: "none",
-        html: `<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>${YummyGoodEat}</h1></div>`,
+        html: `<div class="popUpGiveEat">
+        <img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif">
+        <h1>${YummyGoodEat}</h1>   
+        <audio id="player" src=${dataAnimal.sound}></audio>
+          <div class="soundAnimalPlayAgain">
+             <i onclick="document.getElementById('player').play()" class='fa fa-volume-up fa-2x'></i>
+         </div>
+         <p>${NoSoundRefresh}</p>
+      </div>` ,
       }).then((result) => {
         if (result.isConfirmed) {
           closeStartPopUpSelectTypeGiveEat();
@@ -88,6 +120,7 @@ const InputValue: React.FC<{
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
+        confirmButtonText: `${TryAgainAnimal}`,
         background: "none",
         html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${need_input_what_animal_eat}</p></div>`,
       });
@@ -95,6 +128,7 @@ const InputValue: React.FC<{
       Swal.fire({
         position: "center",
         confirmButtonColor: "green",
+        confirmButtonText: `${TryAgainAnimal}`,
         background: "none",
         html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${i_dont_eat_this}</p></div>`,
       });

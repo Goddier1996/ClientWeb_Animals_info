@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { AnimalIdInfo } from "../../../../../../interface/info.model";
 import { AsyncImage } from "loadable-image";
 import { Blur } from "transitions-kit";
+import { useState } from "react";
 
 
 
@@ -35,7 +36,26 @@ const SelectImg: React.FC<{
     (node: any) => node.title
   );
 
+  const NoSound: any = t("NoSound", {
+    returnObjects: true,
+  });
+  const NoSoundRefresh: String = NoSound.map(
+    (node: any) => node.title
+  );
 
+  const Exit: any = t("Exit", {
+    returnObjects: true,
+  });
+  const ExitAnimal: String = Exit.map(
+    (node: any) => node.title
+  );
+
+  const TryAgain: any = t("TryAgain", {
+    returnObjects: true,
+  });
+  const TryAgainAnimal: String = TryAgain.map(
+    (node: any) => node.title
+  );
 
 
   //choose image food check if eat this food,and lessen sound animal
@@ -46,12 +66,14 @@ const SelectImg: React.FC<{
         allowOutsideClick: false,
         position: "center",
         confirmButtonColor: "green",
+        confirmButtonText: `${TryAgainAnimal}`,
         background: "none",
         html: `<div class="popUpGiveEatNotEat"><img class="soFullNotEat" src="https://i.postimg.cc/tJpmd8Ty/no-i-dont-like.gif"><br/><br/><p>${i_dont_eat_this}</p></div>`,
       });
     }
 
     if (eat == "Eat") {
+
       //play sound animal
       let audio = new Audio(dataAnimal.sound);
       audio.play();
@@ -60,8 +82,17 @@ const SelectImg: React.FC<{
         allowOutsideClick: false,
         position: "center",
         confirmButtonColor: "green",
+        confirmButtonText: `${ExitAnimal}`,
         background: "none",
-        html: `<div class="popUpGiveEat"><img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif"> <h1>${YummyGoodEat}</h1></div>`,
+        html: `<div class="popUpGiveEat">
+                 <img class="soFull" src="https://c.tenor.com/3VMs08FbdTUAAAAC/garfield-fat.gif">
+                 <h1>${YummyGoodEat}</h1>   
+                 <audio id="player" src=${dataAnimal.sound}></audio>
+                   <div class="soundAnimalPlayAgain">
+                      <i onclick="document.getElementById('player').play()" class='fa fa-volume-up fa-2x'></i>
+                  </div>
+                  <p>${NoSoundRefresh}</p>
+               </div>`,
       }).then((result) => {
         if (result.isConfirmed) {
           closeImgEatPopUp();

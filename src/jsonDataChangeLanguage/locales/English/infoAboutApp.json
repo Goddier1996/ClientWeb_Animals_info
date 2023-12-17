@@ -265,7 +265,28 @@
 
         {
             "id": "1",
-            "title": "Yummy its delicious <br/> Listen to the voice of an animal"
+            "title": "Yummy its delicious <br/> Listen to the voice of an animal Again"
+        }
+    ],
+    "NoSound": [
+
+        {
+            "id": "1",
+            "title": "With no sound refresh the browser"
+        }
+    ],
+    "Exit": [
+
+        {
+            "id": "1",
+            "title": "Exit"
+        }
+    ],
+    "TryAgain": [
+
+        {
+            "id": "1",
+            "title": "Try Again"
         }
     ],
     "SelectLanguageTitle": [

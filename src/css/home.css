@@ -357,13 +357,30 @@ html::-webkit-scrollbar-thumb {
 .popUpGiveEatNotEat {
     position: relative;
     text-align: center;
+}
 
+.soundAnimalPlayAgain i {
+    color: whitesmoke;
+    transition-duration: 0.3s;
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
+}
+
+.soundAnimalPlayAgain i:hover {
+    color: rgba(245, 245, 245, 0.374);
 }
 
 .popUpGiveEat img {
     object-fit: cover;
     border-radius: 40px;
     width: auto;
+}
+
+.popUpGiveEat p {
+    font-size: 13px;
+    color: orange;
+    font-weight: 600;
+    margin-top: 2%;
+    margin-bottom: 0%;
 }
 
 .popUpGiveEat h1 {
