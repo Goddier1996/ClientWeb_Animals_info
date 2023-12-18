@@ -44,9 +44,9 @@ const AddAnimal: React.FC = () => {
   const checkValue = async () => {
 
     // check url input
-    let x: boolean = isValidUrl(sound);
-    let x1: boolean = isValidUrl(image);
-    let x2: boolean = isValidUrl(infoImage);
+    let soundUrl: boolean = isValidUrl(sound);
+    let imageUrl: boolean = isValidUrl(image);
+    let infoImageUrl: boolean = isValidUrl(infoImage);
 
     if (
       sound === "" ||
@@ -56,9 +56,9 @@ const AddAnimal: React.FC = () => {
       infoAnimal === "" ||
       notEatImage === "" ||
       eatImage === "" ||
-      x == false ||
-      x1 == false ||
-      x2 == false
+      soundUrl == false ||
+      imageUrl == false ||
+      infoImageUrl == false
     )
     {
       Swal.fire({
@@ -72,8 +72,7 @@ const AddAnimal: React.FC = () => {
       return;
     }
 
-
-    if (x == true && x1 == true && x2 == true) {
+    if (soundUrl == true && imageUrl == true && infoImageUrl == true) {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -81,12 +80,11 @@ const AddAnimal: React.FC = () => {
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
+        
         addNewAnimal();
-        sessionStorage.clear();
         window.location.reload();
       });
     }
-
   };
 
 

@@ -81,7 +81,6 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
       return;
     }
 
-
     else {
       Swal.fire({
         position: "top-end",
@@ -92,7 +91,6 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
       }).then(() => {
 
         updateDateAnimal();
-        sessionStorage.clear();
         window.location.reload();
       });
     }
@@ -116,7 +114,6 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
       };
     
     await updateInDateAnimal(Animal, idAnimal);
-
   };
 
 

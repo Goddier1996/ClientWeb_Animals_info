@@ -89,7 +89,6 @@ const AddFoodAnimal: React.FC<{
 
 
 
-
   useEffect(() => {
 
     loadAnimalIdInfo();

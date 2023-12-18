@@ -41,4 +41,5 @@ const ModelGetFood: React.FC<{
   );
 };
 
+
 export default ModelGetFood;

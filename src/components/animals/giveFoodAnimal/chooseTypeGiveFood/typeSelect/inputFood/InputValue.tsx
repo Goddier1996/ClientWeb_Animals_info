@@ -86,6 +86,7 @@ const InputValue: React.FC<{
 
     //if input was == value from nodeJs , we save in session storge before this easy use now for check
     if (dataAnimal.eat == eat.toLowerCase()) {
+      
       //play sound animal
       let audio = new Audio(dataAnimal.sound);
       audio.play();

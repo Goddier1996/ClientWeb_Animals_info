@@ -7,7 +7,6 @@ import {AnimalsInfo} from "../../../interface/info.model"
 const CardAnimalDelete: React.FC<{ data: AnimalsInfo }> = ({ data }) => {
 
 
-
   const DeleteAnimalFromDataBase = async (Id: string) => {
     
     await DeleteAnimal(Id);
@@ -19,7 +18,6 @@ const CardAnimalDelete: React.FC<{ data: AnimalsInfo }> = ({ data }) => {
       showConfirmButton: false,
       timer: 1500,
     }).then(() => {
-      sessionStorage.clear();
       window.location.reload();
     });
   };

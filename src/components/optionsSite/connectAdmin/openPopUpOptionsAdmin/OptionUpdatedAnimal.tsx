@@ -27,5 +27,4 @@ const OptionUpdatedAnimal: React.FC<{ handleCloseUpdatedAnimal: Function }> = ({
 };
 
 
-
 export default OptionUpdatedAnimal;

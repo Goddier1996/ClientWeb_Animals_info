@@ -3,8 +3,8 @@ import { Button, Form, Modal } from "react-bootstrap";
 
 const SelectOptionsAdmin: React.FC<{
   logOutAdminData: Function;
-  chioseForAdmin: Function;
-}> = ({ logOutAdminData, chioseForAdmin }) => {
+  chooseForAdmin: Function;
+}> = ({ logOutAdminData, chooseForAdmin }) => {
 
 
   return (
@@ -28,7 +28,7 @@ const SelectOptionsAdmin: React.FC<{
           <div className="styleChioseOptionAdmin">
             <Button
               onClick={() => {
-                chioseForAdmin(1);
+                chooseForAdmin(1);
               }}
               variant="primary"
             >
@@ -36,7 +36,7 @@ const SelectOptionsAdmin: React.FC<{
             </Button>
             <Button
               onClick={() => {
-                chioseForAdmin(3);
+                chooseForAdmin(3);
               }}
               variant="secondary"
             >
@@ -44,7 +44,7 @@ const SelectOptionsAdmin: React.FC<{
             </Button>
             <Button
               onClick={() => {
-                chioseForAdmin(2);
+                chooseForAdmin(2);
               }}
               variant="danger"
             >

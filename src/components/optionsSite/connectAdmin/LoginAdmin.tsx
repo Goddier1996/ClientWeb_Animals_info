@@ -67,7 +67,7 @@ const LoginAdmin: React.FC<{
   };
 
     
-    
+  // here show video for user's what admin can do to
   const AdminInfo = async () => {
 
     Swal.fire({

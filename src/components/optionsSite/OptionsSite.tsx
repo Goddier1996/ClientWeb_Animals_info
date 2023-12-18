@@ -70,12 +70,12 @@ export const OptionsSite: React.FC = () => {
   const handleCloseConnectAdmin = () => setShowConnectAdmin(false);
   const handleShowConnectAdmin = () => setShowConnectAdmin(true);
 
-  //popup send meesage to admin
+  //popup send message to admin
   const [showSendMessage, setShowSendMessage] = useState<boolean>(false);
   const handleCloseSendMessage = () => setShowSendMessage(false);
   const handleShowSendMessage = () => setShowSendMessage(true);
 
-  //popup chiose options add new animal , delete info animal , Updated info Animal
+  //popup choose options add new animal , delete info animal , Updated info Animal
   const [showOptionsAdmin, setShowOptionsAdmin] = useState<boolean>(false);
   const handleCloseOptionsAdmin = () => setShowOptionsAdmin(false);
   const handleShowOptionsAdmin = () => setShowOptionsAdmin(true);
@@ -124,17 +124,17 @@ export const OptionsSite: React.FC = () => {
 
 
   // here admin chiose add new animal or delete , we send a number when onclick to button , and check with number what we need active
-  const chioseForAdmin = async (chiose: number) => {
+  const chooseForAdmin = async (choose: number) => {
     
-    if (chiose == 1) {
+    if (choose == 1) {
       handleShowAddNewAnimal();
     }
 
-    if (chiose == 2) {
+    if (choose == 2) {
       handleShowDeleteAnimal();
     }
 
-    if (chiose == 3) {
+    if (choose == 3) {
       handleShowUpdatedAnimal();
     }
   };
@@ -211,7 +211,7 @@ export const OptionsSite: React.FC = () => {
         >
           <SelectOptionsAdmin
             logOutAdminData={() => logOutAdminData}
-            chioseForAdmin={chioseForAdmin}
+            chooseForAdmin={chooseForAdmin}
           />
         </Modal>
       </div>

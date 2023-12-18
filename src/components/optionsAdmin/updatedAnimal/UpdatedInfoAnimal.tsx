@@ -41,8 +41,8 @@ const ChooseUpdatedAnimal: React.FC = () => {
 
 
   useEffect(() => {
-    LoadAllNotes();
 
+    LoadAllNotes();
   }, []);
 
 

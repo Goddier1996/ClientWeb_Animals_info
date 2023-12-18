@@ -59,13 +59,14 @@ const AnimalsModals: React.FC = () => {
 
 
 
-  //save all animals
-  const [notesEnglishLanguage, SetNotesEnglishLanguage] = useState<
+  // save all animals HW + EN Language
+  const [allAnimalsEnglishLanguage, SetAllAnimalsEnglishLanguage] = useState<
     AnimalsInfo[]
   >([]);
-  const [notesHebrewLanguage, SetNotesHebrewLanguage] = useState<AnimalsInfo[]>(
+  const [allAnimalsHebrewLanguage, SetAllAnimalsHebrewLanguage] = useState<AnimalsInfo[]>(
     []
   );
+
 
   // save all animals when filter search animal
   const [
@@ -84,17 +85,17 @@ const AnimalsModals: React.FC = () => {
 
 
   //load all card animals from api
-  const LoadAllNotes = async () => {
+  const LoadAllAnimals = async () => {
 
     try {
       setLoading(true);
 
       // English
-      SetNotesEnglishLanguage(await LoadAllCardsAnimals());
+      SetAllAnimalsEnglishLanguage(await LoadAllCardsAnimals());
       SetCheckIfHaveValueWhenSearchEnglishLanguage(await LoadAllCardsAnimals());
 
       // Hebrew
-      SetNotesHebrewLanguage(await LoadAllCardsAnimalsHebrewLanguage());
+      SetAllAnimalsHebrewLanguage(await LoadAllCardsAnimalsHebrewLanguage());
       SetCheckIfHaveValueWhenSearchHebrewLanguage(
         await LoadAllCardsAnimalsHebrewLanguage()
       );
@@ -111,15 +112,13 @@ const AnimalsModals: React.FC = () => {
 
   const filterAnimalsSearch = (searchTerm: any) => {
 
-
-    const filteredItemsEN = notesEnglishLanguage.filter((user) =>
-      user.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredItemsEN = allAnimalsEnglishLanguage.filter((animal) =>
+      animal.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     SetCheckIfHaveValueWhenSearchEnglishLanguage(filteredItemsEN);
 
-
-    const filteredItemsHW = notesHebrewLanguage.filter((user) =>
-      user.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredItemsHW = allAnimalsHebrewLanguage.filter((animal) =>
+      animal.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     SetCheckIfHaveValueWhenSearchHebrewLanguage(filteredItemsHW);
   };
@@ -148,7 +147,7 @@ const AnimalsModals: React.FC = () => {
 
   useEffect(() => {
 
-    LoadAllNotes();
+    LoadAllAnimals();
   }, []);
 
 

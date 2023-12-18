@@ -22,6 +22,7 @@ const InputEat: React.FC<{
   // change language en or hw
   const currentLanguageCode = cookies.get("i18next") || "en";
 
+  
   return (
     <div>
       {/* here info if user don't know what animal eat */}

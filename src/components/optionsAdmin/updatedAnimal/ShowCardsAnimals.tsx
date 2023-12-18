@@ -19,5 +19,4 @@ const ShowCardsAnimals: React.FC<{infoAnimal:AnimalsInfo,AnimalChoose:Function}>
 };
 
 
-
 export default ShowCardsAnimals;

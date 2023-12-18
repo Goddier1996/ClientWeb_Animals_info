@@ -31,5 +31,4 @@ const ModelInfoAnimal: React.FC<{
 };
 
 
-
 export default ModelInfoAnimal;

@@ -90,14 +90,12 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
             }
           });
         })
-
         .catch((err) => {
           console.log("FAILED...", err);
         });
     }
   };
 
-    
     
     
   return (
@@ -138,7 +136,6 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
 
       {/* robot check if user dont robot */}
       <RobotBox activeRobotBox={() => setCapVal(true)} />
-
 
       <div className="ButtonInfo">
         <Button variant="success" disabled={!capVal} onClick={onSubmit}>
