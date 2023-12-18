@@ -1,6 +1,7 @@
 import {AnimalsInfo} from "../../../../interface/info.model"
 import { AsyncImage } from 'loadable-image'
-import { Blur } from 'transitions-kit'
+import { Fade  } from 'transitions-kit'
+import LoadingCardsAnimals from "../../../tools/LoadingStyle/LoadingCardsAnimals";
 
 
 const CardAnimals: React.FC<{
@@ -17,7 +18,8 @@ const CardAnimals: React.FC<{
           <AsyncImage
             src={dataAllAnimals.image}
             style={{ width: 150, height: 150,objectFit:"cover",borderRadius:"40px"}}
-            Transition={Blur}
+            Transition={Fade }
+            loader={<div><LoadingCardsAnimals/></div>}
             alt="image animal"
             onClick={() =>
               clickToImageForInfo(dataAllAnimals._id)
