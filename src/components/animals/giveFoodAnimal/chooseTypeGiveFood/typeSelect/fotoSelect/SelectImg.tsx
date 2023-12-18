@@ -2,7 +2,8 @@ import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import { AnimalIdInfo } from "../../../../../../interface/info.model";
 import { AsyncImage } from "loadable-image";
-import { Blur } from "transitions-kit";
+import { Fade } from "transitions-kit";
+import LoadingCardsAnimals from "../../../../../tools/LoadingStyle/LoadingCardsAnimals";
 
 
 
@@ -110,7 +111,8 @@ const SelectImg: React.FC<{
       <AsyncImage
         src={eatOrNo == "Eat" ? dataAnimal.eatImage : dataAnimal.notEatImage}
         style={{ width: "125px", height: "90px", objectFit: "contain" }}
-        Transition={Blur}
+        Transition={Fade}
+        loader={<div><LoadingCardsAnimals/></div>}
         alt="photo eat"
         onClick={() => {
           GetEatToAnimal(eatOrNo);

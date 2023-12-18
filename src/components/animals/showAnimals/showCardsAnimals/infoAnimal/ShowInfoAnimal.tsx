@@ -10,7 +10,8 @@ import {
 import Loading from "../../../../tools/LoadingStyle/Loading";
 import {AnimalIdInfo} from "../../../../../interface/info.model"
 import { AsyncImage } from 'loadable-image'
-import { Blur } from 'transitions-kit'
+import { Fade } from 'transitions-kit'
+import LoadingCardsAnimals from "../../../../tools/LoadingStyle/LoadingCardsAnimals";
 
 
 
@@ -98,8 +99,9 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
             <div className="infoImage">
               <AsyncImage
                   src={dataAnimalInfoHebrewLanguage.infoImage}
-                  style={{ width: "100%", height: 230}}
-                  Transition={Blur}
+                  style={{ width: "100%", height: 230 }}
+                  loader={<div><LoadingCardsAnimals/></div>}
+                  Transition={Fade}
                   alt="info animal"
                 />
             </div>
@@ -107,8 +109,9 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
             <div className="infoImage">
                 <AsyncImage
                   src={dataAnimalInfo.infoImage}
-                  style={{ width: "100%", height: 230}}
-                  Transition={Blur}
+                  style={{ width: "100%", height: 230 }}
+                  loader={<div><LoadingCardsAnimals/></div>}
+                  Transition={Fade}
                   alt="info animal"
                 />
             </div>
