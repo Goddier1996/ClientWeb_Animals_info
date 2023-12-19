@@ -6,7 +6,8 @@ import OptionChangeLanguage from "./tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 import { AsyncImage } from "loadable-image";
-import { Blur } from "transitions-kit";
+import { Fade } from "transitions-kit";
+import LoadingCardsAnimals from "./tools/LoadingStyle/LoadingCardsAnimals";
 
 
 
@@ -102,7 +103,8 @@ const Menu: React.FC = () => {
             <AsyncImage
               src="https://i.postimg.cc/YSFWpGHh/mflx-zhpt.webp"
               style={{ width: "250px", height: "120px" }}
-              Transition={Blur}
+              loader={<div><LoadingCardsAnimals/></div>}
+              Transition={Fade}
               alt="img Info"
             />
           </div>
