@@ -68,23 +68,24 @@ html::-webkit-scrollbar-thumb {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)) !important;
 } */
 
-.mainBackground img {
+.mainBackground  {
+    background: url("https://i.postimg.cc/Jn8KjyT4/11.webp");
     position: relative;
     /* z-index: -1; */
     border-radius: 0 0 10% 40%;
     width: 100%;
     height: 320px;
-    /* background-repeat: no-repeat;
-    object-fit: cover; */
+    /* background-repeat: no-repeat; */
+    object-fit: cover;
 }
 
-.borderLoading {
+/* .borderLoading {
     background: radial-gradient(circle at 50% 50%, #40a89fb5, rgba(76, 0, 255, 0));
     backdrop-filter: blur(10px);
     border-radius: 0 0 10% 40%;
-    /* border-bottom: 3px solid #40a89f;
-    border-top: 3px solid #fec107; */
-}
+    border-bottom: 3px solid #40a89f;
+    border-top: 3px solid #fec107;
+} */
 
 
 .titleWeb {

@@ -3,8 +3,8 @@ import "../../css/home.css";
 import { Button, Modal } from "react-bootstrap";
 import OptionChangeLanguage from "../tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";
-import { AsyncImage } from "loadable-image";
-import { Blur } from "transitions-kit";
+// import { AsyncImage } from "loadable-image";
+// import { Blur } from "transitions-kit";
 import ShowModelClickMoreInfo from "./ShowModelClickMoreInfo";
 
 
@@ -34,13 +34,13 @@ const Menu: React.FC = () => {
       <div className="title">
 
         <div className="mainBackground ">
-          <AsyncImage
+          {/* <AsyncImage
             src="https://i.postimg.cc/Jn8KjyT4/11.webp"
             style={{ width: "100%", height: "320px" }}
             loader={<div className="borderLoading"></div>}
             Transition={Blur}
             alt="main img heater"
-          />
+          /> */}
         </div>
 
         <div className="titleWeb">
