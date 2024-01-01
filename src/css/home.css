@@ -79,10 +79,11 @@ html::-webkit-scrollbar-thumb {
 }
 
 .borderLoading {
-    background-color: #DDF6E3 !important;
+    background: radial-gradient(circle at 50% 50%, #40a89fb5, rgba(76, 0, 255, 0));
+    backdrop-filter: blur(10px);
     border-radius: 0 0 10% 40%;
-    border-bottom: 3px solid #40a89f;
-    border-top: 3px solid #fec107;
+    /* border-bottom: 3px solid #40a89f;
+    border-top: 3px solid #fec107; */
 }
 
 
