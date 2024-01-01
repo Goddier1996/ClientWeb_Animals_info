@@ -1,6 +1,5 @@
 import "../../../css/Loading.css";
 
-
 const LoadingCardsAnimals: React.FC = () => {
 
   return (
