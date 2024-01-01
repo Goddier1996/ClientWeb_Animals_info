@@ -799,7 +799,9 @@ footer,
         font-size: 15px;
     }
 
-
+    .borderLoading {
+        border-radius: 0 0 50% 50%;
+    }
 
     .styleOptionChangeLanguage p {
         font-size: 15px;
