@@ -1,13 +1,20 @@
+import { AsyncImage } from "loadable-image";
+import { Zoom } from "transitions-kit";
+import LoadingCardsAnimals from "../../components/tools/LoadingStyle/LoadingCardsAnimals";
+
+
 const ShowPopUpWelcomeModel: React.FC = () => {
+
   return (
-    <>
-      <div className="popUpHome">
-        <img
+    <div className="popUpHome">
+      <AsyncImage
           src="https://i.postimg.cc/Fs3XsmRW/popup.webp"
-          alt="popupWelcome"
+          style={{ width: "280px", height: "180px" , borderRadius:"40px" }}
+          loader={<LoadingCardsAnimals/>}
+          Transition={Zoom}
+          alt="img Info"
         />
       </div>
-    </>
   );
 };
 
