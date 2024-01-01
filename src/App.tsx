@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
-import Menu from "./components/Menu";
+import Menu from "./components/heater/Menu";
 import NotFoundPage from "./components/tools/NotFoundPage";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
