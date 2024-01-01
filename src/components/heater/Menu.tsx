@@ -35,7 +35,7 @@ const Menu: React.FC = () => {
 
         <div className="mainBackground ">
           <AsyncImage
-            src="https://i.postimg.cc/QCPGSkKr/11.jpg"
+            src="https://i.postimg.cc/Jn8KjyT4/11.webp"
             style={{ width: "100%", height: "320px" }}
             loader={<div className="borderLoading"></div>}
             Transition={Blur}
