@@ -1,4 +1,5 @@
 import ReCAPTCHA from "react-google-recaptcha";
+import "./robotBox.css"
 
 
 const RobotBox: React.FC<{ activeRobotBox: Function }> = ({ activeRobotBox }) => {

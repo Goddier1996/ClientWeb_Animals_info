@@ -1,0 +1,136 @@
+.title {
+    position: relative;
+    text-align: center;
+}
+
+.mainBackground {
+    background: url("https://i.postimg.cc/Jn8KjyT4/11.webp") fixed;
+    position: relative;
+    border-radius: 0 0 10% 40%;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.titleWeb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.titleWeb p {
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    letter-spacing: .1rem;
+    font-weight: 500;
+    padding: 2.5%;
+}
+
+
+.help button {
+    font-size: 16px;
+    letter-spacing: .1rem;
+    color: rgb(0, 0, 0);
+}
+
+.positionOptionChangeLanguage {
+    display: flex;
+    justify-content: center;
+}
+
+
+.positionOptionChangeLanguage img {
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
+    margin: 5%;
+}
+
+.styleOptionChangeLanguage {
+    text-align: center;
+}
+
+.styleOptionChangeLanguage p {
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: 600;
+    padding: 0;
+}
+
+
+
+.styleOptionChangeLanguage img {
+    margin-top: -10%;
+    transition: transform .3s ease-out;
+    display: inline-block;
+}
+
+
+.styleOptionChangeLanguage img:hover {
+    transform: translate(0, -5px);
+}
+
+
+/* info about how use this program */
+.titleInfoHowUseWebSite,
+.titleInfoHowLearn {
+    display: flex;
+    justify-content: center;
+}
+
+.titleInfoHowUseWebSite p {
+    font-size: 20px;
+    letter-spacing: .1rem;
+}
+
+.titleInfoHowLearn p {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titleInfoHowLearnStart {
+    margin-top: -7%;
+}
+
+.titleInfoHowLearnStart p {
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+}
+
+.imgInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+@media(max-width:991px) {
+
+    .mainBackground img {
+        border-radius: 0 0 50% 50%;
+        height: 315px;
+    }
+
+    .titleWeb p {
+        letter-spacing: .1rem;
+        font-size: 15px;
+    }
+
+    .borderLoading {
+        border-radius: 0 0 50% 50%;
+    }
+
+    .styleOptionChangeLanguage p {
+        font-size: 15px;
+        letter-spacing: .1rem;
+    }
+
+    .help button {
+        font-size: 14px;
+    }
+}

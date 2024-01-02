@@ -1,7 +1,7 @@
 import { Button, Modal } from "react-bootstrap";
 import { AsyncImage } from "loadable-image";
 import { Fade } from "transitions-kit";
-import LoadingCardsAnimals from "../tools/LoadingStyle/LoadingCardsAnimals";
+import LoadingCardsAnimals from "../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 import OptionsSite from "../optionsSite/OptionsSite";

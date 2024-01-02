@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../css/home.css";
+import "./heater.css";
 import { Button, Modal } from "react-bootstrap";
 import OptionChangeLanguage from "../tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";

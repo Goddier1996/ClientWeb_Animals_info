@@ -37,153 +37,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-.popUpHome {
-    margin-top: 2%;
-    margin-bottom: 2%;
-    display: flex;
-    justify-content: center;
-}
-
-.popUpHome img {
-    object-fit: cover;
-    border-radius: 40px;
-}
-
-.popUpTextP4 {
-    color: rgb(255, 255, 255);
-    font-size: 13px;
-    letter-spacing: .1rem;
-}
-
-.title {
-    position: relative;
-    text-align: center;
-}
-
-
-/* title menu */
-
-/* .mainBackground {
-    border-radius: 0 0 10% 40%;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)) !important;
-} */
-
-.mainBackground  {
-    background: url("https://i.postimg.cc/Jn8KjyT4/11.webp");
-    position: relative;
-    /* z-index: -1; */
-    border-radius: 0 0 10% 40%;
-    width: 100%;
-    height: 320px;
-    /* background-repeat: no-repeat; */
-    object-fit: cover;
-}
-
-/* .borderLoading {
-    background: radial-gradient(circle at 50% 50%, #40a89fb5, rgba(76, 0, 255, 0));
-    backdrop-filter: blur(10px);
-    border-radius: 0 0 10% 40%;
-    border-bottom: 3px solid #40a89f;
-    border-top: 3px solid #fec107;
-} */
-
-
-.titleWeb {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.titleWeb p {
-    color: rgb(255, 255, 255);
-    font-size: 21px;
-    letter-spacing: .1rem;
-    font-weight: 500;
-    padding: 2.5%;
-}
-
-
-.help button {
-    font-size: 16px;
-    letter-spacing: .1rem;
-    color: rgb(0, 0, 0);
-}
-
-.positionOptionChangeLanguage {
-    display: flex;
-    justify-content: center;
-}
-
-
-.positionOptionChangeLanguage img {
-    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
-    margin: 5%;
-}
-
-.styleOptionChangeLanguage {
-    text-align: center;
-}
-
-.styleOptionChangeLanguage p {
-    color: rgb(255, 255, 255);
-    font-size: 17px;
-    font-weight: 600;
-    padding: 0;
-}
-
-
-
-.styleOptionChangeLanguage img {
-    margin-top: -10%;
-    transition: transform .3s ease-out;
-    display: inline-block;
-}
-
-
-.styleOptionChangeLanguage img:hover {
-    transform: translate(0, -5px);
-}
-
-
-/* info about how use this program */
-.titleInfoHowUseWebSite,
-.titleInfoHowLearn {
-    display: flex;
-    justify-content: center;
-}
-
-.titleInfoHowUseWebSite p {
-    font-size: 20px;
-    letter-spacing: .1rem;
-}
-
-.titleInfoHowLearn p {
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.titleInfoHowLearnStart {
-    margin-top: -7%;
-}
-
-.titleInfoHowLearnStart p {
-    font-size: 14px;
-    align-items: center;
-    text-align: center;
-}
-
-.imgInfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-
 
 /* for popup check input value when add */
 .popUpTextP1 {
@@ -191,7 +44,6 @@ html::-webkit-scrollbar-thumb {
     font-size: 19px;
     letter-spacing: .1rem;
 }
-
 
 .popUpTextP2 {
     color: rgb(0, 0, 0);
@@ -281,8 +133,6 @@ html::-webkit-scrollbar-thumb {
     }
 }
 
-
-
 .cardx:hover {
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
@@ -361,8 +211,6 @@ html::-webkit-scrollbar-thumb {
     letter-spacing: .1rem;
 }
 
-
-
 .titleHeater img {
     height: 26px;
 }
@@ -430,7 +278,6 @@ html::-webkit-scrollbar-thumb {
     }
 }
 
-
 .soFull {
     height: 230px;
     border-radius: 50%;
@@ -462,19 +309,16 @@ html::-webkit-scrollbar-thumb {
     }
 }
 
-
 .titleHeaterInfo {
     display: flex;
     justify-content: center;
 }
-
 
 .titleHeaterInfo h1 {
     font-size: 20px;
     letter-spacing: .2rem;
 
 }
-
 
 
 .infoImage {
@@ -509,7 +353,6 @@ html::-webkit-scrollbar-thumb {
 
 }
 
-
 @keyframes color-change {
     0% {
         color: #80b4ff;
@@ -524,11 +367,9 @@ html::-webkit-scrollbar-thumb {
     }
 }
 
-
 .styleVideoAdmin video {
     width: 100%;
 }
-
 
 .chioseInputOrImage,
 .chioseImage {
@@ -574,8 +415,6 @@ html::-webkit-scrollbar-thumb {
     cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
 }
 
-
-
 .buttonExit {
     display: flex;
     justify-content: center;
@@ -600,7 +439,6 @@ html::-webkit-scrollbar-thumb {
     grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
     grid-auto-rows: 6rem;
 }
-
 
 
 .cardDeleteOrUpdated {
@@ -636,148 +474,6 @@ html::-webkit-scrollbar-thumb {
         -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
-
-/* search style */
-.dontHaveThisValueInArray {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    align-items: center;
-    text-align: center;
-    font-family: inherit;
-    font-weight: 600;
-}
-
-
-.dontHaveThisValueInArray img {
-    height: 40%;
-}
-
-
-.modelSearch {
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-    margin-bottom: -2%;
-}
-
-
-.search-box {
-    font-size: 16px;
-    display: inline-block;
-    position: relative;
-    border-radius: 2.5em;
-    border-radius: 100px;
-    border-right: 0.3em #40a89f solid;
-    border-left: 0.3em #fec107 solid;
-    border-top: 0.3em #40a89f solid;
-    border-bottom: 0.3em #fec107 solid;
-}
-
-.search-box input[type=text] {
-    font-family: inherit;
-    font-weight: bold;
-    width: 2.5em;
-    height: 2.5em;
-    padding: 0.3em 2.1em 0.3em 0.4em;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 2.5em;
-    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
-    background: rgba(0, 0, 0, 0);
-    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
-}
-
-.search-box input[type=text]:focus {
-    outline: none;
-}
-
-.search-box input[type=text]:focus,
-.search-box input[type=text]:not(:placeholder-shown) {
-    width: 18em;
-    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.search-box input[type=text]:focus+button[type=reset],
-.search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
-    transform: rotate(-45deg) translateY(0);
-    transition: transform 150ms ease-out 800ms;
-}
-
-.search-box input[type=text]:focus+button[type=reset]:after,
-.search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
-    opacity: 1;
-    transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
-}
-
-.search-box button[type=reset] {
-    background-color: transparent;
-    width: 1.4em;
-    height: 1.4em;
-    border: 0;
-    padding: 0;
-    outline: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0.55em;
-    right: 0.55em;
-    transform: rotate(-45deg) translateY(2.2em);
-    transition: transform 150ms ease-out 150ms;
-    cursor: url("https://cur.cursors-4u.net/cursors/cur-5/cur418.cur"), pointer;
-
-}
-
-.search-box button[type=reset]:before,
-.search-box button[type=reset]:after {
-    content: "";
-    background-color: #000000;
-    width: 0.3em;
-    height: 1.4em;
-    position: absolute;
-}
-
-.search-box button[type=reset]:after {
-    transform: rotate(90deg);
-    opacity: 0;
-    transition: transform 150ms ease-out, opacity 150ms ease-out;
-}
-
-
-.g-recaptcha {
-    display: flex;
-    justify-content: center;
-    margin-top: -2.5%;
-    margin-bottom: 2%;
-}
-
-
-/* footer style */
-main {
-    min-height: 100vh;
-    margin-bottom: -30px;
-}
-
-footer {
-    background: url("https://i.postimg.cc/P5vMDJct/footerbaground.webp") fixed;
-    box-shadow: inset rgba(0, 0, 0, 0.40) 0 0 0 500px;
-    transition: box-shadow 400ms;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-footer,
-.push {
-    text-align: center;
-    height: 30px;
-    font-weight: 600;
-    color: white;
-}
-
-
 @media(max-width:991px) {
 
     .cards-list {
@@ -785,44 +481,10 @@ footer,
         margin-top: 0;
     }
 
-    /* .mainBackground {
-        border-radius: 0 0 50% 50%;
-         height: 100%; 
-         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)); 
-    } */
-
-    .mainBackground img {
-        border-radius: 0 0 50% 50%;
-        height: 315px;
-    }
-
-    .titleWeb p {
-        letter-spacing: .1rem;
-        font-size: 15px;
-    }
-
-    .borderLoading {
-        border-radius: 0 0 50% 50%;
-    }
-
-    .styleOptionChangeLanguage p {
-        font-size: 15px;
-        letter-spacing: .1rem;
-    }
 
     .wrap {
         margin-top: 8%;
     }
-
-    .popUpHome {
-        margin-top: 5%;
-    }
-
-    .popUpHome img {
-        width: 200px;
-        height: auto;
-    }
-
 
     .card_title svg {
         height: 40px;
@@ -856,29 +518,9 @@ footer,
         height: 190px;
     }
 
-    .help button {
-        font-size: 14px;
-    }
-
     .chioseImage img {
         cursor: pointer;
         height: 81px;
-    }
-
-    .modelSearch {
-        margin-top: 5%;
-    }
-
-    .search-box {
-        font-size: 13px;
-    }
-
-    .dontHaveThisValueInArray img {
-        height: 30%;
-    }
-
-    .dontHaveThisValueInArray p {
-        font-size: 13px;
     }
 
     .popUpGiveEat img {
@@ -889,7 +531,6 @@ footer,
         font-size: 15px;
         animation: titleEatResponsiveScreen 3s linear infinite;
     }
-
 
     @-moz-keyframes titleEatResponsiveScreen {
         50% {

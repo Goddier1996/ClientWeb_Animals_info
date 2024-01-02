@@ -1,3 +1,5 @@
+import "./dontHaveAnimals.css"
+
 
 const CheckIfHaveThisAnimals: React.FC<{
     checkIfHaveValueWhenSearchEnglishLanguage: number;

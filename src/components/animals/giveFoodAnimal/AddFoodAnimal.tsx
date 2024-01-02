@@ -9,7 +9,7 @@ import {
   LoadInfoIdAnimal,
   LoadAnimalInfoIdHebrewLanguage,
 } from "../../../Server/LoadDataApi";
-import Loading from "../../tools/LoadingStyle/Loading";
+import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 import { AnimalIdInfo } from "../../../interface/info.model";
 
 

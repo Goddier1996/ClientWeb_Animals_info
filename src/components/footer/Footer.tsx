@@ -1,4 +1,4 @@
-import "../../css/home.css";
+import "./footer.css";
 
 const Footer = () => {
 
@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className="footerStyle">
       <p>Made & Design by Artem Kot</p>
     </footer>
-  )
-}
+  );
+};
 
 
 export default Footer;

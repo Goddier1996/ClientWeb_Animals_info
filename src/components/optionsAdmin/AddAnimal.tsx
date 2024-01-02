@@ -110,7 +110,6 @@ const AddAnimal: React.FC = () => {
 
   return (
     <div>
-
       <div className="titleHeater">
         <h1>
           Add a new Animal{" "}

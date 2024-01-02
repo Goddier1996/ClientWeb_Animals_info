@@ -1,0 +1,20 @@
+main {
+    min-height: 100vh;
+    margin-bottom: -30px;
+}
+
+footer {
+    background: url("https://i.postimg.cc/P5vMDJct/footerbaground.webp") fixed;
+    box-shadow: inset rgba(0, 0, 0, 0.40) 0 0 0 500px;
+    transition: box-shadow 400ms;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer,
+.push {
+    text-align: center;
+    height: 30px;
+    font-weight: 600;
+    color: white;
+}

@@ -1,4 +1,4 @@
-import "../../../css/Loading.css";
+import "./Loading.css";
 
 const LoadingCardsAnimals: React.FC = () => {
 

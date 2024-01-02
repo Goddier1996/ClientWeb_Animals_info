@@ -1,6 +1,7 @@
 import { AsyncImage } from "loadable-image";
 import { Zoom } from "transitions-kit";
-import LoadingCardsAnimals from "../../components/tools/LoadingStyle/LoadingCardsAnimals";
+import LoadingCardsAnimals from "../loadingItems/LoadingCardsAnimals";
+import "./welcomePopUp.css"
 
 
 const ShowPopUpWelcomeModel: React.FC = () => {

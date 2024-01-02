@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
+import "../../heater/heater.css"
 
 
 const OptionChangeLanguage: React.FC=()=> {

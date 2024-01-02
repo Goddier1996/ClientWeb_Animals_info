@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import Menu from "./components/heater/Menu";
-import NotFoundPage from "./components/tools/NotFoundPage";
+import NotFoundPage from "./components/tools/pageNotFound/NotFoundPage";
 import Footer from "./components/footer/Footer";
 
 

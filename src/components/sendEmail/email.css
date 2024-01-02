@@ -1,0 +1,39 @@
+.titleHeaterSendEmail {
+    text-align: center;
+    align-items: center;
+}
+
+.titleHeaterSendEmail h1 {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+
+.titleHeaterSendEmail p {
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+.titleHeaterSendEmail h6 {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+}
+
+.titleHeaterSendEmail img {
+    height: 26px;
+}
+
+
+@media(max-width:991px) {
+
+    .titleHeaterSendEmail h1 {
+        color: rgb(0, 0, 0);
+        font-size: 18px;
+    }
+
+    .titleHeaterSendEmail img {
+        height: 25px;
+    }
+}

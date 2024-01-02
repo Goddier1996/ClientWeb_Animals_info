@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import "../../css/NotFoundPage.css";
+import "./NotFoundPage.css";
 
 
 const NotFoundPage: React.FC = () => {

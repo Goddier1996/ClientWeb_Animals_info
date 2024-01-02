@@ -7,11 +7,11 @@ import {
   LoadInfoIdAnimal,
   LoadAnimalInfoIdHebrewLanguage,
 } from "../../../../../Server/LoadDataApi";
-import Loading from "../../../../tools/LoadingStyle/Loading";
+import Loading from "../../../../tools/LoadingStyle/loadingItems/Loading";
 import {AnimalIdInfo} from "../../../../../interface/info.model"
 import { AsyncImage } from 'loadable-image'
 import { Fade } from 'transitions-kit'
-import LoadingCardsAnimals from "../../../../tools/LoadingStyle/LoadingCardsAnimals";
+import LoadingCardsAnimals from "../../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
 
 
 

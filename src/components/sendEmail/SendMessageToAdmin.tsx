@@ -1,4 +1,4 @@
-import "../../css/home.css";
+import "./email.css";
 import { useTranslation } from "react-i18next";
 import InputValueSendEmail from "./InputValueSendEmail";
 
@@ -24,7 +24,7 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({
 
   return (
     <div>
-      <div className="titleHeater">
+      <div className="titleHeaterSendEmail">
         <h1>
           {optionsTitleSendMessage}{" "}
           <img

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./search.css"
 
 
 const SearchAnimals: React.FC<{ onChangeCallback: Function }> = ({

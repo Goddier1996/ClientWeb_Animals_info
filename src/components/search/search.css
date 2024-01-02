@@ -1,0 +1,100 @@
+.modelSearch {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: -2%;
+}
+
+
+.search-box {
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    border-radius: 2.5em;
+    border-radius: 100px;
+    border-right: 0.3em #40a89f solid;
+    border-left: 0.3em #fec107 solid;
+    border-top: 0.3em #40a89f solid;
+    border-bottom: 0.3em #fec107 solid;
+}
+
+.search-box input[type=text] {
+    font-family: inherit;
+    font-weight: bold;
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0.3em 2.1em 0.3em 0.4em;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 2.5em;
+    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+    background: rgba(0, 0, 0, 0);
+    cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
+}
+
+.search-box input[type=text]:focus {
+    outline: none;
+}
+
+.search-box input[type=text]:focus,
+.search-box input[type=text]:not(:placeholder-shown) {
+    width: 18em;
+    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.search-box input[type=text]:focus+button[type=reset],
+.search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+    transform: rotate(-45deg) translateY(0);
+    transition: transform 150ms ease-out 800ms;
+}
+
+.search-box input[type=text]:focus+button[type=reset]:after,
+.search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+    opacity: 1;
+    transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+}
+
+.search-box button[type=reset] {
+    background-color: transparent;
+    width: 1.4em;
+    height: 1.4em;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0.55em;
+    right: 0.55em;
+    transform: rotate(-45deg) translateY(2.2em);
+    transition: transform 150ms ease-out 150ms;
+    cursor: url("https://cur.cursors-4u.net/cursors/cur-5/cur418.cur"), pointer;
+}
+
+.search-box button[type=reset]:before,
+.search-box button[type=reset]:after {
+    content: "";
+    background-color: #000000;
+    width: 0.3em;
+    height: 1.4em;
+    position: absolute;
+}
+
+.search-box button[type=reset]:after {
+    transform: rotate(90deg);
+    opacity: 0;
+    transition: transform 150ms ease-out, opacity 150ms ease-out;
+}
+
+
+@media(max-width:991px) {
+
+    .modelSearch {
+        margin-top: 5%;
+    }
+
+    .search-box {
+        font-size: 13px;
+    }
+}

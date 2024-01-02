@@ -6,7 +6,7 @@ import {
 } from "../../../Server/LoadDataApi";
 import cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
-import ShowPopUpWelcomeModel from "../../tools/ShowPopUpWelcomeModel";
+import ShowPopUpWelcomeModel from "../../tools/LoadingStyle/popUpWelcomeModel/ShowPopUpWelcomeModel";
 import CardAnimals from "./showCardsAnimals/CardAnimals";
 import CheckIfHaveThisAnimals from "./showCardsAnimals/checkIfHaveAnimals/CheckIfHaveThisAnimals";
 import ModelGetFood from "./showCardsAnimals/ModelGetFood";
