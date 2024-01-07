@@ -100,7 +100,6 @@ const ShowModelClickMoreInfo: React.FC<{ handleClose: Function }> = ({
           ))}
 
           
-
           {/* here show models option this app , send mail,connect admin */}
           <OptionsSite />
 

@@ -36,7 +36,12 @@ html::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, .7);
 }
 
-
+.qq{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
 
 /* for popup check input value when add */
 .popUpTextP1 {

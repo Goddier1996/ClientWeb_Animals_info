@@ -101,7 +101,7 @@ export const OptionsSite: React.FC = () => {
   const clickToButtonAddPopUp = async () => {
 
     Swal.fire({
-      position: "top",
+      position: "center",
       confirmButtonColor: "grey",
       denyButtonColor: "#1099E1",
       cancelButtonColor: "green",
@@ -174,6 +174,7 @@ export const OptionsSite: React.FC = () => {
           onHide={handleCloseConnectAdmin}
           style={{ background: "rgba(0, 0, 0, 0.3)" }}
           aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <LoginAdmin
             handleCloseConnectAdmin={() => handleCloseConnectAdmin}
@@ -190,6 +191,7 @@ export const OptionsSite: React.FC = () => {
           onHide={handleCloseSendMessage}
           style={{ background: "rgba(0, 0, 0, 0.3)" }}
           aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <Modal.Body>
             <Form>
@@ -208,6 +210,7 @@ export const OptionsSite: React.FC = () => {
           show={showOptionsAdmin}
           style={{ background: "rgba(0, 0, 0, 0.3)" }}
           aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <SelectOptionsAdmin
             logOutAdminData={() => logOutAdminData}
@@ -223,6 +226,7 @@ export const OptionsSite: React.FC = () => {
           show={showAddNewAnimal}
           onHide={handleCloseAddNewAnimal}
           aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <OptionAddNewAnimal
             handleCloseAddNewAnimal={() => handleCloseAddNewAnimal}
@@ -237,6 +241,7 @@ export const OptionsSite: React.FC = () => {
           show={showDeleteAnimal}
           onHide={handleCloseDeleteAnimal}
           aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <OptionDeleteAnimal
             handleCloseDeleteAnimal={() => handleCloseDeleteAnimal}
@@ -251,6 +256,7 @@ export const OptionsSite: React.FC = () => {
           show={showUpdatedAnimal}
           onHide={handleCloseUpdatedAnimal}
           aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <OptionUpdatedAnimal
             handleCloseUpdatedAnimal={() => handleCloseUpdatedAnimal}

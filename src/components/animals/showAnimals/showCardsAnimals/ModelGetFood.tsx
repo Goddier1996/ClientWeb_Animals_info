@@ -10,10 +10,11 @@ const ModelGetFood: React.FC<{
 
 
   return (
-    <>
+    <div>
       <Modal
         show={showGetFoodAnimal}
         aria-labelledby="contained-modal-title-vcenter"
+        centered
         onHide={handleCloseGetFoodAnimal()}
         style={{ background: "rgba(0, 0, 0, 0.3)" }}
       >
@@ -37,7 +38,7 @@ const ModelGetFood: React.FC<{
           </Form>
         </Modal.Body>
       </Modal>
-    </>
+    </div>
   );
 };
 

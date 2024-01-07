@@ -33,6 +33,7 @@ const ModelTypeSelectGiveEat: React.FC<{
         show={show}
         onHide={() => onHide()}
         aria-labelledby="contained-modal-title-vcenter"
+        centered
       >
         <Modal.Body>
           {typeSelect == "imgSelect" ? (
