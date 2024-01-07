@@ -1,15 +1,10 @@
 import { useState } from "react";
 import "../../css/home.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-import SendMessage from "../sendEmail/SendMessageToAdmin";
 import { useTranslation } from "react-i18next";
-import LoginAdmin from "./connectAdmin/LoginAdmin";
-import SelectOptionsAdmin from "./connectAdmin/SelectOptionsAdmin";
-import OptionAddNewAnimal from "./connectAdmin/openPopUpOptionsAdmin/OptionAddNewAnimal";
-import OptionDeleteAnimal from "./connectAdmin/openPopUpOptionsAdmin/OptionDeleteAnimal";
-import OptionUpdatedAnimal from "./connectAdmin/openPopUpOptionsAdmin/OptionUpdatedAnimal";
+import ModelOptions from "./showModals/ModelOptions";
 
 
 
@@ -99,7 +94,6 @@ export const OptionsSite: React.FC = () => {
 
   //pop up when you click + say if you went connect to admin show popup
   const clickToButtonAddPopUp = async () => {
-
     Swal.fire({
       position: "center",
       confirmButtonColor: "grey",
@@ -125,7 +119,6 @@ export const OptionsSite: React.FC = () => {
 
   // here admin chiose add new animal or delete , we send a number when onclick to button , and check with number what we need active
   const chooseForAdmin = async (choose: number) => {
-    
     if (choose == 1) {
       handleShowAddNewAnimal();
     }
@@ -140,11 +133,9 @@ export const OptionsSite: React.FC = () => {
   };
 
 
-
   const hideModelSendMail = () => {
     setShowSendMessage(false);
   };
-
 
 
   const logOutAdminData = () => {
@@ -158,7 +149,11 @@ export const OptionsSite: React.FC = () => {
     <>
       {optionsAppButtonChangeLanguage.map((node: any) => (
         <Button
-          style={{ margin: "3%",cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer" }}
+          style={{
+            margin: "3%",
+            cursor:
+              "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer",
+          }}
           variant="primary"
           onClick={clickToButtonAddPopUp}
         >
@@ -166,103 +161,68 @@ export const OptionsSite: React.FC = () => {
         </Button>
       ))}
 
-      
       {/* pop up connect Admin */}
-      <div>
-        <Modal
-          show={showConnectAdmin}
-          onHide={handleCloseConnectAdmin}
-          style={{ background: "rgba(0, 0, 0, 0.3)" }}
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <LoginAdmin
-            handleCloseConnectAdmin={() => handleCloseConnectAdmin}
-            handleShowOptionsAdmin={handleShowOptionsAdmin}
-          />
-        </Modal>
-      </div>
+      <ModelOptions
+        show={showConnectAdmin}
+        handleClose={() => handleCloseConnectAdmin()}
+        handleShowOptions={() => handleShowOptionsAdmin}
+        type={"connectAdmin"}
+        logOutAdminData={() => null}
+        chooseForAdmin={() => null}
+      />
 
-      
       {/* pop up send message */}
-      <div>
-        <Modal
-          show={showSendMessage}
-          onHide={handleCloseSendMessage}
-          style={{ background: "rgba(0, 0, 0, 0.3)" }}
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Body>
-            <Form>
-              <SendMessage closeModelEmail={hideModelSendMail} />
-            </Form>
-          </Modal.Body>
-        </Modal>
-      </div>
+      <ModelOptions
+        show={showSendMessage}
+        handleClose={() => handleCloseSendMessage()}
+        handleShowOptions={() => hideModelSendMail}
+        type={"sendEmail"}
+        logOutAdminData={() => null}
+        chooseForAdmin={() => null}
+      />
 
       
-      {/* for now here options for admin  */}
+      {/* for now here OPTIONS for ADMIN  */}
 
       {/* pop up chiose what admin do to add new animal or delete info animal or Updated info Animal */}
-      <div>
-        <Modal
-          show={showOptionsAdmin}
-          style={{ background: "rgba(0, 0, 0, 0.3)" }}
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <SelectOptionsAdmin
-            logOutAdminData={() => logOutAdminData}
-            chooseForAdmin={chooseForAdmin}
-          />
-        </Modal>
-      </div>
+      <ModelOptions
+        show={showOptionsAdmin}
+        handleClose={() => null}
+        handleShowOptions={() => null}
+        type={"optionsAdmin"}
+        logOutAdminData={() => logOutAdminData}
+        chooseForAdmin={chooseForAdmin}
+      />
 
-      
       {/* pop up add new animal */}
-      <div>
-        <Modal
-          show={showAddNewAnimal}
-          onHide={handleCloseAddNewAnimal}
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <OptionAddNewAnimal
-            handleCloseAddNewAnimal={() => handleCloseAddNewAnimal}
-          />
-        </Modal>
-      </div>
+      <ModelOptions
+        show={showAddNewAnimal}
+        handleClose={() => handleCloseAddNewAnimal()}
+        handleShowOptions={() => handleCloseAddNewAnimal}
+        type={"addNewAnimal"}
+        logOutAdminData={() => null}
+        chooseForAdmin={() => null}
+      />
 
-      
       {/* pop up delete animal info */}
-      <div>
-        <Modal
-          show={showDeleteAnimal}
-          onHide={handleCloseDeleteAnimal}
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <OptionDeleteAnimal
-            handleCloseDeleteAnimal={() => handleCloseDeleteAnimal}
-          />
-        </Modal>
-      </div>
+      <ModelOptions
+        show={showDeleteAnimal}
+        handleClose={() => handleCloseDeleteAnimal()}
+        handleShowOptions={() => handleCloseDeleteAnimal}
+        type={"deleteAnimal"}
+        logOutAdminData={() => null}
+        chooseForAdmin={() => null}
+      />
 
-      
       {/* pop up Choose Animal updated info */}
-      <div>
-        <Modal
-          show={showUpdatedAnimal}
-          onHide={handleCloseUpdatedAnimal}
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <OptionUpdatedAnimal
-            handleCloseUpdatedAnimal={() => handleCloseUpdatedAnimal}
-          />
-        </Modal>
-      </div>
+      <ModelOptions
+        show={showUpdatedAnimal}
+        handleClose={() => handleCloseUpdatedAnimal()}
+        handleShowOptions={() => handleCloseUpdatedAnimal}
+        type={"updatedAnimal"}
+        logOutAdminData={() => null}
+        chooseForAdmin={() => null}
+      />
     </>
   );
 };

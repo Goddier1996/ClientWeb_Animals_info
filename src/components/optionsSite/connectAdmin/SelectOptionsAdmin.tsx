@@ -23,7 +23,6 @@ const SelectOptionsAdmin: React.FC<{
         </h1>
       </div>
 
-      <Modal.Body>
         <Form>
           <div className="styleChioseOptionAdmin">
             <Button
@@ -52,7 +51,6 @@ const SelectOptionsAdmin: React.FC<{
             </Button>
           </div>
         </Form>
-      </Modal.Body>
     </>
   );
 };

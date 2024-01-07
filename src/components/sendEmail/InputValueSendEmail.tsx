@@ -61,7 +61,7 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
       e.preventDefault();
 
       Swal.fire({
-        position: "top",
+        position: "center",
         confirmButtonColor: "green",
         icon: "error",
         title: "you can`t send message",
@@ -78,7 +78,7 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
       )
         .then((response) => {
           Swal.fire({
-            position: "top",
+            position: "center",
             confirmButtonColor: "green",
             icon: "success",
             title: "has been sent successfully",

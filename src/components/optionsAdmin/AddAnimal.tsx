@@ -62,7 +62,7 @@ const AddAnimal: React.FC = () => {
     )
     {
       Swal.fire({
-        position: "top",
+        position: "center",
         confirmButtonColor: "green",
         icon: "error",
         title: "Oops...",
@@ -74,7 +74,7 @@ const AddAnimal: React.FC = () => {
 
     if (soundUrl == true && imageUrl == true && infoImageUrl == true) {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Add successfully",
         showConfirmButton: false,

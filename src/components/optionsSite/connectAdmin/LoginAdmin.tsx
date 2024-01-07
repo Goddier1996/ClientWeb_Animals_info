@@ -1,9 +1,9 @@
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { connectAdmin } from "../../../Server/AddDataOrUpdatedApi";
 import { useTranslation } from "react-i18next";
-import {ConnectAdminLogin} from "../../../interface/info.model"
+import { ConnectAdminLogin } from "../../../interface/info.model";
 
 
 const LoginAdmin: React.FC<{
@@ -15,7 +15,6 @@ const LoginAdmin: React.FC<{
   //input data admin login
   const [Login, setLogin] = useState<string>("");
   const [Password, setPassword] = useState<string>("");
-
 
   // change Language
   const { t } = useTranslation(["home"]);
@@ -41,11 +40,11 @@ const LoginAdmin: React.FC<{
     (node: any) => node.title
   );
 
-    
-    
+
+
   const ConnectToAdmin = async () => {
-    
-    let userValue:ConnectAdminLogin = {
+
+    let userValue: ConnectAdminLogin = {
       Login: Login,
       Password: Password,
     };
@@ -58,7 +57,7 @@ const LoginAdmin: React.FC<{
       handleShowOptionsAdmin();
     } else {
       Swal.fire({
-        position: "top",
+        position: "center",
         icon: "error",
         text: "you need input all value or don`t have this user !",
         confirmButtonColor: "green",
@@ -66,7 +65,8 @@ const LoginAdmin: React.FC<{
     }
   };
 
-    
+
+
   // here show video for user's what admin can do to
   const AdminInfo = async () => {
 
@@ -79,8 +79,8 @@ const LoginAdmin: React.FC<{
     });
   };
 
-    
-    
+
+
   return (
     <>
       <p
@@ -101,26 +101,24 @@ const LoginAdmin: React.FC<{
         </h1>
       </div>
 
-      <Modal.Body>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="text"
-            placeholder="Login"
-            value={Login}
-            onChange={(event) => setLogin(event.target.value)}
-            autoFocus
-          />
-        </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Control
+          type="text"
+          placeholder="Login"
+          value={Login}
+          onChange={(event) => setLogin(event.target.value)}
+          autoFocus
+        />
+      </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={Password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </Form.Group>
-      </Modal.Body>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          value={Password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </Form.Group>
 
       <div className="infoAdminVideo">
         <a onClick={AdminInfo}>{optionsInfoAdmin}</a>
