@@ -14,6 +14,7 @@ const ModelInfoAnimal: React.FC<{
       <Modal
         show={showShowInfoAnimal}
         aria-labelledby="contained-modal-title-vcenter"
+        centered
         style={{ background: "rgba(0, 0, 0, 0.3)" }}
       >
           <Modal.Body>
