@@ -18,19 +18,20 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
   const closeChangeLanguage: any = t("close", {
     returnObjects: true,
   });
-  const optionsClose: String = closeChangeLanguage.map((node: any) => node.title);
-
+  const optionsClose: String = closeChangeLanguage.map(
+    (node: any) => node.title
+  );
 
   const SendChangeLanguage: any = t("Send", {
     returnObjects: true,
   });
   const optionsSend: String = SendChangeLanguage.map((node: any) => node.title);
 
-    
   // check box if user not robot
   const [capVal, setCapVal] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-    
+
   //value input to message
   const [toSend, setToSend] = useState<{
     from_name: string;
@@ -42,17 +43,16 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
     reply_to: "",
   });
 
-    
-    
+
   const handleChange = (e: any) => {
     setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
 
-    
-    
+
   //send meesage to admin Gmail use EmailJS ,and check value
-    const onSubmit = (e: any) => {
-      
+  const onSubmit = (e: any) => {
+    setLoading(true);
+
     if (
       toSend.from_name == "" ||
       toSend.reply_to == "" ||
@@ -66,6 +66,12 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
         icon: "error",
         title: "you can`t send message",
         text: "please input all value !",
+        allowOutsideClick: false,
+        toast: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setLoading(false);
+        }
       });
     } else {
       e.preventDefault();
@@ -84,8 +90,10 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
             title: "has been sent successfully",
             text: "Wait for the webmaster`s response",
             allowOutsideClick: false,
+            toast: true,
           }).then((result) => {
             if (result.isConfirmed) {
+              setLoading(false);
               window.location.reload();
             }
           });
@@ -96,8 +104,8 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
     }
   };
 
-    
-    
+
+
   return (
     <>
       <Modal.Body>
@@ -138,8 +146,12 @@ const InputValueSendEmail: React.FC<{ closeModelEmail: Function }> = ({
       <RobotBox activeRobotBox={() => setCapVal(true)} />
 
       <div className="ButtonInfo">
-        <Button variant="success" disabled={!capVal} onClick={onSubmit}>
-          {optionsSend}
+        <Button
+          variant="success"
+          disabled={!capVal || loading}
+          onClick={onSubmit}
+        >
+          {!loading ? optionsSend : <>loading...</>}
         </Button>
 
         <Button variant="danger" onClick={() => closeModelEmail()}>

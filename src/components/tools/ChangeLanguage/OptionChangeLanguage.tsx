@@ -20,7 +20,6 @@ const OptionChangeLanguage: React.FC=()=> {
 
 
   const onClickLanguageChange = (e: string) => {
-
     i18n.changeLanguage(e);
   };
 

@@ -1,30 +1,26 @@
 import { useState, useEffect } from "react";
 import "../../../css/home.css";
-import {
-  LoadAllCardsAnimals,
-  LoadAllCardsAnimalsHebrewLanguage,
-} from "../../../Server/LoadDataApi";
 import cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import ShowPopUpWelcomeModel from "../../tools/LoadingStyle/popUpWelcomeModel/ShowPopUpWelcomeModel";
 import CardAnimals from "./showCardsAnimals/CardAnimals";
 import CheckIfHaveThisAnimals from "./showCardsAnimals/checkIfHaveAnimals/CheckIfHaveThisAnimals";
-import ModelGetFood from "./showCardsAnimals/ModelGetFood";
-import ModelInfoAnimal from "./showCardsAnimals/infoAnimal/ModelInfoAnimal";
-import { AnimalsInfo } from "../../../interface/info.model";
 import SearchAnimals from "../../search/SearchAnimals";
+import { FetchData } from "../../../customHook/FetchData";
+import { FetchDataSearchOption } from "../../../customHook/FetchDataSearchAnimal";
+import {
+  ObjectCustomHook,
+  ObjectCustomHookSearch,
+} from "../../../interface/info.model";
 
 
 
 const AnimalsModals: React.FC = () => {
 
 
-  const [idAnimal, setIdAnimal] = useState<string>("");
-
   // change language en or hw
   const { t } = useTranslation(["home"]);
   const currentLanguageCode = cookies.get("i18next") || "en";
-
 
   const animalDontFoundInDataBaseTitleChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitle",
@@ -47,149 +43,89 @@ const AnimalsModals: React.FC = () => {
     );
 
   
-  //popup open or close , sound animal show popUp
-  const [showGetFoodAnimal, setShowGetFoodAnimal] = useState<boolean>(false);
-  const handleCloseGetFoodAnimal = () => setShowGetFoodAnimal(false);
-  const handleShowGetFoodAnimal = () => setShowGetFoodAnimal(true);
+  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
+    useState<ObjectCustomHook>({});
 
-  //popup open or close , show info about animal
-  const [showShowInfoAnimal, setShowShowInfoAnimal] = useState<boolean>(false);
-  const handleCloseInfoAnimal = () => setShowShowInfoAnimal(false);
-  const handleShowShowInfoAnimal = () => setShowShowInfoAnimal(true);
+  const [
+    saveOpjDataSendToCustomHookSearch,
+    SetSaveOpjDataSendToCustomHookSearch,
+  ] = useState<ObjectCustomHookSearch>({});
 
 
-
-  // save all animals HW + EN Language
-  const [allAnimalsEnglishLanguage, SetAllAnimalsEnglishLanguage] = useState<
-    AnimalsInfo[]
-  >([]);
-  const [allAnimalsHebrewLanguage, SetAllAnimalsHebrewLanguage] = useState<AnimalsInfo[]>(
-    []
+  // here use customHook to fetch animal data
+  const { data } = FetchData(saveOpjDataSendToCustomHook);
+  const { dataSearch, loadingSearch } = FetchDataSearchOption(
+    saveOpjDataSendToCustomHookSearch
   );
 
 
-  // save all animals when filter search animal
-  const [
-    checkIfHaveValueWhenSearchEnglishLanguage,
-    SetCheckIfHaveValueWhenSearchEnglishLanguage,
-  ] = useState<AnimalsInfo[]>([]);
-
-  const [
-    checkIfHaveValueWhenSearchHebrewLanguage,
-    SetCheckIfHaveValueWhenSearchHebrewLanguage,
-  ] = useState<AnimalsInfo[]>([]);
-
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-
-
   //load all card animals from api
-  const LoadAllAnimals = async () => {
+  const LoadAllAnimals = () => {
 
-    try {
-      setLoading(true);
-
-      // English
-      SetAllAnimalsEnglishLanguage(await LoadAllCardsAnimals());
-      SetCheckIfHaveValueWhenSearchEnglishLanguage(await LoadAllCardsAnimals());
-
-      // Hebrew
-      SetAllAnimalsHebrewLanguage(await LoadAllCardsAnimalsHebrewLanguage());
-      SetCheckIfHaveValueWhenSearchHebrewLanguage(
-        await LoadAllCardsAnimalsHebrewLanguage()
-      );
-
-      setLoading(false); // Stop loading
-    } catch (error) {
-      setLoading(false); // Stop loading in case of error
-      console.error(error);
+    if (currentLanguageCode == "en") {
+      SetSaveOpjDataSendToCustomHook({
+        typeHowUse: "englishLanguage",
+      });
+      SetSaveOpjDataSendToCustomHookSearch({
+        typeHowUse: "SearchEnglishLanguage",
+        valueSearch: "",
+        infoSearch: null,
+      });
+    } else if (currentLanguageCode == "hw") {
+      SetSaveOpjDataSendToCustomHook({
+        typeHowUse: "hebrewLanguage",
+      });
+      SetSaveOpjDataSendToCustomHookSearch({
+        typeHowUse: "SearchHebrewLanguage",
+        valueSearch: "",
+        infoSearch: null,
+      });
     }
   };
 
 
-
-
   const filterAnimalsSearch = (searchTerm: any) => {
 
-    const filteredItemsEN = allAnimalsEnglishLanguage.filter((animal) =>
-      animal.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    SetCheckIfHaveValueWhenSearchEnglishLanguage(filteredItemsEN);
-
-    const filteredItemsHW = allAnimalsHebrewLanguage.filter((animal) =>
-      animal.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    SetCheckIfHaveValueWhenSearchHebrewLanguage(filteredItemsHW);
+    if (currentLanguageCode == "en") {
+      SetSaveOpjDataSendToCustomHookSearch({
+        typeHowUse: "SearchEnglishLanguageID",
+        valueSearch: searchTerm,
+        infoSearch: data,
+      });
+    } else if (currentLanguageCode == "hw") {
+      SetSaveOpjDataSendToCustomHookSearch({
+        typeHowUse: "SearchHebrewLanguageID",
+        valueSearch: searchTerm,
+        infoSearch: data,
+      });
+    }
   };
-
-
-
-  //here we save data animal
-  const start = async (id: string) => {
-
-    setIdAnimal(id);
-
-    handleShowGetFoodAnimal();
-  };
-
-
-
-  //show popup about Animal show info
-  const clickToImageForInfo = async (id: string) => {
-
-    setIdAnimal(id);
-
-    handleShowShowInfoAnimal();
-  };
-
 
 
   useEffect(() => {
-
     LoadAllAnimals();
-  }, []);
-
+  }, [currentLanguageCode]);
 
 
 
   return (
     <div>
-      {loading ? (
+      {loadingSearch ? (
         <ShowPopUpWelcomeModel />
       ) : (
-          <>
+        <>
           {/* component search animals */}
           <SearchAnimals onChangeCallback={filterAnimalsSearch} />
-            
+
           <div className="cards-list">
             {/* show cards Animals HE or EN */}
-            {currentLanguageCode == "en"
-              ? checkIfHaveValueWhenSearchEnglishLanguage.map((animal) => (
-                    <CardAnimals
-                      dataAllAnimals={animal}
-                      clickToImageForInfo={clickToImageForInfo}
-                      start={start}
-                    />
-                ))
-              : checkIfHaveValueWhenSearchHebrewLanguage.map((animal) => (
-                  <>
-                    <CardAnimals
-                      dataAllAnimals={animal}
-                      clickToImageForInfo={clickToImageForInfo}
-                      start={start}
-                    />
-                  </>
-                ))}
+            {dataSearch.map((animal) => (
+              <CardAnimals dataAllAnimals={animal} key={animal._id} />
+            ))}
 
             {/* check if have animals in data base , if no show message */}
             <CheckIfHaveThisAnimals
-              checkIfHaveValueWhenSearchEnglishLanguage={
-                checkIfHaveValueWhenSearchEnglishLanguage.length
-              }
-              checkIfHaveValueWhenSearchHebrewLanguage={
-                checkIfHaveValueWhenSearchHebrewLanguage.length
-              }
+              checkIfHaveValueWhenSearchEnglishLanguage={dataSearch.length}
               animalDontFoundInDataBaseTitle={animalDontFoundInDataBaseTitle}
               animalDontFoundInDataBaseTitleSendToAdminMessage={
                 animalDontFoundInDataBaseTitleSendToAdminMessage
@@ -198,24 +134,6 @@ const AnimalsModals: React.FC = () => {
           </div>
         </>
       )}
-
-      {/* get a food animal */}
-      <div>
-        <ModelGetFood
-          showGetFoodAnimal={showGetFoodAnimal}
-          handleCloseGetFoodAnimal={() => handleCloseGetFoodAnimal}
-          idAnimal={idAnimal}
-        />
-      </div>
-
-      {/* show animal info model */}
-      <div>
-        <ModelInfoAnimal
-          showShowInfoAnimal={showShowInfoAnimal}
-          hideModelInfoAnimal={() => handleCloseInfoAnimal}
-          idAnimal={idAnimal}
-        />
-      </div>
     </div>
   );
 };

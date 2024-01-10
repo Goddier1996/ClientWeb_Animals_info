@@ -1,5 +1,5 @@
 import { Form, Modal } from "react-bootstrap";
-import UpdatedInfo from "../updatedAnimal/UpdatedAnimal";
+import UpdatedInfo from "./UpdatedAnimal";
 
 
 const PopUpUpdated: React.FC<{ show: boolean,idAnimal:string, handleClose: Function }> = ({

@@ -21,7 +21,6 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({
   );
 
 
-
   return (
     <div>
       <div className="titleHeaterSendEmail">
@@ -33,8 +32,6 @@ const SendMessage: React.FC<{ closeModelEmail: Function }> = ({
           />
         </h1>
       </div>
-
-      <br />
 
       <InputValueSendEmail closeModelEmail={closeModelEmail} />
     </div>

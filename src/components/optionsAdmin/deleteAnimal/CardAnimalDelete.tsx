@@ -3,7 +3,6 @@ import { DeleteAnimal } from "../../../Server/DeleteDataApi";
 import {AnimalsInfo} from "../../../interface/info.model"
 
 
-
 const CardAnimalDelete: React.FC<{ data: AnimalsInfo }> = ({ data }) => {
 
 
@@ -22,7 +21,6 @@ const CardAnimalDelete: React.FC<{ data: AnimalsInfo }> = ({ data }) => {
     });
   };
 
-    
   return (
     <>
       <div key={data._id} className="cardDeleteOrUpdated">
@@ -37,7 +35,6 @@ const CardAnimalDelete: React.FC<{ data: AnimalsInfo }> = ({ data }) => {
     </>
   );
 };
-
 
 
 export default CardAnimalDelete;

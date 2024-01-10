@@ -6,15 +6,12 @@ import { useTranslation } from "react-i18next";
 import { ConnectAdminLogin } from "../../../interface/info.model";
 
 
+
 const LoginAdmin: React.FC<{
   handleCloseConnectAdmin: Function;
   handleShowOptionsAdmin: Function;
 }> = ({ handleCloseConnectAdmin, handleShowOptionsAdmin }) => {
 
-
-  //input data admin login
-  const [Login, setLogin] = useState<string>("");
-  const [Password, setPassword] = useState<string>("");
 
   // change Language
   const { t } = useTranslation(["home"]);
@@ -40,10 +37,15 @@ const LoginAdmin: React.FC<{
     (node: any) => node.title
   );
 
+  //input data admin login
+  const [Login, setLogin] = useState<string>("");
+  const [Password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
 
 
   const ConnectToAdmin = async () => {
-
+    setLoading(true);
     let userValue: ConnectAdminLogin = {
       Login: Login,
       Password: Password,
@@ -55,21 +57,23 @@ const LoginAdmin: React.FC<{
 
     if (userData != null) {
       handleShowOptionsAdmin();
+      setLoading(false);
     } else {
       Swal.fire({
         position: "center",
         icon: "error",
         text: "you need input all value or don`t have this user !",
         confirmButtonColor: "green",
+        allowOutsideClick: false,
+        toast: true,
       });
+      setLoading(false);
     }
   };
 
 
-
   // here show video for user's what admin can do to
   const AdminInfo = async () => {
-
     Swal.fire({
       html: `<div class="styleVideoAdmin"><video controls autoplay loop muted playsinline 
           src="https://github.com/Goddier1996/ClientWeb_Animals_info/assets/59862302/370e88fe-b545-4a66-a7cc-f15ff6ab8be8"</video></div>`,
@@ -124,15 +128,16 @@ const LoginAdmin: React.FC<{
         <a onClick={AdminInfo}>{optionsInfoAdmin}</a>
       </div>
 
-      <br />
-
       <div className="ButtonInfo">
-        <Button variant="success" onClick={ConnectToAdmin}>
-          {optionsSignIn}
+        <Button
+          disabled={loading}
+          variant="success"
+          onClick={ConnectToAdmin}
+          style={{ marginTop: "3%" }}
+        >
+          {!loading ? optionsSignIn : <>loading...</>}
         </Button>
       </div>
-
-      <br />
     </>
   );
 };

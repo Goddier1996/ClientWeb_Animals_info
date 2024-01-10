@@ -1,4 +1,3 @@
-import cookies from "js-cookie";
 import DontKnowWhatAnimalEat from "../tools/DontKnowWhatAnimalEat";
 import SelectImg from "./SelectImg";
 import OverlayTriggerWhatAnimalEat from "../tools/OverlayTriggerWhatAnimalEat";
@@ -13,10 +12,6 @@ const FotoEat: React.FC<{
 }> = ({ dataAnimal, closeStartPopUpSelectTypeGiveEat, closeImgEatPopUp }) => {
 
 
-  // change language en or hw
-  const currentLanguageCode = cookies.get("i18next") || "en";
-
-
   return (
     <div>
       {/* here info if user don't know what animal eat */}
@@ -25,14 +20,8 @@ const FotoEat: React.FC<{
       </div>
 
       <div className="titleHeaterInfo">
-        {currentLanguageCode == "hw" ? (
-          <DontKnowWhatAnimalEat dataAnimal={dataAnimal} />
-        ) : (
-          <DontKnowWhatAnimalEat dataAnimal={dataAnimal} />
-        )}
+        <DontKnowWhatAnimalEat dataAnimal={dataAnimal} />
       </div>
-
-      <br />
 
       <div className="chioseImage">
         <SelectImg
@@ -48,8 +37,6 @@ const FotoEat: React.FC<{
           closeImgEatPopUp={() => closeImgEatPopUp()}
         />
       </div>
-
-      <br />
     </div>
   );
 };

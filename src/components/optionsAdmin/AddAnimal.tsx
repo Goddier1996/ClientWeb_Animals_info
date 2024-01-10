@@ -41,7 +41,7 @@ const AddAnimal: React.FC = () => {
 
 
   //check url input image and sound   - 2
-  const checkValue = async () => {
+  const checkValue = () => {
 
     // check url input
     let soundUrl: boolean = isValidUrl(sound);

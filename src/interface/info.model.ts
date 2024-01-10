@@ -11,7 +11,6 @@ export interface AnimalsInfo{
 }[]
 
 
-
 export interface AnimalIdInfo {
     _id?: string;
     title?: string;
@@ -23,7 +22,6 @@ export interface AnimalIdInfo {
     eatImage?: any;
     notEatImage?: any;
 }
-
 
 
 export interface ValueAddOrUpdatedNewAnimal{
@@ -38,8 +36,25 @@ export interface ValueAddOrUpdatedNewAnimal{
 }
 
 
-
 export interface ConnectAdminLogin{
     Login: string;
     Password: string;
+}
+
+
+export interface ObjectCustomHook{
+    typeHowUse?: string;
+}
+
+
+export interface ObjectCustomHookSearch{
+    typeHowUse?: string;
+    valueSearch?: string;
+    infoSearch?:any
+}
+
+
+export interface ObjectCustomHookIdInfo{
+    typeHowUse?: string;
+    id?: string;
 }

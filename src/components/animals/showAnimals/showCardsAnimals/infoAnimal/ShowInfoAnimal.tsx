@@ -3,15 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import {
-  LoadInfoIdAnimal,
-  LoadAnimalInfoIdHebrewLanguage,
-} from "../../../../../Server/LoadDataApi";
 import Loading from "../../../../tools/LoadingStyle/loadingItems/Loading";
-import {AnimalIdInfo} from "../../../../../interface/info.model"
-import { AsyncImage } from 'loadable-image'
-import { Fade } from 'transitions-kit'
+import { ObjectCustomHookIdInfo } from "../../../../../interface/info.model";
+import { AsyncImage } from "loadable-image";
+import { Fade } from "transitions-kit";
 import LoadingCardsAnimals from "../../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
+import { FetchDataInfoId } from "../../../../../customHook/FetchDataInfoId";
 
 
 
@@ -39,40 +36,31 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
     (node: any) => node.title
   );
 
+  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
+    useState<ObjectCustomHookIdInfo>({});
+  // customHook
+  const { data, loading } = FetchDataInfoId(saveOpjDataSendToCustomHook);
 
-  const [dataAnimalInfo, setDataAnimalInfo] = useState<AnimalIdInfo>({});
-  const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
-    useState<AnimalIdInfo>({});
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-  
 
   const loadAnimalIdInfo = async () => {
-
-    try {
-      setLoading(true);
-
-      setDataAnimalInfo(await LoadInfoIdAnimal(idAnimal));
-      setDataAnimalInfoHebrewLanguage(
-        await LoadAnimalInfoIdHebrewLanguage(idAnimal)
-      );
-
-      setLoading(false); // Stop loading
-    } catch (error) {
-      setLoading(false); // Stop loading in case of error
-      console.error(error);
+    
+    if (currentLanguageCode == "en") {
+      SetSaveOpjDataSendToCustomHook({
+        typeHowUse: "englishLanguage",
+        id: idAnimal,
+      });
+    } else if (currentLanguageCode == "hw") {
+      SetSaveOpjDataSendToCustomHook({
+        typeHowUse: "hebrewLanguage",
+        id: idAnimal,
+      });
     }
   };
 
 
-
   useEffect(() => {
-    
     loadAnimalIdInfo();
-
   }, [idAnimal]);
-
 
 
   return (
@@ -82,65 +70,45 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
       ) : (
         <Modal.Body>
           <div className="titleHeaterInfo">
-            {currentLanguageCode == "hw" ? (
-              <h1>
-                :{InfoAnimalTitle} {dataAnimalInfoHebrewLanguage.title}
-              </h1>
-            ) : (
-              <h1>
-                {InfoAnimalTitle} {dataAnimalInfo.title} :
-              </h1>
-            )}
+            <h1>
+              :{InfoAnimalTitle} {data.title}
+            </h1>
           </div>
 
-          <br />
-
-          {currentLanguageCode == "hw" ? (
-            <div className="infoImage">
-              <AsyncImage
-                  src={dataAnimalInfoHebrewLanguage.infoImage}
-                  style={{ width: "100%", height: 230 }}
-                  loader={<div><LoadingCardsAnimals/></div>}
-                  Transition={Fade}
-                  alt="info animal"
-                />
-            </div>
-          ) : (
-            <div className="infoImage">
-                <AsyncImage
-                  src={dataAnimalInfo.infoImage}
-                  style={{ width: "100%", height: 230 }}
-                  loader={<div><LoadingCardsAnimals/></div>}
-                  Transition={Fade}
-                  alt="info animal"
-                />
-            </div>
-          )}
-
-          <br />
-
-          {currentLanguageCode == "hw" ? (
-            <div
-              className="infoText"
-              style={
-                currentLanguageCode == "hw"
-                  ? { textAlign: "right" }
-                  : { textAlign: "left" }
+          <div className="infoImage">
+            <AsyncImage
+              src={data.infoImage}
+              style={{ width: "100%", height: 230 }}
+              loader={
+                <div>
+                  <LoadingCardsAnimals />
+                </div>
               }
-            >
-              <p>{dataAnimalInfoHebrewLanguage.infoAnimal}</p>
-            </div>
-          ) : (
-            <div className="infoText">
-              <p>{dataAnimalInfo.infoAnimal}</p>
-            </div>
-          )}
+              Transition={Fade}
+              alt="info animal"
+            />
+          </div>
+
+          <div
+            className="infoText"
+            style={
+              currentLanguageCode == "hw"
+                ? { textAlign: "right" }
+                : { textAlign: "left" }
+            }
+          >
+            <p>{data.infoAnimal}</p>
+          </div>
 
           <div className="ButtonInfo">
-              <Button variant="success"
-                onClick={() => hideModelInfo()}
-                style={{cursor: "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer"}}
-              >
+            <Button
+              variant="success"
+              onClick={() => hideModelInfo()}
+              style={{
+                cursor:
+                  "url(https://cur.cursors-4u.net/games/gam-4/gam307.ani),url(https://cur.cursors-4u.net/games/gam-4/gam307.png), pointer",
+              }}
+            >
               {GoodInfoButton}
             </Button>
           </div>

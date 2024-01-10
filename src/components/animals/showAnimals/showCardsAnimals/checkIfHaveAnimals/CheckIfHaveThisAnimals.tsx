@@ -1,14 +1,11 @@
 import "./dontHaveAnimals.css"
 
-
 const CheckIfHaveThisAnimals: React.FC<{
-    checkIfHaveValueWhenSearchEnglishLanguage: number;
-    checkIfHaveValueWhenSearchHebrewLanguage: number;
+    checkIfHaveValueWhenSearchEnglishLanguage: Number;
     animalDontFoundInDataBaseTitle: String;
     animalDontFoundInDataBaseTitleSendToAdminMessage: String;
 }> = ({
   checkIfHaveValueWhenSearchEnglishLanguage,
-  checkIfHaveValueWhenSearchHebrewLanguage,
   animalDontFoundInDataBaseTitle,
   animalDontFoundInDataBaseTitleSendToAdminMessage,
 }) => {
@@ -16,8 +13,7 @@ const CheckIfHaveThisAnimals: React.FC<{
 
   return (
     <>
-      {checkIfHaveValueWhenSearchEnglishLanguage === 0 &&
-      checkIfHaveValueWhenSearchHebrewLanguage === 0 ? (
+      {!checkIfHaveValueWhenSearchEnglishLanguage ? (
         <div className="dontHaveThisValueInArray">
           <img
             src="https://i.postimg.cc/B6tXwjnh/999.webp"

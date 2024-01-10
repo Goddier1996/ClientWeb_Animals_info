@@ -1,7 +1,16 @@
-import {AnimalsInfo} from "../../../interface/info.model"
+import { useState } from "react";
+import { AnimalsInfo } from "../../../interface/info.model";
+import PopUpUpdated from "./PopUpUpdated";
+
+const ShowCardsAnimals: React.FC<{
+  infoAnimal: AnimalsInfo;
+}> = ({ infoAnimal }) => {
 
 
-const ShowCardsAnimals: React.FC<{infoAnimal:AnimalsInfo,AnimalChoose:Function}> = ({infoAnimal,AnimalChoose}) => {
+  const [show, setShow] = useState<boolean>(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   return (
     <>
@@ -10,10 +19,17 @@ const ShowCardsAnimals: React.FC<{infoAnimal:AnimalsInfo,AnimalChoose:Function}>
           <img
             src={infoAnimal.image}
             alt="card animal"
-            onClick={() => AnimalChoose(infoAnimal._id)}
+            onClick={() => handleShow()}
           />
         </div>
       </div>
+
+      {/* pop up Updated info Animal , from UpdatedInfo.js component*/}
+      <PopUpUpdated
+        show={show}
+        idAnimal={infoAnimal._id}
+        handleClose={() => handleClose}
+      />
     </>
   );
 };

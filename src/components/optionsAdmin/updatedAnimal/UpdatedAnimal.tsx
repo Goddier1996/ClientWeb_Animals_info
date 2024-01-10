@@ -3,12 +3,16 @@ import "../../../css/home.css";
 import { Form, Modal, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { updateInDateAnimal } from "../../../Server/AddDataOrUpdatedApi";
-import { LoadInfoIdAnimal } from "../../../Server/LoadDataApi";
-import {ValueAddOrUpdatedNewAnimal} from "../../../interface/info.model"
+import {
+  ObjectCustomHookIdInfo,
+  ValueAddOrUpdatedNewAnimal,
+} from "../../../interface/info.model";
+import { FetchDataInfoId } from "../../../customHook/FetchDataInfoId";
+import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 
 
 
-const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
+const UpdatedInfo: React.FC<{ idAnimal: string }> = ({ idAnimal }) => {
 
 
   //value input a Updated animal
@@ -22,20 +26,23 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
   const [notEatImage, setNotEatImage] = useState<string>("");
 
 
-  const [dataAnimal, SetDataAnimal] = useState({} as any);
+  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
+    useState<ObjectCustomHookIdInfo>({});
+  // customHook
+  const { data, loading } = FetchDataInfoId(saveOpjDataSendToCustomHook);
 
 
   // here load a info animal with id data base
-  const LoadAnimalInfo = async () => {
-
-    SetDataAnimal(await LoadInfoIdAnimal(idAnimal));
+  const LoadAnimalInfo = () => {
+    SetSaveOpjDataSendToCustomHook({
+      typeHowUse: "englishLanguage",
+      id: idAnimal,
+    });
   };
-
 
 
   //check url input image and sound  - 1
   const isValidUrl = (urlString: string) => {
-    
     let urlPattern = new RegExp(
       "^(https?:\\/\\/)?" + // validate protocol
         "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
@@ -49,13 +56,11 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
   };
 
 
-
   // here check input value if was empty , and check a links if good
-  const CheckInputValue = async () => {
-
-    let x:boolean = isValidUrl(sound);
-    let x1:boolean = isValidUrl(image);
-    let x2:boolean = isValidUrl(infoImage);
+  const CheckInputValue = () => {
+    let x: boolean = isValidUrl(sound);
+    let x1: boolean = isValidUrl(image);
+    let x2: boolean = isValidUrl(infoImage);
 
     if (
       sound === "" ||
@@ -79,9 +84,7 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
       });
 
       return;
-    }
-
-    else {
+    } else {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -89,7 +92,6 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
-
         updateDateAnimal();
         window.location.reload();
       });
@@ -97,128 +99,126 @@ const UpdatedInfo: React.FC<{idAnimal:string}> = ({idAnimal}) => {
   };
 
 
-
-
   // here Admin Update a info Animal
   const updateDateAnimal = async () => {
+    let Animal: ValueAddOrUpdatedNewAnimal = {
+      title: title,
+      sound: sound,
+      image: image,
+      eat: eat,
+      infoAnimal: infoAnimal,
+      infoImage: infoImage,
+      notEatImage: notEatImage,
+      eatImage: eatImage,
+    };
 
-      let Animal:ValueAddOrUpdatedNewAnimal = {
-        title: title,
-        sound: sound,
-        image: image,
-        eat: eat,
-        infoAnimal: infoAnimal,
-        infoImage: infoImage,
-        notEatImage: notEatImage,
-        eatImage: eatImage,
-      };
-    
     await updateInDateAnimal(Animal, idAnimal);
   };
 
 
-
   useEffect(() => {
     LoadAnimalInfo();
-
   }, [idAnimal]);
 
 
 
   return (
     <div>
-      <div className="titleHeater">
-        <h1>
-          Updated Info Animal {dataAnimal.title}{" "}
-          <img src={dataAnimal.image} style={{ height: "65px" }} alt="Updated"/>
-        </h1>
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="titleHeater">
+            <h1>
+              Updated Info Animal {data.title}{" "}
+              <img src={data.image} style={{ height: "65px" }} alt="Updated" />
+            </h1>
+          </div>
 
-      <Modal.Body>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="text"
-            placeholder={dataAnimal.title}
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-            autoFocus
-          />
-        </Form.Group>
+          <Modal.Body>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="text"
+                placeholder={data.title}
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+                autoFocus
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="text"
-            placeholder={dataAnimal.eat}
-            value={eat}
-            onChange={(event) => setEat(event.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="text"
+                placeholder={data.eat}
+                value={eat}
+                onChange={(event) => setEat(event.target.value)}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="url"
-            placeholder={dataAnimal.sound}
-            value={sound}
-            onChange={(event) => setSound(event.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="url"
+                placeholder={data.sound}
+                value={sound}
+                onChange={(event) => setSound(event.target.value)}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="url"
-            placeholder={dataAnimal.image}
-            value={image}
-            onChange={(event) => setImage(event.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="url"
+                placeholder={data.image}
+                value={image}
+                onChange={(event) => setImage(event.target.value)}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="text"
-            placeholder={dataAnimal.infoAnimal}
-            value={infoAnimal}
-            onChange={(event) => setInfoAnimal(event.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="text"
+                placeholder={data.infoAnimal}
+                value={infoAnimal}
+                onChange={(event) => setInfoAnimal(event.target.value)}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="url"
-            placeholder={dataAnimal.infoImage}
-            value={infoImage}
-            onChange={(event) => setInfoImage(event.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="url"
+                placeholder={data.infoImage}
+                value={infoImage}
+                onChange={(event) => setInfoImage(event.target.value)}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="url"
-            placeholder={dataAnimal.eatImage}
-            value={eatImage}
-            onChange={(event) => setEatImage(event.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="url"
+                placeholder={data.eatImage}
+                value={eatImage}
+                onChange={(event) => setEatImage(event.target.value)}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="url"
-            placeholder={dataAnimal.notEatImage}
-            value={notEatImage}
-            onChange={(event) => setNotEatImage(event.target.value)}
-          />
-        </Form.Group>
-      </Modal.Body>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="url"
+                placeholder={data.notEatImage}
+                value={notEatImage}
+                onChange={(event) => setNotEatImage(event.target.value)}
+              />
+            </Form.Group>
+          </Modal.Body>
 
-      <Modal.Footer>
-        <Button variant="success" onClick={CheckInputValue}>
-          Updated
-        </Button>
-      </Modal.Footer>
-      <br />
-      <br />
+          <Modal.Footer>
+            <Button variant="success" onClick={CheckInputValue}>
+              Updated
+            </Button>
+          </Modal.Footer>
+        </>
+      )}
     </div>
   );
-  
 };
 
 

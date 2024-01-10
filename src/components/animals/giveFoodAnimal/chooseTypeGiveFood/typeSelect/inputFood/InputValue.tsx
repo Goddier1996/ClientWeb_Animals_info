@@ -82,7 +82,7 @@ const InputValue: React.FC<{
 
 
   //get animal and check input value,and lenten sound animal
-  const GetEatToAnimal = async () => {
+  const GetEatToAnimal = () => {
 
     //if input was == value from nodeJs , we save in session storge before this easy use now for check
     if (dataAnimal.eat == eat.toLowerCase()) {
@@ -134,7 +134,6 @@ const InputValue: React.FC<{
       });
     }
   };
-
 
 
 

@@ -5,12 +5,9 @@ import cookies from "js-cookie";
 import SelectTypeGiveEat from "./chooseTypeGiveFood/SelectTypeGiveEat";
 import ModelTypeSelectGiveEat from "./chooseTypeGiveFood/ModelTypeSelectGiveEat";
 import ShowTitleNameAnimal from "./chooseTypeGiveFood/ShowTitleNameAnimal";
-import {
-  LoadInfoIdAnimal,
-  LoadAnimalInfoIdHebrewLanguage,
-} from "../../../Server/LoadDataApi";
 import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
-import { AnimalIdInfo } from "../../../interface/info.model";
+import { ObjectCustomHookIdInfo } from "../../../interface/info.model";
+import { FetchDataInfoId } from "../../../customHook/FetchDataInfoId";
 
 
 
@@ -44,13 +41,11 @@ const AddFoodAnimal: React.FC<{
   const closeTitle: String = closeChangeLanguage.map((node: any) => node.title);
 
 
-
   // show popUp
   //choose image eat
   const [showImageEat, setShowImageEat] = useState<boolean>(false);
   const handleCloseImageEat = () => setShowImageEat(false);
   const handleShowImageEat = () => setShowImageEat(true);
-
 
   //choose input eat
   const [showInputTextEat, setShowInputTextEat] = useState<boolean>(false);
@@ -58,41 +53,31 @@ const AddFoodAnimal: React.FC<{
   const handleShowInputTextEat = () => setShowInputTextEat(true);
 
 
-  const [dataAnimalInfo, setDataAnimalInfo] = useState<AnimalIdInfo>({});
+  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
+    useState<ObjectCustomHookIdInfo>({});
+
+  // customHook
+  const { data, loading } = FetchDataInfoId(saveOpjDataSendToCustomHook);
 
 
-  const [dataAnimalInfoHebrewLanguage, setDataAnimalInfoHebrewLanguage] =
-    useState<AnimalIdInfo>({});
+  const loadAnimalIdInfo = () => {
 
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-
-
-  const loadAnimalIdInfo = async () => {
-
-    try {
-      setLoading(true);
-
-      setDataAnimalInfo(await LoadInfoIdAnimal(idAnimal));
-
-      setDataAnimalInfoHebrewLanguage(
-        await LoadAnimalInfoIdHebrewLanguage(idAnimal)
-      );
-
-      setLoading(false); // Stop loading
-    } catch (error) {
-      setLoading(false); // Stop loading in case of error
-      console.error(error);
+    if (currentLanguageCode == "en") {
+      SetSaveOpjDataSendToCustomHook({
+        typeHowUse: "englishLanguage",
+        id: idAnimal,
+      });
+    } else if (currentLanguageCode == "hw") {
+      SetSaveOpjDataSendToCustomHook({
+        typeHowUse: "hebrewLanguage",
+        id: idAnimal,
+      });
     }
   };
 
 
-
   useEffect(() => {
-
     loadAnimalIdInfo();
-
   }, [idAnimal]);
 
 
@@ -104,22 +89,9 @@ const AddFoodAnimal: React.FC<{
       ) : (
         <>
           <div className="titleHeater">
-            {currentLanguageCode == "hw" ? (
-              <ShowTitleNameAnimal
-                dataAnimalId={dataAnimalInfoHebrewLanguage}
-              />
-            ) : (
-              <ShowTitleNameAnimal dataAnimalId={dataAnimalInfo} />
-            )}
-
-            <p>
-              {optionsTitle}
-              <br />
-            </p>
-            <h6>
-              {optionsSelectTitle}
-              <br />
-            </h6>
+            <ShowTitleNameAnimal dataAnimalId={data} />
+            <p>{optionsTitle}</p>
+            <h6>{optionsSelectTitle}</h6>
           </div>
 
           {/* select type give eat animal img or input value */}
@@ -142,8 +114,7 @@ const AddFoodAnimal: React.FC<{
             onHide={handleCloseImageEat}
             title={closeTitle}
             typeSelect={"imgSelect"}
-            dataAnimalId={dataAnimalInfo}
-            dataAnimalInfoHebrewLanguage={dataAnimalInfoHebrewLanguage}
+            dataAnimalId={data}
             closeStartPopUpSelectTypeGiveEat={() =>
               closeStartPopUpSelectTypeGiveEat()
             }
@@ -155,8 +126,7 @@ const AddFoodAnimal: React.FC<{
             onHide={handleCloseInputTextEat}
             title={""}
             typeSelect={"inputValue"}
-            dataAnimalId={dataAnimalInfo}
-            dataAnimalInfoHebrewLanguage={dataAnimalInfoHebrewLanguage}
+            dataAnimalId={data}
             closeStartPopUpSelectTypeGiveEat={() =>
               closeStartPopUpSelectTypeGiveEat()
             }

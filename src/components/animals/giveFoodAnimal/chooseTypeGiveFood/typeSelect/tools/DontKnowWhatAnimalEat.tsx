@@ -25,21 +25,10 @@ const DontKnowWhatAnimalEat: React.FC<{dataAnimal:AnimalIdInfo}> = ({dataAnimal}
   );
 
     
-  const choose_imageTitleChangeLanguage: any = t("choose_imageTitle", {
-    returnObjects: true,
-  });
-  const choose_imageTitle: String = choose_imageTitleChangeLanguage.map(
-    (node: any) => node.title
-  );
-
-    
   return (
     <>
       <p>
         {DontKnowWhatAnimalEatTitle} {dataAnimal.title} {Click_to_InfoTitle}
-        <br />
-        <br />
-        {choose_imageTitle}
       </p>
     </>
   );

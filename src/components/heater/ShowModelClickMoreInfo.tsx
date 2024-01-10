@@ -66,8 +66,6 @@ const ShowModelClickMoreInfo: React.FC<{ handleClose: Function }> = ({
           />
         </div>
 
-        <br />
-        <br />
 
         <div
           className="titleInfoHowLearnStart"

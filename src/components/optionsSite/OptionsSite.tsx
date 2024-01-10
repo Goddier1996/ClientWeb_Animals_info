@@ -118,7 +118,7 @@ export const OptionsSite: React.FC = () => {
 
 
   // here admin chiose add new animal or delete , we send a number when onclick to button , and check with number what we need active
-  const chooseForAdmin = async (choose: number) => {
+  const chooseForAdmin = (choose: number) => {
     if (choose == 1) {
       handleShowAddNewAnimal();
     }
@@ -149,6 +149,7 @@ export const OptionsSite: React.FC = () => {
     <>
       {optionsAppButtonChangeLanguage.map((node: any) => (
         <Button
+          key={node.id}
           style={{
             margin: "3%",
             cursor:

@@ -1,47 +1,30 @@
 import { useState, useEffect } from "react";
 import "../../../css/home.css";
 import { Modal } from "react-bootstrap";
-import { LoadAllCardsAnimals } from "../../../Server/LoadDataApi";
-import PopUpUpdated from "./PopUpUpdated";
 import ShowCardsAnimals from "./ShowCardsAnimals";
-import {AnimalsInfo} from "../../../interface/info.model"
-
+import { ObjectCustomHook } from "../../../interface/info.model";
+import { FetchData } from "../../../customHook/FetchData";
+import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 
 
 const ChooseUpdatedAnimal: React.FC = () => {
 
 
-  const [show, setShow] = useState<boolean>(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const [saveIdAnimal, setSaveIdAnimal] = useState<string>("");
-
-  const [animals, SetAnimals] = useState<AnimalsInfo[]>([]);
-
+  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
+    useState<ObjectCustomHook>({});
+  // customHook
+  const { data, loading } = FetchData(saveOpjDataSendToCustomHook);
 
 
   //load all card animals from database
-  const LoadAllNotes = async () => {
-
-    SetAnimals(await LoadAllCardsAnimals());
+  const LoadAllNotes = () => {
+    SetSaveOpjDataSendToCustomHook({
+      typeHowUse: "englishLanguage",
+    });
   };
-
-
-
-  // here active pop up updated data animal
-  const AnimalChoose = async (id: string) => {
-    
-    setSaveIdAnimal(id)
-
-    handleShow();
-  };
-
-
 
 
   useEffect(() => {
-
     LoadAllNotes();
   }, []);
 
@@ -62,19 +45,19 @@ const ChooseUpdatedAnimal: React.FC = () => {
 
       {/* here show all animals */}
       <Modal.Body>
-        <div className="modelsInfoDeleteOrUpdated">
-          {animals.map((animal) => (
-           <ShowCardsAnimals infoAnimal={animal} AnimalChoose={AnimalChoose}/>
-          ))}
-        </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="modelsInfoDeleteOrUpdated">
+            {data.map((animal) => (
+              <ShowCardsAnimals infoAnimal={animal} />
+            ))}
+          </div>
+        )}
       </Modal.Body>
-
-      
-      {/* pop up Updated info Animal , from UpdatedInfo.js component*/}
-        <PopUpUpdated show={show} idAnimal={saveIdAnimal} handleClose={()=>handleClose}/>
     </div>
   );
-}
+};
 
 
 export default ChooseUpdatedAnimal;

@@ -1,7 +1,10 @@
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
+import { AnimalIdInfo } from "../../../../../../interface/info.model";
 
 
-const OverlayTriggerWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) => {
+const OverlayTriggerWhatAnimalEat: React.FC<{ dataAnimal: AnimalIdInfo }> = ({
+  dataAnimal,
+}) => {
 
 
   //show info what animal eat - when click in pop up info
@@ -12,13 +15,16 @@ const OverlayTriggerWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) =
     </Popover>
   );
 
-    
+
   return (
     <>
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>
         <Button
           variant="outline-light"
-          style={{cursor: "url(https://cur.cursors-4u.net/cursors/cur-8/cur743.cur), pointer"}}
+          style={{
+            cursor:
+              "url(https://cur.cursors-4u.net/cursors/cur-8/cur743.cur), pointer",
+          }}
         >
           <img src="https://img.icons8.com/ios/50/000000/info--v1.png" />
         </Button>
@@ -26,7 +32,6 @@ const OverlayTriggerWhatAnimalEat: React.FC<{dataAnimal:any}> = ({dataAnimal}) =
     </>
   );
 };
-
 
 
 export default OverlayTriggerWhatAnimalEat;

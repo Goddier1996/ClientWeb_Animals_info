@@ -39,9 +39,7 @@ const ShowTitleNameAnimal: React.FC<{dataAnimalId:AnimalIdInfo}> = ({ dataAnimal
     <>
       <h1>
         {InfoAnimalTitle }
-        
         {" "}{dataAnimalId.title},{" "}
-        
         {i_am_hungryTitle}{" "}
         <img
           src="https://i.postimg.cc/6qx8029p/vecteezy-pets-bowl-food.jpg"
