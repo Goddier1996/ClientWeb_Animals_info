@@ -24,19 +24,19 @@ export const FetchDataInfoId = (funcFetchData:ObjectCustomHookIdInfo) => {
             LoadInfoIdAnimal(funcFetchData.id||"")
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
             
           case "hebrewLanguage":
             LoadAnimalInfoIdHebrewLanguage(funcFetchData.id||"")
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
       
           default:
             // setError(`${error} Could not Fetch Data `);
-            setLoading(false);
+            setLoading(true);
         }
       };
 

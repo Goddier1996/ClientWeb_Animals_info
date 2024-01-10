@@ -24,19 +24,19 @@ export const FetchData = (funcFetchData:ObjectCustomHook) => {
             LoadAllCardsAnimals()
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
             
           case "hebrewLanguage":
             LoadAllCardsAnimalsHebrewLanguage()
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
       
           default:
             // setError(`${error} Could not Fetch Data `);
-            setLoading(false);
+            setLoading(true);
         }
       };
 

@@ -24,14 +24,14 @@ export const FetchDataSearchOption = (funcFetchData:ObjectCustomHookSearch) => {
             LoadAllCardsAnimals()
               .then((dataCategory) => setDataSearch(dataCategory))
               .then(() => setLoadingSearch(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoadingSearch(true))
             break;
               
           case "SearchHebrewLanguage":
             LoadAllCardsAnimalsHebrewLanguage()
               .then((dataCategory) => setDataSearch(dataCategory))
               .then(() => setLoadingSearch(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoadingSearch(true))
             break;
           
           case "SearchEnglishLanguageID":
@@ -48,7 +48,7 @@ export const FetchDataSearchOption = (funcFetchData:ObjectCustomHookSearch) => {
           
           default:
               // setError(`${error} Could not Fetch Data `);
-              setLoadingSearch(false);
+              setLoadingSearch(true);
           };
     }
 
