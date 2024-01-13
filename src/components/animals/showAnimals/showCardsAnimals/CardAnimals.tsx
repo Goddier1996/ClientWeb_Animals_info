@@ -2,9 +2,10 @@ import { AnimalsInfo } from "../../../../interface/info.model";
 import { AsyncImage } from "loadable-image";
 import { Fade } from "transitions-kit";
 import LoadingCardsAnimals from "../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
-import { useState } from "react";
 import ModelGetFood from "../showCardsAnimals/ModelGetFood";
 import ModelInfoAnimal from "../showCardsAnimals/infoAnimal/ModelInfoAnimal";
+import { ShowModelPopUp } from "../../../../customHook/ShowModelPopUp";
+
 
 const CardAnimals: React.FC<{
   dataAllAnimals: AnimalsInfo;
@@ -12,15 +13,9 @@ const CardAnimals: React.FC<{
 
 
   //popup open or close , sound animal show popUp
-  const [showGetFoodAnimal, setShowGetFoodAnimal] = useState<boolean>(false);
-  const handleCloseGetFoodAnimal = () => setShowGetFoodAnimal(false);
-  const handleShowGetFoodAnimal = () => setShowGetFoodAnimal(true);
-
+  const { show, handleShow, handleClose } = ShowModelPopUp();
   //popup open or close , show info about animal
-  const [showShowInfoAnimal, setShowShowInfoAnimal] = useState<boolean>(false);
-  const handleCloseInfoAnimal = () => setShowShowInfoAnimal(false);
-  const handleShowShowInfoAnimal = () => setShowShowInfoAnimal(true);
-
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = ShowModelPopUp();
 
 
   return (
@@ -42,14 +37,14 @@ const CardAnimals: React.FC<{
               </div>
             }
             alt="image animal"
-            onClick={() => handleShowShowInfoAnimal()}
+            onClick={() => handleShowOneMoreModel()}
           />
         </div>
 
         <div className="card_title title-white">
           <h6>{dataAllAnimals.title}</h6>
           <img
-            onClick={() => handleShowGetFoodAnimal()}
+            onClick={() => handleShow()}
             src="https://i.postimg.cc/fyh8t96R/bowel.webp"
             alt="give eat"
           />
@@ -58,15 +53,15 @@ const CardAnimals: React.FC<{
 
       {/* get a food animal */}
       <ModelGetFood
-        showGetFoodAnimal={showGetFoodAnimal}
-        handleCloseGetFoodAnimal={() => handleCloseGetFoodAnimal}
+        showGetFoodAnimal={show}
+        handleCloseGetFoodAnimal={() => handleClose}
         idAnimal={dataAllAnimals._id}
       />
 
       {/* show animal info model */}
       <ModelInfoAnimal
-        showShowInfoAnimal={showShowInfoAnimal}
-        hideModelInfoAnimal={() => handleCloseInfoAnimal}
+        showShowInfoAnimal={showOneMoreModel}
+        hideModelInfoAnimal={() => handleCloseOneMoreModel}
         idAnimal={dataAllAnimals._id}
       />
     </div>

@@ -1,7 +1,6 @@
 import "./Loading.css";
 
 const LoadingCardsAnimals: React.FC = () => {
-
   return (
     <div className="centerCardsAnimals">
       <div className="loader-shape-8">

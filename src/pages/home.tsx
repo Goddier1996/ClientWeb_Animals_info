@@ -5,7 +5,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      {/* here show all Animals */}
       <AnimalsModals  />
     </>
   );

@@ -5,7 +5,6 @@ import "./welcomePopUp.css"
 
 
 const ShowPopUpWelcomeModel: React.FC = () => {
-
   return (
     <div className="popUpHome">
       <AsyncImage

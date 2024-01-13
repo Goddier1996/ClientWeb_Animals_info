@@ -24,9 +24,7 @@ const OptionChangeLanguage: React.FC=()=> {
   };
 
   
-  
   return (
-
     <div className="styleOptionChangeLanguage">
       <p>{SelectLanguageTitle}</p>
 

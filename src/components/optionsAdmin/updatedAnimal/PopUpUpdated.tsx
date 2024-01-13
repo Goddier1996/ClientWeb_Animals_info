@@ -8,7 +8,6 @@ const PopUpUpdated: React.FC<{ show: boolean,idAnimal:string, handleClose: Funct
   handleClose,
 }) => {
 
-
   return (
     <>
       <Modal

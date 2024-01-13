@@ -21,7 +21,6 @@ export async function addAnimal(user: ValueAddOrUpdatedNewAnimal) {
 }
 
 
-
 export async function updateInDateAnimal(
   Animal: ValueAddOrUpdatedNewAnimal,
   idAnimal: string
@@ -38,7 +37,6 @@ export async function updateInDateAnimal(
     console.log(error);
   }
 }
-
 
 
 export async function connectAdmin(userValue: ConnectAdminLogin) {

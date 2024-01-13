@@ -2,7 +2,6 @@ import "./Loading.css";
 
 
 const Loading: React.FC = () => {
-
   return (
     <div className="center-body">
       <div className="loader-shape-8">

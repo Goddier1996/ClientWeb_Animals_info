@@ -6,6 +6,7 @@ import { ObjectCustomHook } from "../../../interface/info.model";
 import { FetchData } from "../../../customHook/FetchData";
 import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 
+
 const DeleteInfo: React.FC = () => {
 
 

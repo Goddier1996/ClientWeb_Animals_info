@@ -1,9 +1,9 @@
-import { useState } from "react";
 import "./heater.css";
 import { Button, Modal } from "react-bootstrap";
 import OptionChangeLanguage from "../tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";
 import ShowModelClickMoreInfo from "./ShowModelClickMoreInfo";
+import { ShowModelPopUp } from "../../customHook/ShowModelPopUp";
 
 
 
@@ -20,11 +20,8 @@ const Menu: React.FC = () => {
   });
 
 
-  // show model more info
-  const [show, setShow] = useState<boolean>(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  // show model more info custom hook
+  const { show, handleShow, handleClose } = ShowModelPopUp();
 
 
   return (

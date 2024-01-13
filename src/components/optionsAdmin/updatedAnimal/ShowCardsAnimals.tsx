@@ -1,17 +1,17 @@
-import { useState } from "react";
 import { AnimalsInfo } from "../../../interface/info.model";
 import PopUpUpdated from "./PopUpUpdated";
+import {ShowModelPopUp} from "../../../customHook/ShowModelPopUp"
+
 
 const ShowCardsAnimals: React.FC<{
   infoAnimal: AnimalsInfo;
 }> = ({ infoAnimal }) => {
 
 
-  const [show, setShow] = useState<boolean>(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+   // show model Updated info Animal custom hook
+  const { show, handleShow, handleClose } = ShowModelPopUp();
 
-
+  
   return (
     <>
       <div key={infoAnimal._id} className="cardDeleteOrUpdated">

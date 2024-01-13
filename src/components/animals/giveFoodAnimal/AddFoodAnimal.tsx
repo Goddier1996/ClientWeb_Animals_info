@@ -8,7 +8,7 @@ import ShowTitleNameAnimal from "./chooseTypeGiveFood/ShowTitleNameAnimal";
 import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 import { ObjectCustomHookIdInfo } from "../../../interface/info.model";
 import { FetchDataInfoId } from "../../../customHook/FetchDataInfoId";
-
+import { ShowModelPopUp } from "../../../customHook/ShowModelPopUp";
 
 
 const AddFoodAnimal: React.FC<{
@@ -41,16 +41,10 @@ const AddFoodAnimal: React.FC<{
   const closeTitle: String = closeChangeLanguage.map((node: any) => node.title);
 
 
-  // show popUp
-  //choose image eat
-  const [showImageEat, setShowImageEat] = useState<boolean>(false);
-  const handleCloseImageEat = () => setShowImageEat(false);
-  const handleShowImageEat = () => setShowImageEat(true);
-
-  //choose input eat
-  const [showInputTextEat, setShowInputTextEat] = useState<boolean>(false);
-  const handleCloseInputTextEat = () => setShowInputTextEat(false);
-  const handleShowInputTextEat = () => setShowInputTextEat(true);
+  //popup choose image eat
+  const { show, handleShow, handleClose } = ShowModelPopUp();
+  //popup choose input eat
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = ShowModelPopUp();
 
 
   const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
@@ -98,20 +92,20 @@ const AddFoodAnimal: React.FC<{
           <div className="chioseInputOrImage">
             <SelectTypeGiveEat
               imgSelect={"https://i.postimg.cc/SsP7gY7L/image.png"}
-              handleShow={handleShowImageEat}
+              handleShow={handleShow}
               typeSelect={"choose image"}
             />
             <SelectTypeGiveEat
               imgSelect={"https://i.postimg.cc/MpG0JYP0/pencil11.png"}
-              handleShow={handleShowInputTextEat}
+              handleShow={handleShowOneMoreModel}
               typeSelect={"input text food"}
             />
           </div>
 
           {/* pop up choose image eat , active here to show component FotoEat.js */}
           <ModelTypeSelectGiveEat
-            show={showImageEat}
-            onHide={handleCloseImageEat}
+            show={show}
+            onHide={handleClose}
             title={closeTitle}
             typeSelect={"imgSelect"}
             dataAnimalId={data}
@@ -122,8 +116,8 @@ const AddFoodAnimal: React.FC<{
 
           {/* pop up choose input value eat , active here to show component InputEat.js */}
           <ModelTypeSelectGiveEat
-            show={showInputTextEat}
-            onHide={handleCloseInputTextEat}
+            show={showOneMoreModel}
+            onHide={handleCloseOneMoreModel}
             title={""}
             typeSelect={"inputValue"}
             dataAnimalId={data}

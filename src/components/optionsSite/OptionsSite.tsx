@@ -1,11 +1,10 @@
-import { useState } from "react";
 import "../../css/home.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import ModelOptions from "./showModals/ModelOptions";
-
+import { ShowModelPopUp} from "../../customHook/ShowModelPopUp"
 
 
 export const OptionsSite: React.FC = () => {
@@ -59,36 +58,20 @@ export const OptionsSite: React.FC = () => {
   const optionsOk: String = okChangeLanguage.map((node: any) => node.title);
 
 
-
-  //pop up connect admin
-  const [showConnectAdmin, setShowConnectAdmin] = useState<boolean>(false);
-  const handleCloseConnectAdmin = () => setShowConnectAdmin(false);
-  const handleShowConnectAdmin = () => setShowConnectAdmin(true);
-
-  //popup send message to admin
-  const [showSendMessage, setShowSendMessage] = useState<boolean>(false);
-  const handleCloseSendMessage = () => setShowSendMessage(false);
-  const handleShowSendMessage = () => setShowSendMessage(true);
-
-  //popup choose options add new animal , delete info animal , Updated info Animal
-  const [showOptionsAdmin, setShowOptionsAdmin] = useState<boolean>(false);
-  const handleCloseOptionsAdmin = () => setShowOptionsAdmin(false);
-  const handleShowOptionsAdmin = () => setShowOptionsAdmin(true);
-
-  //popup add new animal
-  const [showAddNewAnimal, setShowAddNewAnimal] = useState<boolean>(false);
-  const handleCloseAddNewAnimal = () => setShowAddNewAnimal(false);
-  const handleShowAddNewAnimal = () => setShowAddNewAnimal(true);
-
-  //popup delete info animal
-  const [showDeleteAnimal, setShowDeleteAnimal] = useState<boolean>(false);
-  const handleCloseDeleteAnimal = () => setShowDeleteAnimal(false);
-  const handleShowDeleteAnimal = () => setShowDeleteAnimal(true);
-
-  //popup Updated info Animal
-  const [showUpdatedAnimal, setShowUpdatedAnimal] = useState<boolean>(false);
-  const handleCloseUpdatedAnimal = () => setShowUpdatedAnimal(false);
-  const handleShowUpdatedAnimal = () => setShowUpdatedAnimal(true);
+  // Open Close POP UP MODELS
+  
+  //pop up connect admin custom hook
+  const { show, handleShow, handleClose } = ShowModelPopUp();
+  //popup send message to admin custom hook
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = ShowModelPopUp();
+  //popup choose options add new animal , delete info animal , Updated info Animal custom hook
+  const { showThreeMoreModel, handleShowThreeMoreModel, handleCloseThreeMoreModel } = ShowModelPopUp();
+  //popup add new animal custom hook
+  const { showFourMoreModel, handleShowFourMoreModel, handleCloseFourMoreModel } = ShowModelPopUp();
+  //popup delete info animal custom hook
+  const { showFiveMoreModel, handleShowFiveMoreModel, handleCloseFiveMoreModel } = ShowModelPopUp();
+  //popup Updated info Animal custom hook
+  const { showSixMoreModel, handleShowSixMoreModel, handleCloseSixMoreModel } = ShowModelPopUp();
 
 
 
@@ -108,39 +91,39 @@ export const OptionsSite: React.FC = () => {
       html: `<p class="popUpTextP1">${optionsTitle}<br/><h6 class="popUpTextP2">${optionsTitleIfUserNeedNewAnimal}</h6></p>`,
     }).then((result) => {
       if (result.isConfirmed) {
-        handleShowConnectAdmin();
+        // show model pop up connect admin
+        handleShow();
       } else if (result.isDenied) {
-        handleShowSendMessage();
+        // show model send mail
+        handleShowOneMoreModel();
       }
     });
   };
 
 
-
   // here admin chiose add new animal or delete , we send a number when onclick to button , and check with number what we need active
   const chooseForAdmin = (choose: number) => {
+
+    // add new animal
     if (choose == 1) {
-      handleShowAddNewAnimal();
+      handleShowFourMoreModel();
     }
 
+    // delete animal info
     if (choose == 2) {
-      handleShowDeleteAnimal();
+      handleShowFiveMoreModel();
     }
 
+    // Updated info Animal
     if (choose == 3) {
-      handleShowUpdatedAnimal();
+      handleShowSixMoreModel();
     }
-  };
-
-
-  const hideModelSendMail = () => {
-    setShowSendMessage(false);
   };
 
 
   const logOutAdminData = () => {
     sessionStorage.clear();
-    handleCloseOptionsAdmin();
+    handleCloseThreeMoreModel();
   };
 
 
@@ -163,9 +146,9 @@ export const OptionsSite: React.FC = () => {
 
       {/* pop up connect Admin */}
       <ModelOptions
-        show={showConnectAdmin}
-        handleClose={() => handleCloseConnectAdmin()}
-        handleShowOptions={() => handleShowOptionsAdmin}
+        show={show}
+        handleClose={() => handleClose()}
+        handleShowOptions={() => handleShowThreeMoreModel}
         type={"connectAdmin"}
         logOutAdminData={() => null}
         chooseForAdmin={() => null}
@@ -173,9 +156,9 @@ export const OptionsSite: React.FC = () => {
 
       {/* pop up send message */}
       <ModelOptions
-        show={showSendMessage}
-        handleClose={() => handleCloseSendMessage()}
-        handleShowOptions={() => hideModelSendMail}
+        show={showOneMoreModel}
+        handleClose={() => handleCloseOneMoreModel()}
+        handleShowOptions={() => handleCloseOneMoreModel}
         type={"sendEmail"}
         logOutAdminData={() => null}
         chooseForAdmin={() => null}
@@ -186,7 +169,7 @@ export const OptionsSite: React.FC = () => {
 
       {/* pop up chiose what admin do to add new animal or delete info animal or Updated info Animal */}
       <ModelOptions
-        show={showOptionsAdmin}
+        show={showThreeMoreModel}
         handleClose={() => null}
         handleShowOptions={() => null}
         type={"optionsAdmin"}
@@ -196,9 +179,9 @@ export const OptionsSite: React.FC = () => {
 
       {/* pop up add new animal */}
       <ModelOptions
-        show={showAddNewAnimal}
-        handleClose={() => handleCloseAddNewAnimal()}
-        handleShowOptions={() => handleCloseAddNewAnimal}
+        show={showFourMoreModel}
+        handleClose={() => handleCloseFourMoreModel()}
+        handleShowOptions={() => handleCloseFourMoreModel}
         type={"addNewAnimal"}
         logOutAdminData={() => null}
         chooseForAdmin={() => null}
@@ -206,9 +189,9 @@ export const OptionsSite: React.FC = () => {
 
       {/* pop up delete animal info */}
       <ModelOptions
-        show={showDeleteAnimal}
-        handleClose={() => handleCloseDeleteAnimal()}
-        handleShowOptions={() => handleCloseDeleteAnimal}
+        show={showFiveMoreModel}
+        handleClose={() => handleCloseFiveMoreModel()}
+        handleShowOptions={() => handleCloseFiveMoreModel}
         type={"deleteAnimal"}
         logOutAdminData={() => null}
         chooseForAdmin={() => null}
@@ -216,9 +199,9 @@ export const OptionsSite: React.FC = () => {
 
       {/* pop up Choose Animal updated info */}
       <ModelOptions
-        show={showUpdatedAnimal}
-        handleClose={() => handleCloseUpdatedAnimal()}
-        handleShowOptions={() => handleCloseUpdatedAnimal}
+        show={showSixMoreModel}
+        handleClose={() => handleCloseSixMoreModel()}
+        handleShowOptions={() => handleCloseSixMoreModel}
         type={"updatedAnimal"}
         logOutAdminData={() => null}
         chooseForAdmin={() => null}
