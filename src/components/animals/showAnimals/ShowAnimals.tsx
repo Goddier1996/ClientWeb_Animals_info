@@ -55,7 +55,6 @@ const AnimalsModals: React.FC = () => {
   const { dataSearch, loadingSearch } = FetchDataSearchOption(saveOpjDataSendToCustomHookSearch);
 
 
-
   //load all card animals from database
   const LoadAllAnimals = () => {
 
