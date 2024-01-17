@@ -9,7 +9,6 @@ import SearchAnimals from "../../search/SearchAnimals";
 import { FetchData } from "../../../customHook/FetchData";
 import { FetchDataSearchOption } from "../../../customHook/FetchDataSearchAnimal";
 import {
-  ObjectCustomHook,
   ObjectCustomHookSearch,
 } from "../../../interface/info.model";
 
@@ -31,6 +30,7 @@ const AnimalsModals: React.FC = () => {
   const animalDontFoundInDataBaseTitle: String =
     animalDontFoundInDataBaseTitleChangeLanguage.map((node: any) => node.title);
 
+  
   const animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage: any = t(
     "animalDontFoundInDataBaseTitleSendToAdminMessage",
     {
@@ -43,8 +43,6 @@ const AnimalsModals: React.FC = () => {
     );
 
   
-  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
-    useState<ObjectCustomHook>({});
 
   const [
     saveOpjDataSendToCustomHookSearch,
@@ -53,59 +51,37 @@ const AnimalsModals: React.FC = () => {
 
 
   // here use customHook to fetch animal data
-  const { data } = FetchData(saveOpjDataSendToCustomHook);
-  const { dataSearch, loadingSearch } = FetchDataSearchOption(
-    saveOpjDataSendToCustomHookSearch
-  );
+  const { data } = FetchData();
+  const { dataSearch, loadingSearch } = FetchDataSearchOption(saveOpjDataSendToCustomHookSearch);
 
 
-  //load all card animals from api
+
+  //load all card animals from database
   const LoadAllAnimals = () => {
 
-    if (currentLanguageCode == "en") {
-      SetSaveOpjDataSendToCustomHook({
-        typeHowUse: "englishLanguage",
-      });
-      SetSaveOpjDataSendToCustomHookSearch({
-        typeHowUse: "SearchEnglishLanguage",
-        valueSearch: "",
-        infoSearch: null,
-      });
-    } else if (currentLanguageCode == "hw") {
-      SetSaveOpjDataSendToCustomHook({
-        typeHowUse: "hebrewLanguage",
-      });
-      SetSaveOpjDataSendToCustomHookSearch({
-        typeHowUse: "SearchHebrewLanguage",
-        valueSearch: "",
-        infoSearch: null,
-      });
-    }
+    SetSaveOpjDataSendToCustomHookSearch({
+      typeHowUse: "LoadingData",
+      valueSearch: "",
+      infoSearch: null,
+    });
   };
 
 
-  const filterAnimalsSearch = (searchTerm: any) => {
+  const filterAnimalsSearch = (searchTerm: string) => {
 
-    if (currentLanguageCode == "en") {
-      SetSaveOpjDataSendToCustomHookSearch({
-        typeHowUse: "SearchEnglishLanguageID",
-        valueSearch: searchTerm,
-        infoSearch: data,
-      });
-    } else if (currentLanguageCode == "hw") {
-      SetSaveOpjDataSendToCustomHookSearch({
-        typeHowUse: "SearchHebrewLanguageID",
-        valueSearch: searchTerm,
-        infoSearch: data,
-      });
-    }
+    SetSaveOpjDataSendToCustomHookSearch({
+      typeHowUse: "searchData",
+      valueSearch: searchTerm,
+      infoSearch: data,
+    });
   };
 
 
+  // whu use here useEffect when change currentLanguageCode, load data animals Again.
+  // if not use useEffect,Language not change  
   useEffect(() => {
     LoadAllAnimals();
   }, [currentLanguageCode]);
-
 
 
   return (

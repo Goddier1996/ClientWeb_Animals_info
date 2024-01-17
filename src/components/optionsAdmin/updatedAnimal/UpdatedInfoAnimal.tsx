@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import "../../../css/home.css";
 import { Modal } from "react-bootstrap";
 import ShowCardsAnimals from "./ShowCardsAnimals";
-import { ObjectCustomHook } from "../../../interface/info.model";
 import { FetchData } from "../../../customHook/FetchData";
 import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 
@@ -10,24 +8,7 @@ import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 const ChooseUpdatedAnimal: React.FC = () => {
 
 
-  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
-    useState<ObjectCustomHook>({});
-  // customHook
-  const { data, loading } = FetchData(saveOpjDataSendToCustomHook);
-
-
-  //load all card animals from database
-  const LoadAllNotes = () => {
-    SetSaveOpjDataSendToCustomHook({
-      typeHowUse: "englishLanguage",
-    });
-  };
-
-
-  useEffect(() => {
-    LoadAllNotes();
-  }, []);
-
+  const { data, loading } = FetchData();
 
 
   return (

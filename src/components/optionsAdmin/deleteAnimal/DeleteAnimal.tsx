@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import "../../../css/home.css";
 import { Modal } from "react-bootstrap";
 import CardAnimalDelete from "./CardAnimalDelete";
-import { ObjectCustomHook } from "../../../interface/info.model";
 import { FetchData } from "../../../customHook/FetchData";
 import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 
@@ -10,24 +8,9 @@ import Loading from "../../tools/LoadingStyle/loadingItems/Loading";
 const DeleteInfo: React.FC = () => {
 
 
-  const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
-    useState<ObjectCustomHook>({});
-  // customHook
-  const { data, loading } = FetchData(saveOpjDataSendToCustomHook);
+  const { data, loading } = FetchData();
 
-
-  const LoadAllNotes = () => {
-    SetSaveOpjDataSendToCustomHook({
-      typeHowUse: "englishLanguage",
-    });
-  };
-
-
-  useEffect(() => {
-    LoadAllNotes();
-  }, []);
-
-
+  
   return (
     <div>
       <div>

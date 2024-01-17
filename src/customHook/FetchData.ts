@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
-import { AnimalsInfo, ObjectCustomHook } from "../interface/info.model";
+import { AnimalsInfo } from "../interface/info.model";
 import {
     LoadAllCardsAnimals,
     LoadAllCardsAnimalsHebrewLanguage,
 } from "../Server/LoadDataApi";
-  
+import cookies from "js-cookie";
 
-export const FetchData = (funcFetchData:ObjectCustomHook) => {
 
+
+export const FetchData = () => {
+
+  const currentLanguageCode = cookies.get("i18next") || "en";
 
     const [data, setData] = useState<AnimalsInfo[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -18,16 +21,16 @@ export const FetchData = (funcFetchData:ObjectCustomHook) => {
 
         setLoading(true);
       
-        switch (funcFetchData.typeHowUse) {
+        switch (currentLanguageCode) {
       
-          case "englishLanguage":
+          case "en":
             LoadAllCardsAnimals()
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
             break;
             
-          case "hebrewLanguage":
+          case "hw":
             LoadAllCardsAnimalsHebrewLanguage()
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
@@ -41,10 +44,9 @@ export const FetchData = (funcFetchData:ObjectCustomHook) => {
       };
 
 
-    useEffect(() => {
-        
-        fetchData();
-    },[funcFetchData])
+  useEffect(() => { 
+    fetchData();
+  }, [currentLanguageCode]);
 
     return { data, loading };
 }
