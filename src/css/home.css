@@ -129,14 +129,13 @@ html::-webkit-scrollbar-thumb {
     50% {
         height: 75px;
         width: 80px;
+
     }
 }
 
 .cardx:hover {
-    transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9) rotate(6deg);
     box-shadow: none;
-    transform: rotate(5deg);
-
 }
 
 .title-white {
