@@ -76,7 +76,7 @@ html::-webkit-scrollbar-thumb {
 
 
 .cards-list:has(.cardx:hover) .cardx:not(:hover) {
-    filter: grayscale(10%) brightness(75%);
+    filter: grayscale(10%) brightness(93%);
 }
 
 
@@ -393,7 +393,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .chioseInputOrImage img:hover {
-    height: 115px;
+    opacity: 0.8;
 }
 
 
