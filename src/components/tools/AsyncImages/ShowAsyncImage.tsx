@@ -43,8 +43,7 @@ const ShowAsyncImage: React.FC<{
       loader={
         altImage == "en" ||
         altImage == "hw" ||
-        altImage == "main" ||
-        altImage == "loading home page" ? (
+        altImage == "main" ? (
           <></>
         ) : (
           <LoadingCardsAnimals />

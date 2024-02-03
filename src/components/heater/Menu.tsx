@@ -4,6 +4,7 @@ import OptionChangeLanguage from "../tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";
 import ShowModelClickMoreInfo from "./ShowModelClickMoreInfo";
 import { ShowModelPopUp } from "../../customHook/ShowModelPopUp";
+import ShowLazyImageHeaterImg from "../tools/AsyncImages/ShowLazyImageHeaterImg";
 
 
 
@@ -26,7 +27,13 @@ const Menu: React.FC = () => {
   return (
     <>
       <div className="mainBackground">
- 
+        <ShowLazyImageHeaterImg
+          src="https://i.postimg.cc/Jn8KjyT4/11.webp"
+          width={NaN}
+          height={320}
+          alt="main"
+        />
+
         <div className="titleWeb">
           <div className="positionOptionChangeLanguage">
             <OptionChangeLanguage />

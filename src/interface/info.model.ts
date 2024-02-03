@@ -58,3 +58,11 @@ export interface ObjectCustomHookIdInfo{
     typeHowUse?: string;
     id?: string;
 }
+
+
+export interface LazyImg{
+    src?: string;
+    width?: number
+    height?:number
+    alt?:string
+}
