@@ -5,10 +5,8 @@ import cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import Loading from "../../../../tools/LoadingStyle/loadingItems/Loading";
 import { ObjectCustomHookIdInfo } from "../../../../../interface/info.model";
-import { AsyncImage } from "loadable-image";
-import { Fade } from "transitions-kit";
-import LoadingCardsAnimals from "../../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
 import { FetchDataInfoId } from "../../../../../customHook/FetchDataInfoId";
+import ShowAsyncImage from "../../../../tools/AsyncImages/ShowAsyncImage";
 
 
 
@@ -36,6 +34,7 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
     (node: any) => node.title
   );
 
+
   const [saveOpjDataSendToCustomHook, SetSaveOpjDataSendToCustomHook] =
     useState<ObjectCustomHookIdInfo>({});
   // customHook
@@ -43,7 +42,6 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
 
 
   const loadAnimalIdInfo = async () => {
-    
     if (currentLanguageCode == "en") {
       SetSaveOpjDataSendToCustomHook({
         typeHowUse: "englishLanguage",
@@ -76,16 +74,13 @@ const InfoAnimal: React.FC<{ hideModelInfo: Function; idAnimal: string }> = ({
           </div>
 
           <div className="infoImage">
-            <AsyncImage
-              src={data.infoImage}
-              style={{ width: "100%", height: 230 }}
-              loader={
-                <div>
-                  <LoadingCardsAnimals />
-                </div>
-              }
-              Transition={Fade}
-              alt="info animal"
+            <ShowAsyncImage
+              imgShow={data.infoImage}
+              widthImg={"100%"}
+              heightImg={"230px"}
+              altImage={"info animal"}
+              typeAnimation={"Fade"}
+              activeFunction={undefined}
             />
           </div>
 

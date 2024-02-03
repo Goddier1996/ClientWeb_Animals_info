@@ -10,7 +10,6 @@ const CheckIfHaveThisAnimals: React.FC<{
   animalDontFoundInDataBaseTitleSendToAdminMessage,
 }) => {
 
-
   return (
     <>
       {!checkIfHaveValueWhenSearchEnglishLanguage ? (

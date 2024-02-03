@@ -1,10 +1,8 @@
 import { Button, Modal } from "react-bootstrap";
-import { AsyncImage } from "loadable-image";
-import { Fade } from "transitions-kit";
-import LoadingCardsAnimals from "../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
 import { useTranslation } from "react-i18next";
 import cookies from "js-cookie";
 import OptionsSite from "../optionsSite/OptionsSite";
+import ShowAsyncImage from "../tools/AsyncImages/ShowAsyncImage";
 
 
 
@@ -36,7 +34,6 @@ const ShowModelClickMoreInfo: React.FC<{ handleClose: Function }> = ({
   );
 
 
-
   return (
     <>
       <Modal.Body>
@@ -53,19 +50,15 @@ const ShowModelClickMoreInfo: React.FC<{ handleClose: Function }> = ({
         </div>
 
         <div className="imgInfo">
-          <AsyncImage
-            src="https://i.postimg.cc/YSFWpGHh/mflx-zhpt.webp"
-            style={{ width: "250px", height: "120px" }}
-            loader={
-              <div>
-                <LoadingCardsAnimals />
-              </div>
-            }
-            Transition={Fade}
-            alt="img Info"
+          <ShowAsyncImage
+            imgShow="https://i.postimg.cc/YSFWpGHh/mflx-zhpt.webp"
+            widthImg={"250px"}
+            heightImg={"120px"}
+            altImage={"model info img animals"}
+            typeAnimation={"Fade"}
+            activeFunction={undefined}
           />
         </div>
-
 
         <div
           className="titleInfoHowLearnStart"
@@ -97,10 +90,8 @@ const ShowModelClickMoreInfo: React.FC<{ handleClose: Function }> = ({
             </Button>
           ))}
 
-          
           {/* here show models option this app , send mail,connect admin */}
           <OptionsSite />
-
         </div>
       </Modal.Body>
     </>

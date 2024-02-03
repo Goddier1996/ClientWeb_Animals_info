@@ -72,6 +72,13 @@ html::-webkit-scrollbar-thumb {
     box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
     cursor: url("https://cur.cursors-4u.net/cursors/cur-8/cur743.cur"), pointer;
     transition: 0.4s;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+.cardx img {
+    object-fit: cover;
+    border-radius: 40px;
 }
 
 
@@ -397,14 +404,17 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-.styleSelectImageRat {
+.styleSelectImageEat {
     cursor: url("https://cur.cursors-4u.net/games/gam-4/gam307.ani"), url("https://cur.cursors-4u.net/games/gam-4/gam307.png"), pointer;
+}
+
+.styleSelectImageEat img {
     height: 85px;
     transition-duration: 0.4s;
     -webkit-transition-duration: 0.4s;
 }
 
-.styleSelectImageRat:hover {
+.styleSelectImageEat img:hover {
     opacity: 0.6;
 }
 

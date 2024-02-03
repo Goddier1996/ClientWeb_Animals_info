@@ -1,9 +1,7 @@
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 import { AnimalIdInfo } from "../../../../../../interface/info.model";
-import { AsyncImage } from "loadable-image";
-import { Fade } from "transitions-kit";
-import LoadingCardsAnimals from "../../../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
+import ShowAsyncImage from "../../../../../tools/AsyncImages/ShowAsyncImage";
 
 
 
@@ -32,36 +30,27 @@ const SelectImg: React.FC<{
   const Yummy: any = t("Yummy", {
     returnObjects: true,
   });
-  const YummyGoodEat: String = Yummy.map(
-    (node: any) => node.title
-  );
+  const YummyGoodEat: String = Yummy.map((node: any) => node.title);
 
   const NoSound: any = t("NoSound", {
     returnObjects: true,
   });
-  const NoSoundRefresh: String = NoSound.map(
-    (node: any) => node.title
-  );
+  const NoSoundRefresh: String = NoSound.map((node: any) => node.title);
 
   const Exit: any = t("Exit", {
     returnObjects: true,
   });
-  const ExitAnimal: String = Exit.map(
-    (node: any) => node.title
-  );
+  const ExitAnimal: String = Exit.map((node: any) => node.title);
 
   const TryAgain: any = t("TryAgain", {
     returnObjects: true,
   });
-  const TryAgainAnimal: String = TryAgain.map(
-    (node: any) => node.title
-  );
+  const TryAgainAnimal: String = TryAgain.map((node: any) => node.title);
 
 
-  
+
   //choose image food check if eat this food,and lessen sound animal
   const GetEatToAnimal = (eat: string) => {
-
     if (eat == "Not Eat") {
       Swal.fire({
         allowOutsideClick: false,
@@ -74,7 +63,6 @@ const SelectImg: React.FC<{
     }
 
     if (eat == "Eat") {
-
       //play sound animal
       let audio = new Audio(dataAnimal.sound);
       audio.play();
@@ -107,16 +95,16 @@ const SelectImg: React.FC<{
 
 
   return (
-    <div className="styleSelectImageRat">
-      <AsyncImage
-        src={eatOrNo == "Eat" ? dataAnimal.eatImage : dataAnimal.notEatImage}
-        style={{ width: "125px", height: "90px", objectFit: "contain" }}
-        Transition={Fade}
-        loader={<div><LoadingCardsAnimals/></div>}
-        alt="photo eat"
-        onClick={() => {
-          GetEatToAnimal(eatOrNo);
-        }}
+    <div className="styleSelectImageEat">
+      <ShowAsyncImage
+        imgShow={
+          eatOrNo == "Eat" ? dataAnimal.eatImage : dataAnimal.notEatImage
+        }
+        widthImg={"125px"}
+        heightImg={"90px"}
+        altImage={"photo eat"}
+        typeAnimation={"Fade"}
+        activeFunction={() => GetEatToAnimal(eatOrNo)}
       />
     </div>
   );

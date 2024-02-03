@@ -1,6 +1,4 @@
-import { AsyncImage } from "loadable-image";
-import LoadingCardsAnimals from "../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
-import { Fade } from "transitions-kit";
+import ShowAsyncImage from "../../../tools/AsyncImages/ShowAsyncImage";
 
 
 const SelectTypeGiveEat: React.FC<{
@@ -9,24 +7,15 @@ const SelectTypeGiveEat: React.FC<{
   typeSelect: string;
 }> = ({ imgSelect, handleShow, typeSelect }) => {
 
-
   return (
-      <AsyncImage
-        src={imgSelect}
-        style={{
-          width: 130,
-          height: 130,
-          objectFit: "cover",
-        }}
-        Transition={Fade}
-        loader={
-          <div>
-            <LoadingCardsAnimals />
-          </div>
-        }
-        alt={typeSelect}
-        onClick={() => handleShow()}
-      />
+    <ShowAsyncImage
+      imgShow={imgSelect}
+      widthImg={"130px"}
+      heightImg={"130px"}
+      altImage={typeSelect}
+      typeAnimation={"Fade"}
+      activeFunction={() => handleShow()}
+    />
   );
 };
 

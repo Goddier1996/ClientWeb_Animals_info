@@ -1,6 +1,6 @@
 import { AnimalsInfo } from "../../../interface/info.model";
 import PopUpUpdated from "./PopUpUpdated";
-import {ShowModelPopUp} from "../../../customHook/ShowModelPopUp"
+import { ShowModelPopUp } from "../../../customHook/ShowModelPopUp";
 
 
 const ShowCardsAnimals: React.FC<{

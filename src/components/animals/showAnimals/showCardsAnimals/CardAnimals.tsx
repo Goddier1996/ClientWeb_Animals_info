@@ -1,10 +1,9 @@
 import { AnimalsInfo } from "../../../../interface/info.model";
-import { AsyncImage } from "loadable-image";
-import { Fade } from "transitions-kit";
-import LoadingCardsAnimals from "../../../tools/LoadingStyle/loadingItems/LoadingCardsAnimals";
 import ModelGetFood from "../showCardsAnimals/ModelGetFood";
 import ModelInfoAnimal from "../showCardsAnimals/infoAnimal/ModelInfoAnimal";
 import { ShowModelPopUp } from "../../../../customHook/ShowModelPopUp";
+import ShowAsyncImage from "../../../tools/AsyncImages/ShowAsyncImage";
+
 
 
 const CardAnimals: React.FC<{
@@ -14,30 +13,24 @@ const CardAnimals: React.FC<{
 
   //popup open or close , sound animal show popUp
   const { show, handleShow, handleClose } = ShowModelPopUp();
+
   //popup open or close , show info about animal
-  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = ShowModelPopUp();
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } =
+    ShowModelPopUp();
 
-
+  
+  
   return (
     <div>
       <div className="cardx">
         <div className="card_image">
-          <AsyncImage
-            src={dataAllAnimals.image}
-            style={{
-              width: 150,
-              height: 150,
-              objectFit: "cover",
-              borderRadius: "40px",
-            }}
-            Transition={Fade}
-            loader={
-              <div>
-                <LoadingCardsAnimals />
-              </div>
-            }
-            alt="image animal"
-            onClick={() => handleShowOneMoreModel()}
+          <ShowAsyncImage
+            imgShow={dataAllAnimals.image}
+            widthImg={"150px"}
+            heightImg={"150px"}
+            altImage={"image animal"}
+            typeAnimation={"Fade"}
+            activeFunction={() => handleShowOneMoreModel()}
           />
         </div>
 
