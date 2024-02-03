@@ -1,25 +1,21 @@
 .dontHaveThisValueInArray {
+    margin-top: -1%;
     display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    align-items: center;
-    text-align: center;
+    justify-content: center;
     font-family: inherit;
     font-weight: 600;
 }
 
 
 .dontHaveThisValueInArray img {
-    height: 40%;
+    height: 150px;
 }
 
 
 @media(max-width:991px) {
 
     .dontHaveThisValueInArray img {
-        height: 30%;
+        height: 100px;
     }
 
     .dontHaveThisValueInArray p {

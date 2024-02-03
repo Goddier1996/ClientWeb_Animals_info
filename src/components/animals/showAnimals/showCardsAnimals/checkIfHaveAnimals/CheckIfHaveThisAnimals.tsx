@@ -1,26 +1,28 @@
-import "./dontHaveAnimals.css"
+import ShowAsyncImage from "../../../../tools/AsyncImages/ShowAsyncImage";
+import "./dontHaveAnimals.css";
+
 
 const CheckIfHaveThisAnimals: React.FC<{
-    checkIfHaveValueWhenSearchEnglishLanguage: Number;
-    animalDontFoundInDataBaseTitle: String;
-    animalDontFoundInDataBaseTitleSendToAdminMessage: String;
+  checkIfHaveValueWhenSearchEnglishLanguage: Number;
+  animalDontFoundInDataBaseTitle: String;
 }> = ({
   checkIfHaveValueWhenSearchEnglishLanguage,
   animalDontFoundInDataBaseTitle,
-  animalDontFoundInDataBaseTitleSendToAdminMessage,
 }) => {
 
   return (
     <>
       {!checkIfHaveValueWhenSearchEnglishLanguage ? (
         <div className="dontHaveThisValueInArray">
-          <img
-            src="https://i.postimg.cc/B6tXwjnh/999.webp"
-            alt="dont have this animal"
+          <ShowAsyncImage
+            imgShow="https://i.postimg.cc/B6tXwjnh/999.webp"
+            widthImg={"160px"}
+            heightImg={"160px"}
+            altImage={"dont have this animal"}
+            typeAnimation={"Zoom"}
+            activeFunction={undefined}
           />
-          <br />
-          <p>{animalDontFoundInDataBaseTitle}</p>
-          <p>{animalDontFoundInDataBaseTitleSendToAdminMessage}</p>
+          {/* <p>{animalDontFoundInDataBaseTitle}</p> */}
         </div>
       ) : (
         ""

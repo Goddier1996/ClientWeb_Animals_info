@@ -4,7 +4,6 @@ import OptionChangeLanguage from "../tools/ChangeLanguage/OptionChangeLanguage";
 import { useTranslation } from "react-i18next";
 import ShowModelClickMoreInfo from "./ShowModelClickMoreInfo";
 import { ShowModelPopUp } from "../../customHook/ShowModelPopUp";
-import ShowAsyncImage from "../tools/AsyncImages/ShowAsyncImage";
 
 
 
@@ -20,25 +19,14 @@ const Menu: React.FC = () => {
     returnObjects: true,
   });
 
-  
   // show model more info custom hook
   const { show, handleShow, handleClose } = ShowModelPopUp();
 
 
   return (
     <>
-      <div className="title">
-        <div className="mainBackground">
-          <ShowAsyncImage
-            imgShow={"https://i.postimg.cc/Jn8KjyT4/11.webp"}
-            widthImg={""}
-            heightImg={"320px"}
-            altImage={"main heater img"}
-            typeAnimation={"Blur"}
-            activeFunction={undefined}
-          />
-        </div>
-
+      <div className="mainBackground">
+ 
         <div className="titleWeb">
           <div className="positionOptionChangeLanguage">
             <OptionChangeLanguage />
@@ -48,7 +36,6 @@ const Menu: React.FC = () => {
             <p key={node.title}>{node.title}</p>
           ))}
 
-          
           <div className="help">
             {buttonMoreInfoChangeLanguage.map((node: any) => (
               <Button

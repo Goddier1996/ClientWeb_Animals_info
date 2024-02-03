@@ -31,19 +31,6 @@ const AnimalsModals: React.FC = () => {
     animalDontFoundInDataBaseTitleChangeLanguage.map((node: any) => node.title);
 
   
-  const animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage: any = t(
-    "animalDontFoundInDataBaseTitleSendToAdminMessage",
-    {
-      returnObjects: true,
-    }
-  );
-  const animalDontFoundInDataBaseTitleSendToAdminMessage: String =
-    animalDontFoundInDataBaseTitleSendToAdminMessageChangeLanguage.map(
-      (node: any) => node.title
-    );
-
-  
-
   const [
     saveOpjDataSendToCustomHookSearch,
     SetSaveOpjDataSendToCustomHookSearch,
@@ -102,9 +89,6 @@ const AnimalsModals: React.FC = () => {
             <CheckIfHaveThisAnimals
               checkIfHaveValueWhenSearchEnglishLanguage={dataSearch.length}
               animalDontFoundInDataBaseTitle={animalDontFoundInDataBaseTitle}
-              animalDontFoundInDataBaseTitleSendToAdminMessage={
-                animalDontFoundInDataBaseTitleSendToAdminMessage
-              }
             />
           </div>
         </>

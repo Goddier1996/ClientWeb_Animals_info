@@ -10,7 +10,7 @@ const ShowPopUpWelcomeModel: React.FC = () => {
         imgShow="https://i.postimg.cc/Fs3XsmRW/popup.webp"
         widthImg={"280px"}
         heightImg={"180px"}
-        altImage={"pop up loading home page"}
+        altImage={"loading home page"}
         typeAnimation={"Zoom"}
         activeFunction={undefined}
       />

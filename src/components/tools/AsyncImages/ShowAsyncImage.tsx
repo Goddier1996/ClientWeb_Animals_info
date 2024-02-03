@@ -21,38 +21,38 @@ const ShowAsyncImage: React.FC<{
 
 
   return (
-    <>
-      <AsyncImage
-        src={imgShow}
-        style={{
-          width: widthImg,
-          height: heightImg,
-          objectFit: altImage == "photo eat" ? "contain" : "cover",
-        }}
-        Transition={
-          typeAnimation == "Blur"
-            ? Blur
-            : typeAnimation == "Fade"
-            ? Fade
-            : typeAnimation == "Zoom"
-            ? Zoom
-            : Blur
-        }
-        loader={
-          altImage == "en" ||
-          altImage == "hw" ||
-          altImage == "main heater img" ? (
-            <></>
-          ) : (
-            <div>
-              <LoadingCardsAnimals />
-            </div>
-          )
-        }
-        alt={altImage}
-        onClick={activeFunction ? () => activeFunction() : undefined}
-      />
-    </>
+    <AsyncImage
+      src={imgShow}
+      style={{
+        width: widthImg,
+        height: heightImg,
+        objectFit:
+          altImage == "photo eat" || altImage == "dont have this animal"
+            ? "contain"
+            : "cover",
+      }}
+      Transition={
+        typeAnimation == "Blur"
+          ? Blur
+          : typeAnimation == "Fade"
+          ? Fade
+          : typeAnimation == "Zoom"
+          ? Zoom
+          : Blur
+      }
+      loader={
+        altImage == "en" ||
+        altImage == "hw" ||
+        altImage == "main" ||
+        altImage == "loading home page" ? (
+          <></>
+        ) : (
+          <LoadingCardsAnimals />
+        )
+      }
+      alt={altImage}
+      onClick={activeFunction ? () => activeFunction() : undefined}
+    />
   );
 };
 
