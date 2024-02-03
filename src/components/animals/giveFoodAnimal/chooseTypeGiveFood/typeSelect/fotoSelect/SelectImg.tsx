@@ -103,7 +103,7 @@ const SelectImg: React.FC<{
         widthImg={"125px"}
         heightImg={"90px"}
         altImage={"photo eat"}
-        typeAnimation={"Fade"}
+        typeAnimation={"Zoom"}
         activeFunction={() => GetEatToAnimal(eatOrNo)}
       />
     </div>

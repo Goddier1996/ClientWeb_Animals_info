@@ -13,7 +13,7 @@ const SelectTypeGiveEat: React.FC<{
       widthImg={"130px"}
       heightImg={"130px"}
       altImage={typeSelect}
-      typeAnimation={"Fade"}
+      typeAnimation={"Zoom"}
       activeFunction={() => handleShow()}
     />
   );
