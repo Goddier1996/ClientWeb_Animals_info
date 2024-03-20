@@ -8,7 +8,12 @@ Add new Animal and delete info Or updated info Animal can only Admin
 Link Web Side - https://animals-sound-info.web.app
 
 Server this Web Side - https://github.com/Goddier1996/Server_Animals_info 
-  
+
+### Video:
+
+https://github.com/Goddier1996/ClientWeb_Animals_info/assets/59862302/4e187303-8256-497e-8ace-b24b2ffb28f4
+
+
 ![1](https://github.com/Goddier1996/ClientWeb_Animals_info/assets/59862302/b7b7d28b-a231-48b0-97d0-c59c31cfde8c)
 ![2](https://github.com/Goddier1996/ClientWeb_Animals_info/assets/59862302/eccf7c6f-4d4e-448f-95b3-64a9dbd0205c)
 ![3](https://github.com/Goddier1996/ClientWeb_Animals_info/assets/59862302/3870150e-3165-493b-a9f3-0cb82bc3df94)
