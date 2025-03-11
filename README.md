@@ -1,9 +1,14 @@
 # web Animals sound learn Kids - React TypeScript , NodeJs , Express , MongoDB
  
-This Web side Learn the kids sound animals and show images this animals , if user went add a new animal and sound he can.
-you need give food to Animal and you can listen a sound this Animal.
+The application allows users to view and share content across various categories, threads, and comments while utilizing all available features.
 
-Add new Animal and delete info Or updated info Animal can only Admin
+What Can You Do in the App?
+<br/>
+✔️ Create new threads within a category of your choice.<br/>
+✔️ Leave comments on existing threads and participate in discussions.<br/>
+✔️ Personal content management – Edit, delete, and update your comments and threads from your personal profile.
+
+The application provides a user-friendly and intuitive interface for managing content and engaging in community discussions easily and efficiently.
   
 Link Web Side - https://animals-sound-info.web.app
 
