@@ -30,7 +30,7 @@
 .help button {
     font-size: 16px;
     letter-spacing: .1rem;
-    color: rgba(0, 0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .positionOptionChangeLanguage {
